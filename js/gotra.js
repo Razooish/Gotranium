@@ -71,7 +71,7 @@ document.getElementById("check-gotra").addEventListener("click", () => {
     resultDiv.textContent = `Unfortunately, you both belong to the same Gotra (${myGotra}). Marriage is traditionally not recommended.`;
     resultDiv.classList.add("text-red-600");
   } else {
-    resultDiv.textContent = `Congratulations! You both belong to different Gotras. Your compatibility is great!`;
+    resultDiv.textContent = `Congratulations! You both belong to different Gotras. Your can marry!`;
     resultDiv.classList.add("text-green-600");
   }
 });
