@@ -12,6 +12,17 @@
     <script src="js/gotra.js" defer></script>
     <script src="js/main.js" defer></script>
     <script src="js/rating.js" defer></script>
+    <script src="js/email.js" defer></script>
+    <script type="text/javascript"
+        src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js">
+</script>
+<script type="text/javascript">
+   (function(){
+      emailjs.init({
+        publicKey: "8k4-7oxN_rWduwj81",
+      });
+   })();
+</script>
 <script>
     tailwind.config = {
       theme: {
@@ -43,7 +54,7 @@ placeholder:"#262626"
       >
         <!-- Logo -->
         <div class="text-lg md:text-2xl lg:text-3xl font-bold">
-          <a href="#" class="hover:text-gold-hover transition duration-300"
+          <a href="#" class="text-gold hover:text-gold-hover transition duration-300"
             >GotraPidit</a
           >
         </div>
@@ -233,9 +244,10 @@ placeholder:"#262626"
     <!-- Feedback Form -->
     <div class="p-6 bg-black   mb-10">
       <h2 class="text-2xl sm:text-3xl font-bold text-gray-200 mb-4">Feedback</h2>
-      <form class="space-y-4">
+      <form id="feedbackForm" class="space-y-4">
+        <!-- Name -->
         <div>
-          <label for="name" class="block text-m font-medium text-gray-200 mb-4">Your Name</label>
+          <label for="name" class="block text-m font-medium text-gray-200 mb-2">Your Name</label>
           <input
             type="text"
             id="name"
@@ -243,8 +255,32 @@ placeholder:"#262626"
             placeholder="Enter your name"
           />
         </div>
+  
+        <!-- Email -->
         <div>
-          <label for="feedback" class="block text-m font-medium text-gray-200 mb-4">Your Feedback</label>
+          <label for="email" class="block text-m font-medium text-gray-200 mb-2">Your Email</label>
+          <input
+            type="email"
+            id="email"
+            class="w-full text-white bg-black-placeholder border-b border-gray-300 rounded-lg px-4 py-2 focus:ring-2 focus:ring-[#ffc72b] focus:outline-none"
+            placeholder="Enter your email"
+          />
+        </div>
+  
+        <!-- Subject -->
+        <div>
+          <label for="subject" class="block text-m font-medium text-gray-200 mb-2">Subject</label>
+          <input
+            type="text"
+            id="subject"
+            class="w-full text-white bg-black-placeholder border-b border-gray-300 rounded-lg px-4 py-2 focus:ring-2 focus:ring-[#ffc72b] focus:outline-none"
+            placeholder="Enter the subject"
+          />
+        </div>
+  
+        <!-- Feedback -->
+        <div>
+          <label for="feedback" class="block text-m font-medium text-gray-200 mb-2">Your Feedback</label>
           <textarea
             id="feedback"
             rows="3"
@@ -252,6 +288,8 @@ placeholder:"#262626"
             placeholder="Write your feedback"
           ></textarea>
         </div>
+  
+        <!-- Submit Button -->
         <button
           type="submit"
           class="bg-gold text-black font-semibold px-6 py-2 rounded-lg hover:bg-gold-hover transition"
@@ -259,7 +297,9 @@ placeholder:"#262626"
           Submit
         </button>
       </form>
-    </div>
+      </div>
+
+
 
     <!-- Social Media Links -->
     <div class="p-6 bg-black mb-10">
@@ -308,6 +348,42 @@ placeholder:"#262626"
 
 
 
-    
+<script>
+  // Handle form submission
+  document.getElementById("feedbackForm").addEventListener("submit", function (event) {
+    event.preventDefault();
+
+    // Collect form data
+    const name = document.getElementById("name").value;
+    const email = document.getElementById("email").value;
+    const subject = document.getElementById("subject").value;
+    const feedback = document.getElementById("feedback").value;
+
+    // Validate inputs
+    if (!name || !email || !subject || !feedback) {
+      alert("Please fill out all fields.");
+      return;
+    }
+
+    // Use EmailJS to send the form data
+    emailjs
+      .send("service_ex2ww8x", "template_9u6kjpr", {
+        name: name,
+        email: email,
+        subject: subject,
+        feedback: feedback,
+      })
+      .then(
+        function (response) {
+          alert("Feedback sent successfully!");
+          document.getElementById("feedbackForm").reset();
+        },
+        function (error) {
+          alert("Failed to send feedback. Please try again.");
+          console.error("EmailJS error:", error);
+        }
+      );
+  });
+</script>
  </body>
 </html>
