@@ -311,17 +311,46 @@ document.getElementById("check-gotra").addEventListener("click", () => {
     if (details.castes.includes(herCast)) herGotra = gotra;
   }
 
-  resultDiv.innerHTML = ""; // Clear previous result
+  // Add shimmer effect as a loading placeholder
+  resultDiv.innerHTML = `
+    <div class="shimmer-placeholder h-10 w-10 rounded-full inline-block mr-2"></div>
+    <span class="text-gray-300">Checking compatibility...</span>
+  `;
 
-  if (!myGotra || !herGotra) {
-    resultDiv.innerHTML =
-      `<img src="assets/icons/soul-emoji.svg" class="h-10 w-10 inline-block mr-2"/>One or both casts not found in our records. Please try again.`;
-    resultDiv.classList.add("text-gray-300");
-  } else if (myGotra === herGotra) {
-    resultDiv.innerHTML = `<img src="assets/icons/sad-emoji.svg" class="h-10 w-10 inline-block mr-2"/> Unfortunately, you both belong to the same Gotra (${myGotra}). Marriage is traditionally not recommended.`;
-    resultDiv.classList.add("text-red-600");
-  } else {
-    resultDiv.innerHTML = `<img src="assets/icons/happy-emoji.svg" class="h-10 w-10 inline-block mr-2"/>Congratulations! You both belong to different Gotras. Your can marry!`;
-    resultDiv.classList.add("text-green-600");
-  }
+  setTimeout(() => {
+    // Clear previous result
+    resultDiv.innerHTML = "";
+
+    if (!myGotra || !herGotra) {
+      resultDiv.innerHTML = `
+        <img 
+          src="assets/icons/soul-emoji.svg" 
+          class="h-10 w-10 inline-block mr-2" 
+          onload="this.parentElement.querySelector('.shimmer-placeholder')?.remove()" 
+        />
+        One or both casts not found in our records. Please try again.
+      `;
+      resultDiv.classList.add("text-gray-300");
+    } else if (myGotra === herGotra) {
+      resultDiv.innerHTML = `
+        <img 
+          src="assets/icons/sad-emoji.svg" 
+          class="h-10 w-10 inline-block mr-2" 
+          onload="this.parentElement.querySelector('.shimmer-placeholder')?.remove()" 
+        />
+        Unfortunately, you both belong to the same Gotra (${myGotra}). Marriage is traditionally not recommended.
+      `;
+      resultDiv.classList.add("text-red-600");
+    } else {
+      resultDiv.innerHTML = `
+        <img 
+          src="assets/icons/happy-emoji.svg" 
+          class="h-10 w-10 inline-block mr-2" 
+          onload="this.parentElement.querySelector('.shimmer-placeholder')?.remove()" 
+        />
+        Congratulations! You both belong to different Gotras. You can marry!
+      `;
+      resultDiv.classList.add("text-green-600");
+    }
+  }, 500); // Simulate a delay of 0.5 second for loading
 });
