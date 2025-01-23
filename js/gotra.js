@@ -314,14 +314,14 @@ document.getElementById("check-gotra").addEventListener("click", () => {
   resultDiv.innerHTML = ""; // Clear previous result
 
   if (!myGotra || !herGotra) {
-    resultDiv.textContent =
+    resultDiv.innerHTML =
       "One or both casts not found in our records. Please try again.";
     resultDiv.classList.add("text-gray-300");
   } else if (myGotra === herGotra) {
-    resultDiv.textContent = `Unfortunately, you both belong to the same Gotra (${myGotra}). Marriage is traditionally not recommended.`;
+    resultDiv.innerHTML = `<img src="assets/icons/sad-emoji.svg" class="h-10 w-10 inline-block mr-2"/> Unfortunately, you both belong to the same Gotra (${myGotra}). Marriage is traditionally not recommended.`;
     resultDiv.classList.add("text-red-600");
   } else {
-    resultDiv.textContent = `Congratulations! You both belong to different Gotras. Your can marry!`;
+    resultDiv.innerHTML = `<img src="assets/icons/happy-emoji.svg" class="h-10 w-10 inline-block mr-2"/>Congratulations! You both belong to different Gotras. Your can marry!`;
     resultDiv.classList.add("text-green-600");
   }
 });
