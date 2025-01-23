@@ -315,7 +315,7 @@ document.getElementById("check-gotra").addEventListener("click", () => {
 
   if (!myGotra || !herGotra) {
     resultDiv.innerHTML =
-      "One or both casts not found in our records. Please try again.";
+      `<img src="assets/icons/soul-emoji.svg" class="h-10 w-10 inline-block mr-2"/>One or both casts not found in our records. Please try again.`;
     resultDiv.classList.add("text-gray-300");
   } else if (myGotra === herGotra) {
     resultDiv.innerHTML = `<img src="assets/icons/sad-emoji.svg" class="h-10 w-10 inline-block mr-2"/> Unfortunately, you both belong to the same Gotra (${myGotra}). Marriage is traditionally not recommended.`;
