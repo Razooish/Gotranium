@@ -4,6 +4,10 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Gotra Matcher</title>
+    <link
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+    rel="stylesheet"
+  />
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="js/gotra.js" defer></script>
     <script src="js/main.js" defer></script>
@@ -155,13 +159,13 @@
         <!-- Her Caste Input -->
         <label class="block mb-6 relative">
           <span class="block text-sm sm:text-lg font-semibold text-gray-200"
-            >Her Caste</span
+            >LovedOne's Caste</span
           >
           <input
             type="text"
             id="her-cast"
             class="mt-2 p-2 sm:p-3 border-b border-gray-300 rounded-lg w-full bg-[#262626] text-gray-200 focus:ring focus:ring-blue-200 focus:outline-none"
-            placeholder="Enter her caste"
+            placeholder="Enter LovedOne's caste"
             autocomplete="off"
           />
           <ul
@@ -190,6 +194,109 @@
       Gotra Mine Section
     </div>
     <div id="learn" class="h-screen bg-gray-300 p-6 pt-20">Learn Section</div>
-    <div id="about" class="h-screen bg-gray-400 p-6 pt-20">About Section</div>
-  </body>
+
+
+<div id="about" class="bg-gray-50 py-12 px-4 sm:px-6 lg:px-8">
+  <div class="max-w-7xl mx-auto grid gap-8 sm:grid-cols-2 lg:grid-cols-2 xl:grid-cols-2">
+    <!-- Motto Section -->
+    <div class="p-6 bg-white rounded-lg shadow-md">
+      <h2 class="text-2xl sm:text-3xl font-bold text-gray-800 mb-4">Our Motto</h2>
+      <p class="text-base sm:text-lg text-gray-600 leading-relaxed">
+        "Bringing tradition closer to you. Simplifying Gotra matching and celebrating culture."
+      </p>
+    </div>
+
+    <!-- Feedback Form -->
+    <div class="p-6 bg-white rounded-lg shadow-md">
+      <h2 class="text-2xl sm:text-3xl font-bold text-gray-800 mb-4">Feedback</h2>
+      <form class="space-y-4">
+        <div>
+          <label for="name" class="block text-sm font-medium text-gray-700">Your Name</label>
+          <input
+            type="text"
+            id="name"
+            class="w-full border border-gray-300 rounded-lg px-4 py-2 focus:ring-2 focus:ring-[#ffc72b] focus:outline-none"
+            placeholder="Enter your name"
+          />
+        </div>
+        <div>
+          <label for="feedback" class="block text-sm font-medium text-gray-700">Your Feedback</label>
+          <textarea
+            id="feedback"
+            rows="3"
+            class="w-full border border-gray-300 rounded-lg px-4 py-2 focus:ring-2 focus:ring-[#ffc72b] focus:outline-none"
+            placeholder="Write your feedback"
+          ></textarea>
+        </div>
+        <button
+          type="submit"
+          class="bg-[#ffc72b] text-white font-semibold px-6 py-2 rounded-lg hover:bg-yellow-500 transition"
+        >
+          Submit
+        </button>
+      </form>
+    </div>
+
+    <!-- Social Media Links -->
+    <div class="p-6 bg-white rounded-lg shadow-md">
+      <h2 class="text-2xl sm:text-3xl font-bold text-gray-800 mb-4">Follow Us</h2>
+      <div class="flex space-x-4 text-gray-600 text-xl">
+        <a href="#" class="hover:text-blue-600 transition" aria-label="Facebook">
+          <i class="fab fa-facebook"></i>
+        </a>
+        <a href="#" class="hover:text-blue-400 transition" aria-label="Twitter">
+          <i class="fab fa-twitter"></i>
+        </a>
+        <a href="#" class="hover:text-pink-600 transition" aria-label="Instagram">
+          <i class="fab fa-instagram"></i>
+        </a>
+        <a href="#" class="hover:text-red-600 transition" aria-label="YouTube">
+          <i class="fab fa-youtube"></i>
+        </a>
+      </div>
+    </div>
+
+    <!-- Rating Section -->
+    <div class="p-6 bg-white rounded-lg shadow-md">
+      <h2 class="text-2xl sm:text-3xl font-bold text-gray-800 mb-4">Rate Us</h2>
+      <div class="flex items-center space-x-2 text-yellow-400 text-2xl">
+        <!-- Stars -->
+        <button onclick="rate(1)" class="focus:outline-none" aria-label="Rate 1">
+          <i class="fas fa-star" id="star1"></i>
+        </button>
+        <button onclick="rate(2)" class="focus:outline-none" aria-label="Rate 2">
+          <i class="fas fa-star" id="star2"></i>
+        </button>
+        <button onclick="rate(3)" class="focus:outline-none" aria-label="Rate 3">
+          <i class="fas fa-star" id="star3"></i>
+        </button>
+        <button onclick="rate(4)" class="focus:outline-none" aria-label="Rate 4">
+          <i class="fas fa-star" id="star4"></i>
+        </button>
+        <button onclick="rate(5)" class="focus:outline-none" aria-label="Rate 5">
+          <i class="far fa-star" id="star5"></i>
+        </button>
+      </div>
+      <p id="rating-feedback" class="mt-3 text-gray-600"></p>
+    </div>
+  </div>
+</div>
+
+<script>
+  function rate(stars) {
+    // Reset all stars
+    for (let i = 1; i <= 5; i++) {
+      const star = document.getElementById(`star${i}`);
+      star.classList.remove("fas", "far");
+      star.classList.add(i <= stars ? "fas" : "far");
+    }
+    // Display feedback
+    const feedback = document.getElementById("rating-feedback");
+    feedback.textContent = `You rated us ${stars} ${stars > 1 ? "stars" : "star"}. Thank you!`;
+  }
+</script>
+
+
+    
+ </body>
 </html>
