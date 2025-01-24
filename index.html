@@ -11,6 +11,8 @@
   <link rel="stylesheet" href="css/shimmer.css">
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="js/gotra.js" defer></script>
+    <script src="js/gotraMine.js" defer></script>
+
     <script src="js/main.js" defer></script>
     <script src="js/rating.js" defer></script>
     <script src="js/email.js" defer></script>
@@ -65,12 +67,12 @@ placeholder:"#262626"
           <a
               href="#ours"
               class="text-gray-900 bg-[#fcda79] font-medium py-3 px-4 rounded-lg transition duration-300 hover:bg-[#e3c571] hover:text-black"
-              >Gotra Ours</a
+              >Check</a
             >
             <a
               href="#mine"
               class="text-gray-900 bg-[#fcda79]  font-medium py-3 px-4 rounded-lg transition duration-300 hover:bg-[#e3c571] hover:text-black"
-              >Gotra Mine</a
+              >My Gotra</a
             >
             <a
               href="#learn"
@@ -129,12 +131,12 @@ placeholder:"#262626"
             <a
               href="#ours"
               class="text-gray-900 bg-gold font-medium py-3 px-4 rounded-lg transition duration-300 hover:bg-gold-hover hover:text-black"
-              >Gotra Ours</a
+              >Check</a
             >
             <a
               href="#mine"
               class="text-gray-900 bg-gold  font-medium py-3 px-4 rounded-lg transition duration-300 hover:bg-gold-hover hover:text-black"
-              >Gotra Mine</a
+              >My Gotra</a
             >
             <a
               href="#learn"
@@ -221,9 +223,49 @@ placeholder:"#262626"
       </div>
     </div>
 
-    <div id="mine" class="h-screen bg-gray-200 p-6 pt-20">
-      Gotra Mine Section
+    <div id="mine-gotra" class="min-h-screen bg-gold sm:px-6 lg:px-10 py-20 sm:py-20 border-t-2 border-black">
+      <!-- Text Section -->
+      <div class="max-w-3xl mx-auto text-center mt-5 px-2">
+        <p class="text-base font-sans sm:text-lg lg:text-xl text-black mb-8 sm:mb-12">
+          Enter your caste details to find out which Gotra it belongs to.
+        </p>
+      </div>
+    
+      <!-- Input Form Section -->
+      <div class="max-w-2xl mx-auto bg-black text-gray-200 shadow-lg p-6 sm:p-8">
+        <!-- Caste Input -->
+        <label class="block mb-6 relative">
+          <span class="block text-lg sm:text-lg font-semibold text-gray-200">Your Caste</span>
+          <input
+            type="text"
+            id="mine-caste"
+            class="mt-2 p-4 sm:p-5 rounded-full w-full bg-black-placeholder text-gray-200 focus:ring focus:ring-blue-200 focus:outline-none"
+            placeholder="Enter your caste"
+            autocomplete="off"
+          />
+          <ul
+            id="mine-caste-suggestions"
+            class="absolute z-10 bg-[#3d3d3d] border border-gray-200 rounded-lg shadow-lg w-full hidden max-h-40 overflow-y-auto"
+          ></ul>
+        </label>
+    
+        <!-- Submit Button -->
+        <button
+          id="check-gotra-mine"
+          class="w-full sm:w-1/2 bg-gold-dark text-black text-base sm:text-lg py-3 rounded-lg hover:bg-gold transition duration-300 mx-auto block"
+        >
+          Find Gotra
+        </button>
+    
+        <!-- Result Section -->
+        <div
+          id="result-mine"
+          class="text-center mt-6 text-lg sm:text-xl font-semibold text-gray-700"
+        ></div>
+      </div>
     </div>
+    
+    
     <div id="learn" class="h-screen bg-gray-300 p-6 pt-20">Learn Section</div>
 
 <!--About Section-->
