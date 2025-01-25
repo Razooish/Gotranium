@@ -12,7 +12,7 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="js/gotra.js" defer></script>
     <script src="js/gotraMine.js" defer></script>
-
+    <script src="js/cards.js" defer></script>
     <script src="js/main.js" defer></script>
     <script src="js/rating.js" defer></script>
     <script src="js/email.js" defer></script>
@@ -70,7 +70,7 @@ placeholder:"#262626"
               >Check</a
             >
             <a
-              href="#mine"
+              href="#mine-gotra"
               class="text-gray-900 bg-[#fcda79]  font-medium py-3 px-4 rounded-lg transition duration-300 hover:bg-[#e3c571] hover:text-black"
               >My Gotra</a
             >
@@ -134,7 +134,7 @@ placeholder:"#262626"
               >Check</a
             >
             <a
-              href="#mine"
+              href="#mine-gotra"
               class="text-gray-900 bg-gold  font-medium py-3 px-4 rounded-lg transition duration-300 hover:bg-gold-hover hover:text-black"
               >My Gotra</a
             >
@@ -210,9 +210,9 @@ placeholder:"#262626"
         <!-- Submit Button -->
         <button
           id="check-gotra"
-          class="w-full sm:w-1/2 bg-gold-dark text-black text-base sm:text-lg py-3 rounded-lg hover:bg-gold transition duration-300 mx-auto block"
+          class="w-full sm:w-1/2 bg-gold-dark text-black  font-bold text-2xl sm:text-3g py-3 rounded-lg hover:bg-gold transition duration-300 mx-auto block"
         >
-          Check
+          Check <img src="assets/icons/right-arrow.svg" alt="arrow" class="inline-block w-10 h-10 ml-2" />
         </button>
 
         <!-- Result Section -->
@@ -249,15 +249,6 @@ placeholder:"#262626"
           ></ul>
         </label>
     
-        <!-- Submit Button -->
-        <!-- <button
-          id="check-gotra-mine"
-          class="w-full sm:w-1/2 bg-gold-dark text-black text-base sm:text-lg py-3 rounded-lg hover:bg-gold transition duration-300 mx-auto block"
-        >
-          Find Gotra
-        </button> -->
-    
-        <!-- Result Section -->
         <div
           id="result-mine"
           class="text-center mt-6 text-lg sm:text-xl font-semibold text-gray-700"
@@ -266,7 +257,124 @@ placeholder:"#262626"
     </div>
     
     
-    <div id="learn" class="h-screen bg-gray-300 p-6 pt-20">Learn Section</div>
+<!-- Learn Section -->
+<div id="learn" class="bg-gold border-t-2 border-black py-16 px-4 sm:px-6 lg:px-8">
+  <div class="max-w-7xl mx-auto">
+    <h2 class="text-4xl font-extrabold text-center text-gray-900 sm:text-5xl mb-8">
+      Learn About Gotra
+    </h2>
+    <p class="text-lg text-gray-900 text-center max-w-3xl mx-auto mb-12">
+      Gotra is an integral part of Hindu culture, representing the lineage or ancestry
+      traced back to ancient sages. It plays a significant role in marriage compatibility
+      and preserving family traditions. Explore more below.
+    </p>
+
+    <!-- Back Button -->
+    <button id="back-btn" class="hidden px-6 py-2 mb-2 bg-red-500 text-white font-semibold rounded-lg shadow-lg transform transition duration-300 hover:bg-red-600 hover:shadow-xl focus:outline-none">
+      Back
+    </button>
+
+    <!-- Content Cards -->
+    <div id="cards-container" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+      <!-- Card 1 -->
+      <div class="card bg-gray-200 shadow-lg rounded-2xl p-6">
+        <h3 class="text-2xl font-bold text-gray-800 mb-4">What is Gotra?</h3>
+        <p class="text-gray-600">
+          Gotra refers to a clan system that identifies families of common ancestry
+          originating from ancient sages. It connects individuals to their spiritual
+          lineage and acts as a guiding principle in Hindu culture.
+        </p>
+        <button class="read-more-btn mt-4 px-6 py-2 bg-gradient-to-r from-blue-500 to-purple-600 text-white font-semibold rounded-full shadow-lg transform transition duration-300 hover:shadow-xl focus:outline-none">
+          Read More
+        </button>
+        <div class="card-details hidden">
+          <p class="text-gray-700 mt-4">
+            Gotra serves as a significant cultural and spiritual marker, connecting
+            individuals to their ancestral lineage and reinforcing their identity in
+            Hindu traditions.
+          </p>
+        </div>
+      </div>
+
+      <!-- Card 2 -->
+      <div class="card bg-gray-200 shadow-lg rounded-2xl p-6">
+        <h3 class="text-2xl font-bold text-gray-800 mb-4">Significance in Marriages</h3>
+        <p class="text-gray-600">
+          Traditionally, marriage between individuals of the same Gotra is avoided to
+          preserve genetic diversity and honor ancestral wisdom. This practice reinforces
+          cultural harmony and family bonds.
+        </p>
+        <button class="read-more-btn mt-4 px-6 py-2 bg-gradient-to-r from-blue-500 to-purple-600 text-white font-semibold rounded-full shadow-lg transform transition duration-300 hover:shadow-xl focus:outline-none">
+          Read More
+        </button>
+        <div class="card-details hidden">
+          <p class="text-gray-700 mt-4">
+            Avoiding marriage within the same Gotra is based on ancient wisdom to ensure
+            healthy genetics and honor the lineage of great sages.
+          </p>
+        </div>
+      </div>
+
+      <!-- Card 3 -->
+      <div class="card bg-gray-200 shadow-lg rounded-2xl p-6">
+        <h3 class="text-2xl font-bold text-gray-800 mb-4">Origin of Gotras</h3>
+        <p class="text-gray-600">
+          Gotras originated from the ancient sages or Rishis who were considered the
+          spiritual ancestors of different clans. The tradition has been passed down
+          through generations.
+        </p>
+        <button class="read-more-btn mt-4 px-6 py-2 bg-gradient-to-r from-blue-500 to-purple-600 text-white font-semibold rounded-full shadow-lg transform transition duration-300 hover:shadow-xl focus:outline-none">
+          Read More
+        </button>
+        <div class="card-details hidden">
+          <p class="text-gray-700 mt-4">
+            The lineage of Gotras traces back to the Saptarishis, the seven great sages
+            who laid the foundation for many ancient traditions and spiritual teachings.
+          </p>
+        </div>
+      </div>
+
+      <!-- Card 4 -->
+      <div class="card bg-gray-200 shadow-lg rounded-2xl p-6">
+        <h3 class="text-2xl font-bold text-gray-800 mb-4">Gotra in Modern Society</h3>
+        <p class="text-gray-600">
+          While Gotras were primarily used in ancient times to preserve spiritual and
+          familial lineage, their relevance continues in modern society for cultural and
+          traditional purposes.
+        </p>
+        <button class="read-more-btn mt-4 px-6 py-2 bg-gradient-to-r from-blue-500 to-purple-600 text-white font-semibold rounded-full shadow-lg transform transition duration-300 hover:shadow-xl focus:outline-none">
+          Read More
+        </button>
+        <div class="card-details hidden">
+          <p class="text-gray-700 mt-4">
+            Modern society respects Gotra traditions while adapting them to current
+            cultural and social contexts, maintaining a balance between tradition and
+            modernity.
+          </p>
+        </div>
+      </div>
+
+      <!-- Card 5 -->
+      <div class="card bg-gray-200 shadow-lg rounded-2xl p-6">
+        <h3 class="text-2xl font-bold text-gray-800 mb-4">Gotra and Genetics</h3>
+        <p class="text-gray-600">
+          Avoiding marriage within the same Gotra is believed to reduce the likelihood of
+          genetic disorders and strengthen genetic diversity among families.
+        </p>
+        <button class="read-more-btn mt-4 px-6 py-2 bg-gradient-to-r from-blue-500 to-purple-600 text-white font-semibold rounded-full shadow-lg transform transition duration-300 hover:shadow-xl focus:outline-none">
+          Read More
+        </button>
+        <div class="card-details hidden">
+          <p class="text-gray-700 mt-4">
+            Scientific research has found that maintaining genetic diversity has numerous
+            health benefits and reinforces the wisdom behind the Gotra system.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
 
 <!--About Section-->
 <div id="about" class="bg-black py-12 px-2 sm:px-6 lg:px-8">
