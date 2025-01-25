@@ -1,8 +1,4 @@
-const castInputFields = [
-  { input: "my-cast", suggestionBox: "my-cast-suggestions" },
-  { input: "her-cast", suggestionBox: "her-cast-suggestions" },
-];
-const gotraData = {
+ const gotraData = {
   Agasti: {
     gotraName: "अगस्ती",
     castes: ["Dhungel"],
@@ -257,7 +253,10 @@ const gotraData = {
   },
 };
 
-
+const castInputFields = [
+  { input: "my-cast", suggestionBox: "my-cast-suggestions" },
+  { input: "her-cast", suggestionBox: "her-cast-suggestions" },
+];
 
 castInputFields.forEach(({ input, suggestionBox }) => {
   const inputField = document.getElementById(input);
