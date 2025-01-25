@@ -1,0 +1,6 @@
+.read-more-btn:hover{
+    background-color: #f1f1f1;
+    color: #000;
+    border: 1px solid #f1f1f1;
+    transition: 0.3s;
+}
