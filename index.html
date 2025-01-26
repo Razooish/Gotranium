@@ -157,72 +157,78 @@ placeholder:"#262626"
 
     <!-- Placeholder Sections -->
     <div
-      id="ours"
-      class="min-h-screen bg-black  sm:px-6 lg:px-10 py-20 sm:py-20"
-    >
-      <!-- Text Section -->
-      <div class="max-w-3xl mx-auto text-center mt-5 px-2">
-     
-        <p class="font-semibold font-sans sm:text-3xl lg:text-4xl text-gray-200 mb-8 sm:mb-12">
-          Enter the details to find out if you're good to go for marriage.
-        </p>
-      </div>
-
-      <!-- Input Form Section -->
-      <div
-        class="max-w-2xl mx-auto bg-black text-gray-200  p-6 sm:p-8"
-      >
-        <!-- Your Caste Input -->
-        <label class="block mb-6 relative">
-          <span class="block text-lg sm:text-lg font-semibold text-gray-200"
-            >Your Caste</span
-          >
-          <input
-            type="text"
-            id="my-cast"
-            class="mt-2 p-4 sm:p-5 rounded-full w-full bg-black-placeholder text-gray-200 focus:ring focus:ring-blue-200 focus:outline-none"
-            placeholder="Enter your caste"
-            autocomplete="off"
-          />
-          <ul
-            id="my-cast-suggestions"
-            class="absolute z-10 bg-[#3d3d3d] border border-gray-200 rounded-lg shadow-lg w-full hidden max-h-40 overflow-y-auto"
-          ></ul>
-        </label>
-
-        <!-- Her Caste Input -->
-        <label class="block mb-6 relative">
-          <span class="block text-lg sm:text-lg font-semibold text-gray-200"
-            >LovedOne's Caste</span
-          >
-          <input
-            type="text"
-            id="her-cast"
-            class="mt-2 p-4 sm:p-5  rounded-full w-full bg-black-placeholder text-gray-200 focus:ring focus:ring-blue-200 focus:outline-none"
-            placeholder="Enter LovedOne's caste"
-            autocomplete="off"
-          />
-          <ul
-            id="her-cast-suggestions"
-            class="absolute z-10 bg-[#3d3d3d] border border-gray-200 rounded-lg shadow-lg w-full hidden max-h-40 overflow-y-auto"
-          ></ul>
-        </label>
-
-        <!-- Submit Button -->
-        <button
-          id="check-gotra"
-          class="w-full sm:w-1/2 bg-gold text-black  font-bold text-2xl sm:text-3g py-3 rounded-lg hover:bg-gold-dark transition duration-300 mx-auto block"
-        >
-          Check <img src="assets/icons/right-arrow.svg" alt="arrow" class="inline-block w-10 h-10 ml-2" />
-        </button>
-
-        <!-- Result Section -->
-        <div
-          id="result"
-          class="text-center mt-6 text-lg sm:text-xl font-semibold text-gray-700"
-        ></div>
-      </div>
+    id="ours"
+    class="min-h-screen bg-black sm:px-6 lg:px-10 py-20 sm:py-20"
+  >
+    <!-- Text Section -->
+    <div class="max-w-3xl mx-auto text-center mt-5 px-2 flex items-center justify-center space-x-4">
+      <img
+        src="assets/icons/pandit.png"
+        alt="Pandit"
+        class="w-20 h-20 sm:w-24 sm:h-24"
+      />
+      <p class="font-semibold font-sans sm:text-3xl lg:text-4xl text-gray-200 p-5">
+        Enter the details to find out if you're good to go for marriage.
+      </p>
     </div>
+    
+  
+    <!-- Input Form Section -->
+    <div
+      class="max-w-2xl mx-auto bg-black text-gray-200 p-6 sm:p-8 relative"
+    >  
+      <!-- Your Caste Input -->
+      <label class="block mb-6 relative">
+        <span class="block text-lg sm:text-lg font-semibold text-gray-200"
+          >Your Caste</span
+        >
+        <input
+          type="text"
+          id="my-cast"
+          class="mt-2 p-4 sm:p-5 rounded-full w-full bg-black-placeholder text-gray-200 focus:ring focus:ring-blue-200 focus:outline-none"
+          placeholder="Enter your caste"
+          autocomplete="off"
+        />
+        <ul
+          id="my-cast-suggestions"
+          class="absolute z-10 bg-[#3d3d3d] border border-gray-200 rounded-lg shadow-lg w-full hidden max-h-40 overflow-y-auto"
+        ></ul>
+      </label>
+  
+      <!-- Her Caste Input -->
+      <label class="block mb-6 relative">
+        <span class="block text-lg sm:text-lg font-semibold text-gray-200"
+          >LovedOne's Caste</span
+        >
+        <input
+          type="text"
+          id="her-cast"
+          class="mt-2 p-4 sm:p-5 rounded-full w-full bg-black-placeholder text-gray-200 focus:ring focus:ring-blue-200 focus:outline-none"
+          placeholder="Enter LovedOne's caste"
+          autocomplete="off"
+        />
+        <ul
+          id="her-cast-suggestions"
+          class="absolute z-10 bg-[#3d3d3d] border border-gray-200 rounded-lg shadow-lg w-full hidden max-h-40 overflow-y-auto"
+        ></ul>
+      </label>
+  
+      <!-- Submit Button -->
+      <button
+        id="check-gotra"
+        class="w-full sm:w-1/2 bg-gold text-black font-bold text-2xl sm:text-3g py-3 rounded-lg hover:bg-gold-dark transition duration-300 mx-auto block"
+      >
+        Check <img src="assets/icons/right-arrow.svg" alt="arrow" class="inline-block w-10 h-10 ml-2" />
+      </button>
+  
+      <!-- Result Section -->
+      <div
+        id="result"
+        class="text-center mt-6 text-lg sm:text-xl font-semibold text-gray-700"
+      ></div>
+    </div>
+  </div>
+  
 
     <div id="mine-gotra" class=" bg-gold sm:px-6 lg:px-10  py-5 sm:py-5 border-t-2 border-black">
       <!-- Text Section -->

@@ -313,7 +313,7 @@ document.getElementById("check-gotra").addEventListener("click", () => {
   // Add shimmer effect as a loading placeholder
   resultDiv.innerHTML = `
     <div class="shimmer-placeholder h-10 w-10 rounded-full inline-block mr-2"></div>
-    <span class="text-gray-300">Checking compatibility...</span>
+    <span class="text-gray-300">Checking ...</span>
   `;
 
   setTimeout(() => {
