@@ -353,3 +353,39 @@ document.getElementById("check-gotra").addEventListener("click", () => {
     }
   }, 500); // Simulate a delay of 0.5 second for loading
 });
+
+
+//===================//
+//Gotra Table//
+//===================//
+// Function to generate a table from gotraData
+function generateGotraTable(data) {
+  const tableBody = document.querySelector("#gotra-table tbody");
+
+  // Clear the table body before appending new rows
+  tableBody.innerHTML = "";
+
+  // Iterate over each key-value pair in the object
+  Object.keys(data).forEach((key) => {
+    const entry = data[key];
+
+    // Create a new row
+    const row = document.createElement("tr");
+
+    // Create Gotra Name cell
+    const gotraCell = document.createElement("td");
+    gotraCell.textContent = entry.gotraName;
+    row.appendChild(gotraCell);
+
+    // Create Castes cell
+    const castesCell = document.createElement("td");
+    castesCell.textContent = entry.castes.join(", "); // Join castes with commas
+    row.appendChild(castesCell);
+
+    // Append the row to the table body
+    tableBody.appendChild(row);
+  });
+}
+
+// Call the function to generate the table
+generateGotraTable(gotraData);

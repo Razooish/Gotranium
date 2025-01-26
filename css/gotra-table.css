@@ -1,0 +1,73 @@
+/* General table styling */
+.gotra-table-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 20px 0;
+  }
+#gotra-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 20px 0;
+    font-size: 1rem;
+    font-family: Arial, sans-serif;
+    text-align: left;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    max-width: 800px;
+    border-radius: 10px;
+  }
+  
+  /* Table header */
+  #gotra-table thead th {
+    background-color: #1f1f1f; /* Theme color */
+    color: #fff;
+    padding: 12px 15px;
+    font-weight: bold;
+    text-transform: uppercase;
+    border-bottom: 2px solid #e5e5e5;
+  }
+  
+  /* Table body rows */
+  #gotra-table tbody tr:nth-child(odd) {
+    background-color: #1d1d1d; /* Soft alternating row color */
+  }
+  
+  #gotra-table tbody tr:nth-child(even) {
+    background-color: #333333; /* Light alternating row color */
+  }
+  
+  /* Table cells */
+  #gotra-table td {
+    padding: 20px 20px;
+    color: #e4e4e4;
+    word-wrap: break-word;
+    letter-spacing: 1px;
+  }
+  
+  /* Header and cell text alignment */
+  #gotra-table th,
+  #gotra-table td {
+    text-align: center;
+  }
+  
+  /* Styling for large text cells (e.g., caste names) */
+  .large-text {
+    text-align: left;
+    font-size: 0.95rem;
+    color: #555;
+    line-height: 1.5;
+  }
+  
+  /* Responsive design for smaller screens */
+  @media (max-width: 500px) {
+    #gotra-table {
+      font-size: 0.9rem;
+      border-radius:0;
+    }
+    #gotra-table td,
+    #gotra-table th {
+      padding: 10px;
+    }
+  }
+  

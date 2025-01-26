@@ -10,6 +10,7 @@
   />
   <link rel="stylesheet" href="css/button.css">
   <link rel="stylesheet" href="css/sprinkles.css">
+  <link rel="stylesheet" href="css/gotra-table.css">
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="js/gotra.js" defer></script>
     <script src="js/gotraMine.js" defer></script>
@@ -68,22 +69,22 @@ placeholder:"#262626"
         <nav class="hidden md:flex space-x-8">
           <a
               href="#ours"
-              class="text-gray-900 bg-gold font-medium py-3 px-4 rounded-lg transition duration-300 hover:bg-[#e3c571] hover:text-black"
+              class="text-gray-900 bg-gold font-medium py-3 px-4 rounded-lg transition duration-300 hover:bg-gold-hover hover:text-black"
               >Check</a
             >
             <a
               href="#mine-gotra"
-              class="text-gray-900 bg-gold  font-medium py-3 px-4 rounded-lg transition duration-300 hover:bg-[#e3c571] hover:text-black"
+              class="text-gray-900 bg-gold  font-medium py-3 px-4 rounded-lg transition duration-300 hover:bg-gold-hover hover:text-black"
               >My Gotra</a
             >
             <a
               href="#learn"
-              class="text-gray-900 bg-gold font-medium py-3 px-4 rounded-lg transition duration-300 hover:bg-[#e3c571] hover:text-black"
+              class="text-gray-900 bg-gold font-medium py-3 px-4 rounded-lg transition duration-300 hover:bg-gold-hover hover:text-black"
               >Learn</a
             >
             <a
               href="#about"
-              class="text-gray-900 bg-gold font-medium py-3 px-4 rounded-lg transition duration-300 hover:bg-[#e3c571] hover:text-black"
+              class="text-gray-900 bg-gold font-medium py-3 px-4 rounded-lg transition duration-300 hover:bg-gold-hover hover:text-black"
               >About</a
             >
         </nav>
@@ -265,6 +266,20 @@ placeholder:"#262626"
           class="text-center mt-6 text-lg sm:text-xl font-semibold text-gray-700"
         ></div>
       </div>
+      <div class="gotra-table-container">
+      <table id="gotra-table" border="1">
+        <thead>
+          <tr>
+            <th>Gotra</th>
+            <th>Caste</th>
+          </tr>
+        </thead>
+        <tbody>
+          <!-- Rows will be dynamically generated here -->
+        </tbody>
+      </table>
+    </div>
+      
     </div>
     
 
