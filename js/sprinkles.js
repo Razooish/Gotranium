@@ -29,7 +29,7 @@ function createSprinkles() {
       setTimeout(() => {
         sprinkle.remove();
       }, duration * 1000);
-    }, 200); // Generate a sprinkle every 200ms
+    }, 500); // Generate a sprinkle every 500ms
   }
   
   // Initialize sprinkles on page load
