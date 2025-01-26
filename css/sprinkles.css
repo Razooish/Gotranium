@@ -1,0 +1,30 @@
+/* Restrict overflow of sprinkles */
+#ours {
+    position: relative;
+    overflow: hidden; /* Prevent sprinkles from causing scrolling */
+  }
+  
+  /* Base style for sprinkles */
+  .sprinkle {
+    position: absolute;
+    background-color: #ffc766;
+    border-radius: 50%;
+    opacity: 0;
+    animation: sprinkle-move linear forwards;
+  }
+  
+  /* Keyframes for sprinkle movement */
+  @keyframes sprinkle-move {
+    0% {
+      transform: translate(0, 0);
+      opacity: 1;
+    }
+    100% {
+      transform: translate(
+        calc(var(--x-dir) * 50vw),
+        calc(var(--y-dir) * 50vh)
+      ); /* Limit movement to half the viewport size */
+      opacity: 0;
+    }
+  }
+  

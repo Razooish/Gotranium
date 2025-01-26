@@ -8,7 +8,8 @@
     href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
     rel="stylesheet"
   />
-  <link rel="stylesheet" href="css/shimmer.css">
+  <link rel="stylesheet" href="css/button.css">
+  <link rel="stylesheet" href="css/sprinkles.css">
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="js/gotra.js" defer></script>
     <script src="js/gotraMine.js" defer></script>
@@ -16,6 +17,7 @@
     <script src="js/main.js" defer></script>
     <script src="js/rating.js" defer></script>
     <script src="js/email.js" defer></script>
+    <script src="js/sprinkles.js" defer></script>
     <script type="text/javascript"
         src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js">
 </script>
@@ -33,7 +35,7 @@
           colors: {
             gold: {
               light: "#f9e4b7", // Light gold
-              DEFAULT: "#e0ba79", // Default gold
+              DEFAULT: "#ffc766", // Default gold
               dark: "#c29757", // Dark gold
               hover:"#ffc72b"
             },
@@ -57,7 +59,7 @@ placeholder:"#262626"
       >
         <!-- Logo -->
         <div class="text-2xl md:text-2xl lg:text-3xl font-bold">
-          <a href="#" class="text-gold hover:text-gold-hover transition duration-300"
+          <a href="#" class="text-gold "
             >GotraPidit</a
           >
         </div>
@@ -66,22 +68,22 @@ placeholder:"#262626"
         <nav class="hidden md:flex space-x-8">
           <a
               href="#ours"
-              class="text-gray-900 bg-[#fcda79] font-medium py-3 px-4 rounded-lg transition duration-300 hover:bg-[#e3c571] hover:text-black"
+              class="text-gray-900 bg-gold font-medium py-3 px-4 rounded-lg transition duration-300 hover:bg-[#e3c571] hover:text-black"
               >Check</a
             >
             <a
               href="#mine-gotra"
-              class="text-gray-900 bg-[#fcda79]  font-medium py-3 px-4 rounded-lg transition duration-300 hover:bg-[#e3c571] hover:text-black"
+              class="text-gray-900 bg-gold  font-medium py-3 px-4 rounded-lg transition duration-300 hover:bg-[#e3c571] hover:text-black"
               >My Gotra</a
             >
             <a
               href="#learn"
-              class="text-gray-900 bg-[#fcda79] font-medium py-3 px-4 rounded-lg transition duration-300 hover:bg-[#e3c571] hover:text-black"
+              class="text-gray-900 bg-gold font-medium py-3 px-4 rounded-lg transition duration-300 hover:bg-[#e3c571] hover:text-black"
               >Learn</a
             >
             <a
               href="#about"
-              class="text-gray-900 bg-[#fcda79]  font-medium py-3 px-4 rounded-lg transition duration-300 hover:bg-[#e3c571] hover:text-black"
+              class="text-gray-900 bg-gold font-medium py-3 px-4 rounded-lg transition duration-300 hover:bg-[#e3c571] hover:text-black"
               >About</a
             >
         </nav>
@@ -156,12 +158,12 @@ placeholder:"#262626"
     <!-- Placeholder Sections -->
     <div
       id="ours"
-      class="min-h-screen bg-gold  sm:px-6 lg:px-10 py-20 sm:py-20"
+      class="min-h-screen bg-black  sm:px-6 lg:px-10 py-20 sm:py-20"
     >
       <!-- Text Section -->
       <div class="max-w-3xl mx-auto text-center mt-5 px-2">
      
-        <p class="text-base font-sans sm:text-lg lg:text-xl text-black mb-8 sm:mb-12">
+        <p class="text-base font-sans sm:text-lg lg:text-xl text-white mb-8 sm:mb-12">
           Enter your caste details to find out if you're compatible for marriage
           based on Gotra.
         </p>
@@ -169,7 +171,7 @@ placeholder:"#262626"
 
       <!-- Input Form Section -->
       <div
-        class="max-w-2xl mx-auto bg-black text-gray-200 shadow-lg  p-6 sm:p-8"
+        class="max-w-2xl mx-auto bg-black text-gray-200  p-6 sm:p-8"
       >
         <!-- Your Caste Input -->
         <label class="block mb-6 relative">
