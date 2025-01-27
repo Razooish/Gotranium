@@ -1,0 +1,15 @@
+.scrollable {
+      max-height: 200px;
+      overflow-y: auto;
+      border: 1px solid #e2e8f0; /* Tailwind gray-200 */
+      padding: 10px;
+      margin-top: 10px;
+    }
+    .correct {
+      background-color: #38a169; /* Tailwind Green */
+      color: white;
+    }
+    .incorrect {
+      background-color: #e53e3e; /* Tailwind Red */
+      color: white;
+    }

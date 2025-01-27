@@ -252,12 +252,22 @@
     ],
   },
 };
+//Sabai messages yaha rakhne
+const messages={
+  congratulationsText: "Congratulations! You both belong to different Gotras. You can marry each other.",
+  UnfortunatelyText: "Unfortunately, you both belong to the same Gotra. Marriage is traditionally not recommended."
+}
 
+// Extract messages
+const { congratulationsText, UnfortunatelyText } = messages;
+
+// Input fields for castes
 const castInputFields = [
   { input: "my-cast", suggestionBox: "my-cast-suggestions" },
   { input: "her-cast", suggestionBox: "her-cast-suggestions" },
 ];
 
+// Suggestion logic for castes
 castInputFields.forEach(({ input, suggestionBox }) => {
   const inputField = document.getElementById(input);
   const suggestionBoxEl = document.getElementById(suggestionBox);
@@ -327,7 +337,7 @@ document.getElementById("check-gotra").addEventListener("click", () => {
           class="h-10 w-10 inline-block mr-2" 
           onload="this.parentElement.querySelector('.shimmer-placeholder')?.remove()" 
         />
-        One or both casts not found in our records. Please try again.
+       <p> One or both casts not found in our records. Please try again.</p>
       `;
       resultDiv.classList.add("text-gray-300");
     } else if (myGotra === herGotra) {
@@ -337,8 +347,8 @@ document.getElementById("check-gotra").addEventListener("click", () => {
           class="h-10 w-10 inline-block mr-2" 
           onload="this.parentElement.querySelector('.shimmer-placeholder')?.remove()" 
         />
-        Unfortunately, you both belong to the same Gotra (${myGotra}). Marriage is traditionally not recommended.
-      `;
+        <p>${UnfortunatelyText}</p>
+        <p>(${myCast}-${myGotra}) | (${herCast}-${herGotra})</p>`;
       resultDiv.classList.add("text-red-600");
     } else {
       resultDiv.innerHTML = `
@@ -347,7 +357,8 @@ document.getElementById("check-gotra").addEventListener("click", () => {
           class="h-10 w-10 inline-block mr-2" 
           onload="this.parentElement.querySelector('.shimmer-placeholder')?.remove()" 
         />
-        Congratulations! You both belong to different Gotras. You can marry!
+       <p>${congratulationsText}</p>
+       <p>(${myCast}-${myGotra}) | (${herCast}-${herGotra})</p>
       `;
       resultDiv.classList.add("text-green-600");
     }
@@ -379,7 +390,7 @@ function generateGotraTable(data) {
 
     // Create Castes cell
     const castesCell = document.createElement("td");
-    castesCell.textContent = entry.castes.join(", "); // Join castes with commas
+    castesCell.textContent = entry.castes.join(" , "); // Join castes with commas
     row.appendChild(castesCell);
 
     // Append the row to the table body
@@ -389,3 +400,126 @@ function generateGotraTable(data) {
 
 // Call the function to generate the table
 generateGotraTable(gotraData);
+
+
+
+
+//===================//
+//Quiz//
+//===================//
+
+const questionDiv = document.getElementById("question");
+    const optionsDiv = document.getElementById("options");
+    const scoreDiv = document.getElementById("score");
+    const resetBtn = document.getElementById("reset");
+    const playAgainBtn = document.getElementById("play-again");
+    const historyDiv = document.getElementById("history");
+
+    let currentQuestion = {};
+    let score = 0;
+    let askedQuestions = [];
+
+    function getRandomGotra() {
+      const gotraKeys = Object.keys(gotraData);
+      let randomKey;
+
+      do {
+        randomKey = gotraKeys[Math.floor(Math.random() * gotraKeys.length)];
+      } while (askedQuestions.includes(randomKey) && askedQuestions.length < gotraKeys.length);
+
+      askedQuestions.push(randomKey);
+      return gotraData[randomKey];
+    }
+
+    function generateQuestion() {
+      currentQuestion = getRandomGotra();
+      const allOptions = [
+        ...currentQuestion.castes,
+        ...Object.values(gotraData)
+          .flatMap((g) => g.castes)
+          .filter((caste) => !currentQuestion.castes.includes(caste)),
+      ]
+        .sort(() => 0.5 - Math.random())
+        .slice(0, 4);
+
+      renderQuestion(currentQuestion.gotraName, allOptions);
+    }
+
+    function renderQuestion(gotraName, options) {
+      questionDiv.innerText = `Which caste belongs to Gotra "${gotraName}"?`;
+      optionsDiv.innerHTML = "";
+
+      options.forEach((option) => {
+        const btn = document.createElement("button");
+        btn.className = "px-4 py-2 bg-gray-200 hover:bg-gray-300 rounded text-black";
+        btn.innerText = option;
+        btn.onclick = () => handleAnswer(option, btn);
+        optionsDiv.appendChild(btn);
+      });
+    }
+
+    function handleAnswer(selectedOption, buttonElement) {
+      const correctAnswer = currentQuestion.castes[0];
+
+      // Highlight correct and incorrect answers
+      Array.from(optionsDiv.children).forEach((btn) => {
+        if (btn.innerText === correctAnswer) {
+          btn.classList.add("correct");
+        } else if (btn.innerText === selectedOption) {
+          btn.classList.add("incorrect");
+        }
+      });
+
+      // Add to history
+      const historyItem = document.createElement("div");
+      historyItem.className = "p-2 border-b border-gray-200";
+      historyItem.innerHTML = `
+        <div><strong>Q:</strong> Which caste belongs to Gotra "${currentQuestion.gotraName}"?</div>
+        <div><strong>Correct:</strong> <span class="text-green-600">${correctAnswer}</span></div>
+        ${
+          selectedOption !== correctAnswer
+            ? `<div><strong>Your Answer:</strong> <span class="text-red-600">${selectedOption}</span></div>`
+            : ""
+        }
+      `;
+      historyDiv.appendChild(historyItem);
+      historyDiv.scrollTop = historyDiv.scrollHeight; // Scroll to the bottom
+
+      // Update score
+      if (currentQuestion.castes.includes(selectedOption)) {
+        score++;
+        scoreDiv.innerText = `Correct! Score: ${score}`;
+      } else {
+        scoreDiv.innerText = `Wrong! Score: ${score}`;
+      }
+
+      // Move to next question after 1 second
+      setTimeout(() => {
+        if (askedQuestions.length < Object.keys(gotraData).length) {
+          generateQuestion();
+        } else {
+          endGame();
+        }
+      }, 1000);
+    }
+
+    function resetGame() {
+      score = 0;
+      askedQuestions = [];
+      historyDiv.innerHTML = "";
+      scoreDiv.innerText = `Score: ${score}`;
+      playAgainBtn.classList.add("hidden");
+      generateQuestion();
+    }
+
+    function endGame() {
+      questionDiv.innerText = "Game Over!";
+      optionsDiv.innerHTML = "";
+      playAgainBtn.classList.remove("hidden");
+    }
+
+    resetBtn.onclick = resetGame;
+    playAgainBtn.onclick = resetGame;
+
+    // Start the quiz
+    resetGame();
