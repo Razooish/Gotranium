@@ -320,6 +320,9 @@ document.getElementById("check-gotra").addEventListener("click", () => {
     if (details.castes.includes(herCast)) herGotra = gotra;
   }
 
+  // Create an audio element
+  const audio = new Audio();
+
   // Add shimmer effect as a loading placeholder
   resultDiv.innerHTML = `
     <div class="shimmer-placeholder h-10 w-10 rounded-full inline-block mr-2"></div>
@@ -330,6 +333,7 @@ document.getElementById("check-gotra").addEventListener("click", () => {
     // Clear previous result
     resultDiv.innerHTML = "";
 
+    // Check if any cast is not found
     if (!myGotra || !herGotra) {
       resultDiv.innerHTML = `
         <img 
@@ -340,6 +344,11 @@ document.getElementById("check-gotra").addEventListener("click", () => {
        <p> One or both casts not found in our records. Please try again.</p>
       `;
       resultDiv.classList.add("text-gray-300");
+
+      // Play audio for "not found"
+      audio.src = "assets/audio/error.mp3"; // Customize as per your requirement
+      audio.play();
+
     } else if (myGotra === herGotra) {
       resultDiv.innerHTML = `
         <img 
@@ -350,6 +359,11 @@ document.getElementById("check-gotra").addEventListener("click", () => {
         <p>${UnfortunatelyText}</p>
         <p>(${myCast}-${myGotra}) | (${herCast}-${herGotra})</p>`;
       resultDiv.classList.add("text-red-600");
+
+      // Play audio for "same gotra"
+      audio.src = "assets/audio/lost-sound.mp3"; // Customize as per your requirement
+      audio.play();
+
     } else {
       resultDiv.innerHTML = `
         <img 
@@ -361,6 +375,10 @@ document.getElementById("check-gotra").addEventListener("click", () => {
        <p>(${myCast}-${myGotra}) | (${herCast}-${herGotra})</p>
       `;
       resultDiv.classList.add("text-green-600");
+
+      // Play audio for "compatible"
+      audio.src = "assets/audio/win-sound.mp3"; // Customize as per your requirement
+      audio.play();
     }
   }, 500); // Simulate a delay of 0.5 second for loading
 });
