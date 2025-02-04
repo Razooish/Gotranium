@@ -5,13 +5,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Hya</title>
     <link
-    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
-    rel="stylesheet"
-  />
-  <link rel="stylesheet" href="css/button.css">
-  <link rel="stylesheet" href="css/sprinkles.css">
-  <link rel="stylesheet" href="css/gotra-table.css">
-  <link rel="stylesheet" href="css/quiz.css">
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="css/button.css" />
+    <link rel="stylesheet" href="css/sprinkles.css" />
+    <link rel="stylesheet" href="css/gotra-table.css" />
+    <link rel="stylesheet" href="css/quiz.css" />
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="js/gotra.js" defer></script>
     <script src="js/gotraMine.js" defer></script>
@@ -20,40 +20,42 @@
     <script src="js/rating.js" defer></script>
     <script src="js/email.js" defer></script>
     <script src="js/sprinkles.js" defer></script>
-    <script type="text/javascript"
-        src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js">
-</script>
-<script type="text/javascript">
-   (function(){
-      emailjs.init({
-        publicKey: "8k4-7oxN_rWduwj81",
-      });
-   })();
-</script>
-<script>
-    tailwind.config = {
-      theme: {
-        extend: {
-          colors: {
-            gold: {
-              light: "#f9e4b7", // Light gold
-              DEFAULT: "#ffc766", // Default gold
-              dark: "#c29757", // Dark gold
-              hover:"#ffc72b"
+    <script src="js/blogs.js" defer></script>
+    <script
+      type="text/javascript"
+      src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"
+    ></script>
+    <script type="text/javascript">
+      (function () {
+        emailjs.init({
+          publicKey: "8k4-7oxN_rWduwj81",
+        });
+      })();
+    </script>
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              gold: {
+                light: "#f9e4b7", // Light gold
+                DEFAULT: "#ffc766", // Default gold
+                dark: "#c29757", // Dark gold
+                hover: "#ffc72b",
+              },
+              black: {
+                light: "#3d3d3d", // Light black
+                DEFAULT: "#141414", // Default black
+                dark: "#000000", // Dark black
+                placeholder: "#262626",
+              },
             },
-            black:{
-light: "#3d3d3d", // Light black
-DEFAULT: "#141414", // Default black
-dark: "#000000", // Dark black
-placeholder:"#262626"
-            }
           },
         },
-      },
-    };
+      };
     </script>
   </head>
-  <body class="bg-gray-100 text-gray-900">
+  <body class="bg-gold text-gray-900">
     <!-- Header Section -->
     <header class="bg-black text-gray-200 shadow fixed w-full z-50">
       <div
@@ -61,38 +63,36 @@ placeholder:"#262626"
       >
         <!-- Logo -->
         <div class="text-2xl md:text-2xl lg:text-3xl font-bold">
-          <a href="#ours" class="text-gold "
-            >GotraPidit</a
-          >
+          <a href="#ours" class="text-gold">GotraPidit</a>
         </div>
 
         <!-- Middle Navigation Links (Hidden on mobile) -->
         <nav class="hidden md:flex space-x-8">
           <a
-              href="#ours"
-              class="text-gray-900 bg-gold font-medium py-3 px-4 rounded-lg transition duration-300 hover:bg-gold-hover hover:text-black"
-              >Check</a
-            >
-            <a
-              href="#mine-gotra"
-              class="text-gray-900 bg-gold  font-medium py-3 px-4 rounded-lg transition duration-300 hover:bg-gold-hover hover:text-black"
-              >My Gotra</a
-            >
-            <a
-              href="#quiz"
-              class="text-gray-900 bg-gold font-medium py-3 px-4 rounded-lg transition duration-300 hover:bg-gold-hover hover:text-black"
-              >Quiz</a
-            >
-            <a
-              href="#learn"
-              class="text-gray-900 bg-gold font-medium py-3 px-4 rounded-lg transition duration-300 hover:bg-gold-hover hover:text-black"
-              >Learn</a
-            >
-            <a
-              href="#about"
-              class="text-gray-900 bg-gold font-medium py-3 px-4 rounded-lg transition duration-300 hover:bg-gold-hover hover:text-black"
-              >About</a
-            >
+            href="#ours"
+            class="text-gray-900 bg-gold font-medium py-3 px-4 rounded-lg transition duration-300 hover:bg-gold-hover hover:text-black"
+            >Check</a
+          >
+          <a
+            href="#mine-gotra"
+            class="text-gray-900 bg-gold font-medium py-3 px-4 rounded-lg transition duration-300 hover:bg-gold-hover hover:text-black"
+            >My Gotra</a
+          >
+          <a
+            href="#quiz"
+            class="text-gray-900 bg-gold font-medium py-3 px-4 rounded-lg transition duration-300 hover:bg-gold-hover hover:text-black"
+            >Quiz</a
+          >
+          <a
+            href="#learn"
+            class="text-gray-900 bg-gold font-medium py-3 px-4 rounded-lg transition duration-300 hover:bg-gold-hover hover:text-black"
+            >Learn</a
+          >
+          <a
+            href="#about"
+            class="text-gray-900 bg-gold font-medium py-3 px-4 rounded-lg transition duration-300 hover:bg-gold-hover hover:text-black"
+            >About</a
+          >
         </nav>
 
         <!-- Mobile Menu Button -->
@@ -144,7 +144,7 @@ placeholder:"#262626"
             >
             <a
               href="#mine-gotra"
-              class="text-gray-900 bg-gold  font-medium py-3 px-4 rounded-lg transition duration-300 hover:bg-gold-hover hover:text-black"
+              class="text-gray-900 bg-gold font-medium py-3 px-4 rounded-lg transition duration-300 hover:bg-gold-hover hover:text-black"
               >My Gotra</a
             >
             <a
@@ -159,7 +159,7 @@ placeholder:"#262626"
             >
             <a
               href="#about"
-              class="text-gray-900 bg-gold  font-medium py-3 px-4 rounded-lg transition duration-300 hover:bg-gold-hover hover:text-black"
+              class="text-gray-900 bg-gold font-medium py-3 px-4 rounded-lg transition duration-300 hover:bg-gold-hover hover:text-black"
               >About</a
             >
           </nav>
@@ -169,96 +169,108 @@ placeholder:"#262626"
 
     <!-- Placeholder Sections -->
     <div
-    id="ours"
-    class="min-h-screen bg-black sm:px-6 lg:px-10 py-20 sm:py-20"
-  >
-    <!-- Text Section -->
-    <div class="max-w-3xl mx-auto text-center mt-5 px-2 flex items-center justify-center space-x-4">
-      <img
-        src="assets/icons/pandit.png"
-        alt="Pandit"
-        class="w-20 h-20 sm:w-24 sm:h-24"
-      />
-      <p class="font-semibold font-sans sm:text-2xl lg:text-3xl text-gray-200 p-5">
-        Enter the details to find out if you're good to go for marriage.
-      </p>
-    </div>
-    
-  
-    <!-- Input Form Section -->
-    <div
-      class="max-w-2xl mx-auto  text-gray-200 p-6 sm:p-8 relative"
-    >  
-      <!-- Your Caste Input -->
-      <label class="block mb-6 relative">
-        <span class="block text-lg sm:text-lg font-semibold text-gray-200"
-          >Your Caste</span
-        >
-        <input
-          type="text"
-          id="my-cast"
-          class="mt-2 p-4 sm:p-5 rounded-full w-full bg-black-placeholder text-gray-200 focus:ring focus:ring-blue-200 focus:outline-none"
-          placeholder="Enter your caste"
-          autocomplete="off"
-        />
-        <ul
-          id="my-cast-suggestions"
-          class="absolute z-10 bg-[#3d3d3d] border border-gray-200 rounded-lg shadow-lg w-full hidden max-h-40 overflow-y-auto"
-        ></ul>
-      </label>
-  
-      <!-- Her Caste Input -->
-      <label class="block mb-6 relative">
-        <span class="block text-lg sm:text-lg font-semibold text-gray-200"
-          >LovedOne's Caste</span
-        >
-        <input
-          type="text"
-          id="her-cast"
-          class="mt-2 p-4 sm:p-5 rounded-full w-full bg-black-placeholder text-gray-200 focus:ring focus:ring-blue-200 focus:outline-none"
-          placeholder="Enter LovedOne's caste"
-          autocomplete="off"
-        />
-        <ul
-          id="her-cast-suggestions"
-          class="absolute z-10 bg-[#3d3d3d] border border-gray-200 rounded-lg shadow-lg w-full hidden max-h-40 overflow-y-auto"
-        ></ul>
-      </label>
-  
-      <!-- Submit Button -->
-      <button
-        id="check-gotra"
-        class="w-full sm:w-1/2 bg-gold text-black font-bold text-2xl sm:text-3g py-3 rounded-lg hover:bg-gold-dark transition duration-300 mx-auto block"
-      >
-        Check <img src="assets/icons/right-arrow.svg" alt="arrow" class="inline-block w-10 h-10 ml-2" />
-      </button>
-  
-      <!-- Result Section -->
-      <div
-        id="result"
-        class="text-center mt-6 text-lg sm:text-xl font-semibold text-gray-700"
-      ></div>
-    </div>
-  </div>
-  
-
-    <div id="mine-gotra" class=" bg-gold sm:px-6 lg:px-10  py-5 sm:py-5 border-t-2 border-black">
+      id="ours"
+      class="min-h-screen bg-black sm:px-6 lg:px-10 py-20 sm:py-20"
+    >
       <!-- Text Section -->
-      <div class="max-w-3xl mx-auto text-center  px-2 py-2">
-        <h2 class="text-3xl font-extrabold text-center text-gray-900 sm:text-5xl mb-8">
+      <div
+        class="max-w-3xl mx-auto text-center mt-5 px-2 flex items-center justify-center space-x-4"
+      >
+        <img
+          src="assets/icons/pandit.png"
+          alt="Pandit"
+          class="w-20 h-20 sm:w-24 sm:h-24"
+        />
+        <p
+          class="font-semibold font-sans sm:text-2xl lg:text-3xl text-gray-200 p-5"
+        >
+          Enter the details to find out if you're good to go for marriage.
+        </p>
+      </div>
+
+      <!-- Input Form Section -->
+      <div class="max-w-2xl mx-auto text-gray-200 p-6 sm:p-8 relative">
+        <!-- Your Caste Input -->
+        <label class="block mb-6 relative">
+          <span class="block text-lg sm:text-lg font-semibold text-gray-200"
+            >Your Caste</span
+          >
+          <input
+            type="text"
+            id="my-cast"
+            class="mt-2 p-4 sm:p-5 rounded-full w-full bg-black-placeholder text-gray-200 focus:ring focus:ring-blue-200 focus:outline-none"
+            placeholder="Enter your caste"
+            autocomplete="off"
+          />
+          <ul
+            id="my-cast-suggestions"
+            class="absolute z-10 bg-[#3d3d3d] border border-gray-200 rounded-lg shadow-lg w-full hidden max-h-40 overflow-y-auto"
+          ></ul>
+        </label>
+
+        <!-- Her Caste Input -->
+        <label class="block mb-6 relative">
+          <span class="block text-lg sm:text-lg font-semibold text-gray-200"
+            >LovedOne's Caste</span
+          >
+          <input
+            type="text"
+            id="her-cast"
+            class="mt-2 p-4 sm:p-5 rounded-full w-full bg-black-placeholder text-gray-200 focus:ring focus:ring-blue-200 focus:outline-none"
+            placeholder="Enter LovedOne's caste"
+            autocomplete="off"
+          />
+          <ul
+            id="her-cast-suggestions"
+            class="absolute z-10 bg-[#3d3d3d] border border-gray-200 rounded-lg shadow-lg w-full hidden max-h-40 overflow-y-auto"
+          ></ul>
+        </label>
+
+        <!-- Submit Button -->
+        <button
+          id="check-gotra"
+          class="w-full sm:w-1/2 bg-gold text-black font-bold text-2xl sm:text-3g py-3 rounded-lg hover:bg-gold-dark transition duration-300 mx-auto block"
+        >
+          Check
           <img
-        src="assets/icons/pandit.png"
-        alt="Pandit"
-        class="w-20 h-20 sm:w-24 sm:h-24 inline-block mr-2"
-      />Check My Gotra
+            src="assets/icons/right-arrow.svg"
+            alt="arrow"
+            class="inline-block w-10 h-10 ml-2"
+          />
+        </button>
+
+        <!-- Result Section -->
+        <div
+          id="result"
+          class="text-center mt-6 text-lg sm:text-xl font-semibold text-gray-700"
+        ></div>
+      </div>
+    </div>
+
+    <div
+      id="mine-gotra"
+      class="bg-gold sm:px-6 lg:px-10 py-5 sm:py-5 border-t-2 border-black"
+    >
+      <!-- Text Section -->
+      <div class="max-w-3xl mx-auto text-center px-2 py-2">
+        <h2
+          class="text-3xl font-extrabold text-center text-gray-900 sm:text-5xl mb-8"
+        >
+          <img
+            src="assets/icons/pandit.png"
+            alt="Pandit"
+            class="w-20 h-20 sm:w-24 sm:h-24 inline-block mr-2"
+          />Check My Gotra
         </h2>
       </div>
-    
+
       <!-- Input Form Section -->
-      <div class="max-w-2xl mx-auto  text-gray-200  p-4 sm:p-5">
+      <div class="max-w-2xl mx-auto text-gray-200 p-4 sm:p-5">
         <!-- Caste Input -->
         <label class="block mb-6 relative">
-          <span class="block text-lg sm:text-2xl font-semibold text-black">Your Caste</span>
+          <span class="block text-lg sm:text-2xl font-semibold text-black"
+            >Your Caste</span
+          >
           <input
             type="text"
             id="mine-caste"
@@ -271,368 +283,285 @@ placeholder:"#262626"
             class="absolute z-10 bg-[#3d3d3d] border border-gray-200 rounded-lg shadow-lg w-full hidden max-h-40 overflow-y-auto"
           ></ul>
         </label>
-    
+
         <div
           id="result-mine"
           class="text-center mt-6 text-lg sm:text-xl font-semibold text-gray-700"
         ></div>
       </div>
       <div class="gotra-table-container">
-      <table id="gotra-table" border="1">
-        <thead>
-          <tr>
-            <th>Gotra</th>
-            <th>Caste</th>
-          </tr>
-        </thead>
-        <tbody>
-          <!-- Rows will be dynamically generated here -->
-        </tbody>
-      </table>
-    </div>
- </div>
-
-<!--Quiz Section-->
-<div id="quiz" class="max-w-lg bg-gold mx-auto p-4  shadow rounded">
-  <h2>Lets Play Some Quiz</h2>
-  <div id="question" class="text-lg font-bold mb-4"></div>
-  <div id="options" class="flex flex-col space-y-2"></div>
-  <div id="score" class="mt-4 font-semibold"></div>
-  <button id="reset" class="mt-4 px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-600">Reset Game</button>
-  <button id="play-again" class="mt-4 px-4 py-2 bg-green-500 text-white rounded hover:bg-green-600 hidden">
-    Play Again
-  </button>
-  <div id="history" class="scrollable mt-4 bg-gray-50 rounded"></div>
-</div>
-    
-    
-    
-
-<!-- Learn Section -->
-<div id="learn" class="bg-gold border-t-2 border-black py-16 px-4 sm:px-6 lg:px-8">
-  <div class="max-w-7xl mx-auto">
-    <h2 class="text-3xl font-extrabold text-center text-gray-900 sm:text-5xl mb-8">
-      <img
-      src="assets/icons/pandit.png"
-      alt="Pandit"
-      class="w-20 h-20 sm:w-24 sm:h-24 inline-block mr-2"
-    />Learn About Gotra
-    </h2>
-    <p class="text-lg text-gray-900 text-center max-w-3xl mx-auto mb-12">
-      Gotra is an integral part of Hindu culture, representing the lineage or ancestry
-      traced back to ancient sages. It plays a significant role in marriage compatibility
-      and preserving family traditions. Explore more below.
-    </p>
-
-    <!-- Back Button -->
-    <button id="back-btn" class="hidden px-6 py-2 mb-2 bg-red-500 text-white font-semibold rounded-lg shadow-lg transform transition duration-300 hover:bg-red-600 hover:shadow-xl focus:outline-none">
-      Back
-    </button>
-
-    <!-- Content Cards -->
-    <div id="cards-container" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
-      <!-- Card 1 -->
-      <div class="card bg-gray-200 shadow-lg rounded-2xl p-6">
-        <h3 class="text-2xl font-bold text-gray-800 mb-4">What is Gotra?</h3>
-        <p class="text-gray-600">
-          Gotra refers to a clan system that identifies families of common ancestry
-          originating from ancient sages. It connects individuals to their spiritual
-          lineage and acts as a guiding principle in Hindu culture.
-        </p>
-        <button class="read-more-btn mt-4 px-6 py-2 bg-gradient-to-r from-blue-500 to-purple-600 text-white font-semibold rounded-full shadow-lg transform transition duration-300 hover:shadow-xl focus:outline-none">
-          Read More
-        </button>
-        <div class="card-details hidden">
-          <p class="text-gray-700 mt-4">
-            Gotra serves as a significant cultural and spiritual marker, connecting
-            individuals to their ancestral lineage and reinforcing their identity in
-            Hindu traditions.
-          </p>
-        </div>
+        <table id="gotra-table" border="1">
+          <thead>
+            <tr>
+              <th>Gotra</th>
+              <th>Caste</th>
+            </tr>
+          </thead>
+          <tbody>
+            <!-- Rows will be dynamically generated here -->
+          </tbody>
+        </table>
       </div>
-
-      <!-- Card 2 -->
-      <div class="card bg-gray-200 shadow-lg rounded-2xl p-6">
-        <h3 class="text-2xl font-bold text-gray-800 mb-4">Significance in Marriages</h3>
-        <p class="text-gray-600">
-          Traditionally, marriage between individuals of the same Gotra is avoided to
-          preserve genetic diversity and honor ancestral wisdom. This practice reinforces
-          cultural harmony and family bonds.
-        </p>
-        <button class="read-more-btn mt-4 px-6 py-2 bg-gradient-to-r from-blue-500 to-purple-600 text-white font-semibold rounded-full shadow-lg transform transition duration-300 hover:shadow-xl focus:outline-none">
-          Read More
-        </button>
-        <div class="card-details hidden">
-          <p class="text-gray-700 mt-4">
-            Avoiding marriage within the same Gotra is based on ancient wisdom to ensure
-            healthy genetics and honor the lineage of great sages.
-          </p>
-        </div>
-      </div>
-
-      <!-- Card 3 -->
-      <div class="card bg-gray-200 shadow-lg rounded-2xl p-6">
-        <h3 class="text-2xl font-bold text-gray-800 mb-4">Origin of Gotras</h3>
-        <p class="text-gray-600">
-          Gotras originated from the ancient sages or Rishis who were considered the
-          spiritual ancestors of different clans. The tradition has been passed down
-          through generations.
-        </p>
-        <button class="read-more-btn mt-4 px-6 py-2 bg-gradient-to-r from-blue-500 to-purple-600 text-white font-semibold rounded-full shadow-lg transform transition duration-300 hover:shadow-xl focus:outline-none">
-          Read More
-        </button>
-        <div class="card-details hidden">
-          <p class="text-gray-700 mt-4">
-            The lineage of Gotras traces back to the Saptarishis, the seven great sages
-            who laid the foundation for many ancient traditions and spiritual teachings.
-          </p>
-        </div>
-      </div>
-
-      <!-- Card 4 -->
-      <div class="card bg-gray-200 shadow-lg rounded-2xl p-6">
-        <h3 class="text-2xl font-bold text-gray-800 mb-4">Gotra in Modern Society</h3>
-        <p class="text-gray-600">
-          While Gotras were primarily used in ancient times to preserve spiritual and
-          familial lineage, their relevance continues in modern society for cultural and
-          traditional purposes.
-        </p>
-        <button class="read-more-btn mt-4 px-6 py-2 bg-gradient-to-r from-blue-500 to-purple-600 text-white font-semibold rounded-full shadow-lg transform transition duration-300 hover:shadow-xl focus:outline-none">
-          Read More
-        </button>
-        <div class="card-details hidden">
-          <p class="text-gray-700 mt-4">
-            Modern society respects Gotra traditions while adapting them to current
-            cultural and social contexts, maintaining a balance between tradition and
-            modernity.
-          </p>
-        </div>
-      </div>
-
-      <!-- Card 5 -->
-      <div class="card bg-gray-200 shadow-lg rounded-2xl p-6">
-        <h3 class="text-2xl font-bold text-gray-800 mb-4">Gotra and Genetics</h3>
-        <p class="text-gray-600">
-          Avoiding marriage within the same Gotra is believed to reduce the likelihood of
-          genetic disorders and strengthen genetic diversity among families.
-        </p>
-        <button class="read-more-btn mt-4 px-6 py-2 bg-gradient-to-r from-blue-500 to-purple-600 text-white font-semibold rounded-full shadow-lg transform transition duration-300 hover:shadow-xl focus:outline-none">
-          Read More
-        </button>
-        <div class="card-details hidden">
-          <p class="text-gray-700 mt-4">
-            Scientific research has found that maintaining genetic diversity has numerous
-            health benefits and reinforces the wisdom behind the Gotra system.
-          </p>
-        </div>
-      </div>
-      <!-- Card 6 -->
-<div class="card bg-gray-200 shadow-lg rounded-2xl p-6">
-  <h3 class="text-2xl font-bold text-gray-800 mb-4">Gotra and Rituals</h3>
-  <p class="text-gray-600">
-    Gotra plays an essential role in Hindu rituals, honoring ancestors and invoking blessings.
-  </p>
-  <button class="read-more-btn mt-4 px-6 py-2 bg-gradient-to-r from-blue-500 to-purple-600 text-white font-semibold rounded-full shadow-lg transform transition duration-300 hover:shadow-xl focus:outline-none">
-    Read More
-  </button>
-  <div class="card-details hidden">
-    <p class="text-gray-700 mt-4">
-      Rituals like Upanayana and Shraddha emphasize ancestral connections, showing respect for family heritage and ensuring cultural continuity.
-    </p>
-  </div>
-</div>
-
-<!-- Card 7 -->
-<div class="card bg-gray-200 shadow-lg rounded-2xl p-6">
-  <h3 class="text-2xl font-bold text-gray-800 mb-4">Gotra and Naming Conventions</h3>
-  <p class="text-gray-600">
-    Names in Hindu culture often reflect Gotra, connecting individuals to their spiritual heritage.
-  </p>
-  <button class="read-more-btn mt-4 px-6 py-2 bg-gradient-to-r from-blue-500 to-purple-600 text-white font-semibold rounded-full shadow-lg transform transition duration-300 hover:shadow-xl focus:outline-none">
-    Read More
-  </button>
-  <div class="card-details hidden">
-    <p class="text-gray-700 mt-4">
-      Naming practices honor sages and traditions, reflecting the lineage and spiritual legacy within the family.
-    </p>
-  </div>
-</div>
-
-<!-- Card 8 -->
-<div class="card bg-gray-200 shadow-lg rounded-2xl p-6">
-  <h3 class="text-2xl font-bold text-gray-800 mb-4">Gotra in Modern Times</h3>
-  <p class="text-gray-600">
-    Despite being ancient, Gotra remains relevant in modern society, influencing marriage and cultural practices.
-  </p>
-  <button class="read-more-btn mt-4 px-6 py-2 bg-gradient-to-r from-blue-500 to-purple-600 text-white font-semibold rounded-full shadow-lg transform transition duration-300 hover:shadow-xl focus:outline-none">
-    Read More
-  </button>
-  <div class="card-details hidden">
-    <p class="text-gray-700 mt-4">
-      Today, Gotra symbolizes cultural heritage and is often incorporated into family traditions and social norms.
-    </p>
-  </div>
-</div>
-
-<!-- Card 9 -->
-<div class="card bg-gray-200 shadow-lg rounded-2xl p-6">
-  <h3 class="text-2xl font-bold text-gray-800 mb-4">Gotra and Spiritual Practices</h3>
-  <p class="text-gray-600">
-    Mentioning Gotra in prayers and rituals helps connect individuals to their ancestral lineage.
-  </p>
-  <button class="read-more-btn mt-4 px-6 py-2 bg-gradient-to-r from-blue-500 to-purple-600 text-white font-semibold rounded-full shadow-lg transform transition duration-300 hover:shadow-xl focus:outline-none">
-    Read More
-  </button>
-  <div class="card-details hidden">
-    <p class="text-gray-700 mt-4">
-      This practice reinforces spiritual identity and acknowledges the contributions of ancestral sages in guiding family traditions.
-    </p>
-  </div>
-</div>
-
-<!-- Card 10 -->
-<div class="card bg-gray-200 shadow-lg rounded-2xl p-6">
-  <h3 class="text-2xl font-bold text-gray-800 mb-4">Gotra and Community Unity</h3>
-  <p class="text-gray-600">
-    Gotra fosters a sense of unity and shared values within families and communities, strengthening bonds.
-  </p>
-  <button class="read-more-btn mt-4 px-6 py-2 bg-gradient-to-r from-blue-500 to-purple-600 text-white font-semibold rounded-full shadow-lg transform transition duration-300 hover:shadow-xl focus:outline-none">
-    Read More
-  </button>
-  <div class="card-details hidden">
-    <p class="text-gray-700 mt-4">
-      By sharing a common lineage, Gotra emphasizes collective identity and collaboration among families.
-    </p>
-  </div>
-</div>
-
-
-      
-    </div>
-  </div>
-</div>
-
-
-<!--About Section-->
-<div id="about" class="bg-black py-12 px-2 sm:px-6 lg:px-8">
-  <div class="max-w-7xl mx-auto grid  sm:grid-cols-2 lg:grid-cols-2 xl:grid-cols-2">
-
-    <!-- Motto Section -->
-    <div class="p-6 bg-black  mb-10">
-      <h2 class="text-3xl text-2xl sm:text-3xl font-bold text-gray-200 mb-4"> <img
-        src="assets/icons/pandit.png"
-        alt="Pandit"
-        class="w-20 h-20 sm:w-24 sm:h-24 inline-block mr-2"
-      />Our Motto</h2>
-      <p class="text-base sm:text-lg text-gray-200 leading-relaxed">
-        " Bringing tradition closer to you, weaving the threads of culture and heritage with love. Simplifying Gotra matching to honor the bonds of family and community while celebrating the beauty of age-old customs. 
-        Let us cherish our roots, embrace tradition, and build bridges of understanding for generations to come. "      </p>
     </div>
 
-    <!-- Feedback Form -->
-    <div class="p-6 bg-black   mb-10">
-      <h2 class="text-2xl sm:text-3xl font-bold text-gray-200 mb-4">Feedback</h2>
-      <form id="feedbackForm" class="space-y-4">
-        <!-- Name -->
-        <div>
-          <label for="name" class="block text-m font-medium text-gray-200 mb-2">Your Name</label>
-          <input
-            type="text"
-            id="name"
-            class="w-full text-white bg-black-placeholder  rounded-lg px-4 py-4 focus:ring-2 focus:ring-[#ffc72b] focus:outline-none"
-            placeholder="Enter your name"
-          />
-        </div>
-  
-        <!-- Email -->
-        <div>
-          <label for="email" class="block text-m font-medium text-gray-200 mb-2">Your Email</label>
-          <input
-            type="email"
-            id="email"
-            class="w-full text-white bg-black-placeholder  rounded-lg px-4 py-4 focus:ring-2 focus:ring-[#ffc72b] focus:outline-none"
-            placeholder="Enter your email"
-          />
-        </div>
-  
-        <!-- Subject -->
-        <div>
-          <label for="subject" class="block text-m font-medium text-gray-200 mb-2">Subject</label>
-          <input
-            type="text"
-            id="subject"
-            class="w-full text-white bg-black-placeholder rounded-lg px-4 py-4 focus:ring-2 focus:ring-[#ffc72b] focus:outline-none"
-            placeholder="Enter the subject"
-          />
-        </div>
-  
-        <!-- Feedback -->
-        <div>
-          <label for="feedback" class="block text-m font-medium text-gray-200 mb-2">Your Feedback</label>
-          <textarea
-            id="feedback"
-            rows="3"
-            class="w-full text-white bg-black-placeholder  rounded-lg px-4 py-2 focus:ring-2 focus:ring-[#ffc72b] focus:outline-none"
-            placeholder="Write your feedback"
-          ></textarea>
-        </div>
-  
-        <!-- Submit Button -->
-        <button
-          type="submit"
-          class="bg-gold text-black font-semibold px-6 py-2 rounded-lg hover:bg-gold-hover transition"
+    <!--Quiz Section-->
+    <div
+      id="quiz"
+      class="flex flex-col sm:flex-row justify-between items-center gap-6 bg-gold mx-auto p-6  shadow-xl border-t border-black"
+    >
+      <!-- Quiz Section -->
+      <div class="quiz-play w-full sm:w-1/2">
+        <!-- Title -->
+        <h2
+          class="text-3xl sm:text-4xl font-extrabold text-center text-gray-900 mb-6"
         >
-          Submit
-        </button>
-      </form>
+          <img
+            src="assets/icons/pandit.png"
+            alt="Pandit"
+            class="w-20 h-20 sm:w-24 sm:h-24 inline-block mr-2"
+          />
+          Let's Play Quiz
+        </h2>
+        <!-- Question -->
+        <div
+          id="question"
+          class="text-lg sm:text-xl font-semibold text-gray-800 mb-4 px-4 sm:px-6"
+        ></div>
+        <!-- Options -->
+        <div id="options" class="flex flex-col px-4 sm:px-6 py-4"></div>
+        <!-- Score Section -->
+        <div
+          id="score"
+          class="mt-4 font-semibold text-lg sm:text-xl text-gray-800"
+        ></div>
+        <!-- Buttons -->
+        <div class="mt-6 flex flex-col sm:flex-row justify-center gap-4">
+          <button
+            id="reset"
+            class="w-auto px-6 py-3 bg-gradient-to-r from-blue-500 to-purple-600 text-white font-semibold rounded-full shadow-lg transform transition duration-300 hover:shadow-xl focus:outline-none"
+          >
+            Reset Game
+          </button>
+          <button
+            id="play-again"
+            class="w-auto px-6 py-3 bg-gradient-to-r from-blue-500 to-purple-600 text-white font-semibold rounded-full shadow-lg transform transition duration-300 hover:shadow-xl focus:outline-none hidden"
+          >
+            Play Again
+          </button>
+        </div>
       </div>
 
-
-
-    <!-- Social Media Links -->
-    <div class="p-6 bg-black mb-10">
-      <h2 class="text-2xl sm:text-3xl font-bold text-gray-200 mb-4">Follow Us</h2>
-      <div class="flex space-x-4 text-gray-200 text-3xl">
-        <a href="#" class="hover:text-blue-600 transition" aria-label="Facebook">
-          <i class="fab fa-facebook"></i>
-        </a>
-        <a href="#" class="hover:text-blue-400 transition" aria-label="Twitter">
-          <i class="fab fa-twitter"></i>
-        </a>
-        <a href="#" class="hover:text-pink-600 transition" aria-label="Instagram">
-          <i class="fab fa-instagram"></i>
-        </a>
-        <a href="#" class="hover:text-red-600 transition" aria-label="YouTube">
-          <i class="fab fa-youtube"></i>
-        </a>
-      </div>
+      <!-- History Section -->
+      <div
+        id="history"
+        class="scrollable w-full sm:w-1/2  rounded-lg border-gold max-h-80 overflow-y-auto mt-6 sm:mt-2"
+      ></div>
     </div>
 
-    <!-- Rating Section -->
-    <div class="p-6 bg-black  mb-10">
-      <h2 class="text-2xl sm:text-3xl font-bold text-gray-200 mb-4">Rate Us</h2>
-      <div class="flex items-center space-x-2 text-yellow-400 text-3xl">
-        <!-- Stars -->
-        <button onclick="rate(1)" class="focus:outline-none" aria-label="Rate 1">
-          <i class="fas fa-star" id="star1"></i>
+    <!-- Learn Section -->
+    <div id="learn" class="bg-gold border-t-2 border-black py-16 px-4 sm:px-6 lg:px-8">
+      <div class="max-w-7xl mx-auto">
+        <h2 class="text-3xl font-extrabold text-center text-gray-900 sm:text-5xl mb-8">
+          <img src="assets/icons/pandit.png" alt="Pandit" class="w-20 h-20 sm:w-24 sm:h-24 inline-block mr-2" />
+          Learn About Gotra
+        </h2>
+        <p class="text-lg text-gray-900 text-center max-w-3xl mx-auto mb-12">
+          Gotra is an integral part of Hindu culture, representing the lineage or ancestry traced back to ancient sages. It plays a significant role in marriage compatibility and preserving family traditions. Explore more below.
+        </p>
+        <button id="back-btn" class="hidden px-6 py-2 mb-2 bg-red-500 text-white font-semibold rounded-lg shadow-lg transform transition duration-300 hover:bg-red-600 hover:shadow-xl focus:outline-none">
+          Back
         </button>
-        <button onclick="rate(2)" class="focus:outline-none" aria-label="Rate 2">
-          <i class="fas fa-star" id="star2"></i>
-        </button>
-        <button onclick="rate(3)" class="focus:outline-none" aria-label="Rate 3">
-          <i class="fas fa-star" id="star3"></i>
-        </button>
-        <button onclick="rate(4)" class="focus:outline-none" aria-label="Rate 4">
-          <i class="fas fa-star" id="star4"></i>
-        </button>
-        <button onclick="rate(5)" class="focus:outline-none" aria-label="Rate 5">
-          <i class="far fa-star" id="star5"></i>
-        </button>
+        <div id="cards-container" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+          <!-- Cards will be dynamically inserted here -->
+        </div>
       </div>
-      <p id="rating-feedback" class="mt-3 text-gray-600"></p>
     </div>
-  </div>
-</div>
+    
 
- </body>
+    <!--About Section-->
+    <div id="about" class="bg-black py-12 px-2 sm:px-6 lg:px-8">
+      <div
+        class="max-w-7xl mx-auto grid sm:grid-cols-2 lg:grid-cols-2 xl:grid-cols-2"
+      >
+        <!-- Motto Section -->
+        <div class="p-6 bg-black mb-10">
+          <h2
+            class="text-3xl text-2xl sm:text-3xl font-bold text-gray-200 mb-4"
+          >
+            <img
+              src="assets/icons/pandit.png"
+              alt="Pandit"
+              class="w-20 h-20 sm:w-24 sm:h-24 inline-block mr-2"
+            />Our Motto
+          </h2>
+          <p class="text-base sm:text-lg text-gray-200 leading-relaxed">
+            " Bringing tradition closer to you, weaving the threads of culture
+            and heritage with love. Simplifying Gotra matching to honor the
+            bonds of family and community while celebrating the beauty of
+            age-old customs. Let us cherish our roots, embrace tradition, and
+            build bridges of understanding for generations to come. "
+          </p>
+        </div>
+
+        <!-- Feedback Form -->
+        <div class="p-6 bg-black mb-10">
+          <h2 class="text-2xl sm:text-3xl font-bold text-gray-200 mb-4">
+            Feedback
+          </h2>
+          <form id="feedbackForm" class="space-y-4">
+            <!-- Name -->
+            <div>
+              <label
+                for="name"
+                class="block text-m font-medium text-gray-200 mb-2"
+                >Your Name</label
+              >
+              <input
+                type="text"
+                id="name"
+                class="w-full text-white bg-black-placeholder rounded-lg px-4 py-4 focus:ring-2 focus:ring-[#ffc72b] focus:outline-none"
+                placeholder="Enter your name"
+              />
+            </div>
+
+            <!-- Email -->
+            <div>
+              <label
+                for="email"
+                class="block text-m font-medium text-gray-200 mb-2"
+                >Your Email</label
+              >
+              <input
+                type="email"
+                id="email"
+                class="w-full text-white bg-black-placeholder rounded-lg px-4 py-4 focus:ring-2 focus:ring-[#ffc72b] focus:outline-none"
+                placeholder="Enter your email"
+              />
+            </div>
+
+            <!-- Subject -->
+            <div>
+              <label
+                for="subject"
+                class="block text-m font-medium text-gray-200 mb-2"
+                >Subject</label
+              >
+              <input
+                type="text"
+                id="subject"
+                class="w-full text-white bg-black-placeholder rounded-lg px-4 py-4 focus:ring-2 focus:ring-[#ffc72b] focus:outline-none"
+                placeholder="Enter the subject"
+              />
+            </div>
+
+            <!-- Feedback -->
+            <div>
+              <label
+                for="feedback"
+                class="block text-m font-medium text-gray-200 mb-2"
+                >Your Feedback</label
+              >
+              <textarea
+                id="feedback"
+                rows="3"
+                class="w-full text-white bg-black-placeholder rounded-lg px-4 py-2 focus:ring-2 focus:ring-[#ffc72b] focus:outline-none"
+                placeholder="Write your feedback"
+              ></textarea>
+            </div>
+
+            <!-- Submit Button -->
+            <button
+              type="submit"
+              class="bg-gold text-black font-semibold px-6 py-2 rounded-lg hover:bg-gold-hover transition"
+            >
+              Submit
+            </button>
+          </form>
+        </div>
+
+        <!-- Social Media Links -->
+        <div class="p-6 bg-black mb-10">
+          <h2 class="text-2xl sm:text-3xl font-bold text-gray-200 mb-4">
+            Follow Us
+          </h2>
+          <div class="flex space-x-4 text-gray-200 text-3xl">
+            <a
+              href="#"
+              class="hover:text-blue-600 transition"
+              aria-label="Facebook"
+            >
+              <i class="fab fa-facebook"></i>
+            </a>
+            <a
+              href="#"
+              class="hover:text-blue-400 transition"
+              aria-label="Twitter"
+            >
+              <i class="fab fa-twitter"></i>
+            </a>
+            <a
+              href="#"
+              class="hover:text-pink-600 transition"
+              aria-label="Instagram"
+            >
+              <i class="fab fa-instagram"></i>
+            </a>
+            <a
+              href="#"
+              class="hover:text-red-600 transition"
+              aria-label="YouTube"
+            >
+              <i class="fab fa-youtube"></i>
+            </a>
+          </div>
+        </div>
+
+        <!-- Rating Section -->
+        <div class="p-6 bg-black mb-10">
+          <h2 class="text-2xl sm:text-3xl font-bold text-gray-200 mb-4">
+            Rate Us
+          </h2>
+          <div class="flex items-center space-x-2 text-yellow-400 text-3xl">
+            <!-- Stars -->
+            <button
+              onclick="rate(1)"
+              class="focus:outline-none"
+              aria-label="Rate 1"
+            >
+              <i class="fas fa-star" id="star1"></i>
+            </button>
+            <button
+              onclick="rate(2)"
+              class="focus:outline-none"
+              aria-label="Rate 2"
+            >
+              <i class="fas fa-star" id="star2"></i>
+            </button>
+            <button
+              onclick="rate(3)"
+              class="focus:outline-none"
+              aria-label="Rate 3"
+            >
+              <i class="fas fa-star" id="star3"></i>
+            </button>
+            <button
+              onclick="rate(4)"
+              class="focus:outline-none"
+              aria-label="Rate 4"
+            >
+              <i class="fas fa-star" id="star4"></i>
+            </button>
+            <button
+              onclick="rate(5)"
+              class="focus:outline-none"
+              aria-label="Rate 5"
+            >
+              <i class="far fa-star" id="star5"></i>
+            </button>
+          </div>
+          <p id="rating-feedback" class="mt-3 text-gray-600"></p>
+        </div>
+      </div>
+    </div>
+  </body>
 </html>
