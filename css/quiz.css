@@ -7,10 +7,11 @@
 }
 
 .correct {
-  background-color: #38a169; /* Tailwind Green */
+  background-color: #1de04e !important;
   color: white;
 }
 
 .incorrect {
-  background-color: #e53e3e; /* Tailwind Red */
-  color: white;}
+  background-color: rgb(255, 39, 39) !important;
+  color: white;
+}

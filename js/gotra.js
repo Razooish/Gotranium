@@ -1,4 +1,4 @@
- const gotraData = {
+const gotraData = {
   Agasti: {
     gotraName: "अगस्ती",
     castes: ["Dhungel"],
@@ -487,22 +487,20 @@ function handleAnswer(selectedOption, buttonElement) {
   const correctAnswer = currentQuestion.castes[0];
   const audio = new Audio(); // Create an audio element
 
-  // Highlight correct and incorrect answers
+  // Remove previous selection styles
   Array.from(optionsDiv.children).forEach((btn) => {
-    if (btn.innerText === correctAnswer) {
-      btn.classList.add("correct");
-    } else if (btn.innerText === selectedOption) {
-      btn.classList.add("incorrect");
-    }
+    btn.classList.remove("correct", "incorrect");
   });
 
-  // Play correct or incorrect sound
+  // Apply correct/incorrect class only to the selected option
   if (selectedOption === correctAnswer) {
     score++;
     scoreDiv.innerText = `Correct! Score: ${score}`;
+    buttonElement.classList.add("correct"); // Green background for correct answer
     audio.src = "assets/audio/correct.mp3"; // Correct answer sound
   } else {
     scoreDiv.innerText = `Wrong! Score: ${score}`;
+    buttonElement.classList.add("incorrect"); // Red background for incorrect answer
     audio.src = "assets/audio/incorrect.mp3"; // Incorrect answer sound
   }
 
@@ -510,7 +508,7 @@ function handleAnswer(selectedOption, buttonElement) {
 
   // Add to history
   const historyItem = document.createElement("div");
-  historyItem.className = "p-2 border-b border-gray-200 bg-gold-light";
+  historyItem.className = "p-2 border-b border-gray-500 bg-gold-light";
   historyItem.innerHTML = `
     <div><strong>Q:</strong> Which caste belongs to Gotra "${currentQuestion.gotraName}"?</div>
     <div><strong>Correct:</strong> <span class="text-green-600">${correctAnswer}</span></div>
