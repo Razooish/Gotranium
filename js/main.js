@@ -16,9 +16,20 @@ menuClose.addEventListener("click", () => {
 document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
   anchor.addEventListener("click", function (e) {
     e.preventDefault();
-    document.querySelector(this.getAttribute("href")).scrollIntoView({
+    const targetElement = document.querySelector(this.getAttribute("href"));
+    const headerOffset = 70; // Adjust this based on your navbar height
+
+    const elementPosition = targetElement.getBoundingClientRect().top + window.scrollY;
+    const offsetPosition = elementPosition - headerOffset;
+
+    window.scrollTo({
+      top: offsetPosition,
       behavior: "smooth",
     });
-    mobileMenu.classList.add("translate-x-full"); // Close the menu on link click (for mobile)
+
+    // Close the mobile menu
+    mobileMenu.classList.add("translate-x-full");
   });
 });
+
+
