@@ -252,6 +252,7 @@
     ],
   },
 };
+
 //Sabai messages yaha rakhne
 const messages={
   congratulationsText: "Congratulations! You both belong to different Gotras. You can marry each other.",
@@ -451,17 +452,23 @@ function getRandomGotra() {
 
 function generateQuestion() {
   currentQuestion = getRandomGotra();
-  const allOptions = [
-    ...currentQuestion.castes,
-    ...Object.values(gotraData)
-      .flatMap((g) => g.castes)
-      .filter((caste) => !currentQuestion.castes.includes(caste)),
-  ]
-    .sort(() => 0.5 - Math.random())
-    .slice(0, 4);
+  let incorrectOptions = Object.values(gotraData)
+    .flatMap((g) => g.castes)
+    .filter((caste) => !currentQuestion.castes.includes(caste)); // Exclude correct castes
+
+  // Shuffle incorrect options
+  incorrectOptions = incorrectOptions.sort(() => 0.5 - Math.random());
+
+  // Ensure at least one correct answer is in the options
+  const correctAnswer = currentQuestion.castes[Math.floor(Math.random() * currentQuestion.castes.length)];
+  const allOptions = [correctAnswer, ...incorrectOptions.slice(0, 3)]; // 1 correct + 3 incorrect
+
+  // Shuffle final options before displaying
+  allOptions.sort(() => 0.5 - Math.random());
 
   renderQuestion(currentQuestion.gotraName, allOptions);
 }
+
 
 function renderQuestion(gotraName, options) {
   questionDiv.innerText = `Which caste belongs to Gotra "${gotraName}"?`;
@@ -478,6 +485,7 @@ function renderQuestion(gotraName, options) {
 
 function handleAnswer(selectedOption, buttonElement) {
   const correctAnswer = currentQuestion.castes[0];
+  const audio = new Audio(); // Create an audio element
 
   // Highlight correct and incorrect answers
   Array.from(optionsDiv.children).forEach((btn) => {
@@ -487,6 +495,18 @@ function handleAnswer(selectedOption, buttonElement) {
       btn.classList.add("incorrect");
     }
   });
+
+  // Play correct or incorrect sound
+  if (selectedOption === correctAnswer) {
+    score++;
+    scoreDiv.innerText = `Correct! Score: ${score}`;
+    audio.src = "assets/audio/correct.mp3"; // Correct answer sound
+  } else {
+    scoreDiv.innerText = `Wrong! Score: ${score}`;
+    audio.src = "assets/audio/incorrect.mp3"; // Incorrect answer sound
+  }
+
+  audio.play(); // Play the selected sound
 
   // Add to history
   const historyItem = document.createElement("div");
@@ -503,21 +523,14 @@ function handleAnswer(selectedOption, buttonElement) {
   historyDiv.appendChild(historyItem);
   historyDiv.scrollTop = historyDiv.scrollHeight; // Scroll to the bottom
 
-  // Update score
-  if (currentQuestion.castes.includes(selectedOption)) {
-    score++;
-    scoreDiv.innerText = `Correct! Score: ${score}`;
-  } else {
-    scoreDiv.innerText = `Wrong! Score: ${score}`;
-  }
-
-  // Immediately move to next question (remove the delay)
+  // Move to the next question
   if (askedQuestions.length < Object.keys(gotraData).length) {
-    generateQuestion();
+    setTimeout(generateQuestion, 1000); // Delay to let audio play
   } else {
     endGame();
   }
 }
+
 
 function resetGame() {
   score = 0;
