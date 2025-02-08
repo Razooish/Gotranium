@@ -28,7 +28,7 @@ const gotraData = {
       "Aryal",
       "Bhatta (Duwadi)",
       "Devkota",
-      "Dawadi",
+      "Dawadi(Aatreya)",
       "Dulal",
       "Kalikote (Khadka)",
       "Paudel",
@@ -241,7 +241,7 @@ const gotraData = {
       "Bhatta (Tapleli)",
       "Bhattarai",
       "Chalise",
-      "Dawadi",
+      "Dawadi(Basistha)",
       "Gaire",
       "Kharel",
       "Mudabhari",
@@ -255,8 +255,8 @@ const gotraData = {
 
 //Sabai messages yaha rakhne
 const messages={
-  congratulationsText: "Congratulations! You both belong to different Gotras. You can marry each other.",
-  UnfortunatelyText: "Unfortunately, you both belong to the same Gotra. Marriage is traditionally not recommended."
+  congratulationsText: "Congratulations! You belong to different Gotras.You can marry each other.",
+  UnfortunatelyText: "Unfortunately, you both belong to the same Gotra. "
 }
 
 // Extract messages
@@ -334,53 +334,62 @@ document.getElementById("check-gotra").addEventListener("click", () => {
     // Clear previous result
     resultDiv.innerHTML = "";
 
-    // Check if any cast is not found
-    if (!myGotra || !herGotra) {
-      resultDiv.innerHTML = `
-        <img 
-          src="assets/icons/soul-emoji.svg" 
-          class="h-10 w-10 inline-block mr-2" 
-          onload="this.parentElement.querySelector('.shimmer-placeholder')?.remove()" 
-        />
-       <p> One or both casts not found in our records. Please try again.</p>
-      `;
-      resultDiv.classList.add("text-gray-300");
+    // Check if any cast is not found 
+if (!myGotra || !herGotra) {
+  resultDiv.innerHTML = `
+    <span class="flex items-center">
+      <img 
+        src="assets/icons/soul-emoji.svg" 
+        class="h-10 w-10 inline-block mr-2" 
+        onload="this.parentElement.querySelector('.shimmer-placeholder')?.remove()" 
+      />
+      <p>One or both casts not found in our records. Please try again.</p>
+    </span>
+  `;
+  resultDiv.classList.add("text-gray-300");
 
-      // Play audio for "not found"
-      audio.src = "assets/audio/error.mp3"; // Customize as per your requirement
-      audio.play();
+  // Play audio for "not found"
+  audio.src = "assets/audio/error.mp3"; 
+  audio.play();
 
-    } else if (myGotra === herGotra) {
-      resultDiv.innerHTML = `
-        <img 
-          src="assets/icons/sad-emoji.svg" 
-          class="h-10 w-10 inline-block mr-2" 
-          onload="this.parentElement.querySelector('.shimmer-placeholder')?.remove()" 
-        />
-        <p>${UnfortunatelyText}</p>
-        <p>(${myCast}-${myGotra}) | (${herCast}-${herGotra})</p>`;
-      resultDiv.classList.add("text-red-600");
+} else if (myGotra === herGotra) {
+  let sameGotra = myGotra;
+  resultDiv.innerHTML = `
+    <span class="flex items-center">
+      <img 
+        src="assets/icons/sad-emoji.svg" 
+        class="h-10 w-10 inline-block mr-2" 
+        onload="this.parentElement.querySelector('.shimmer-placeholder')?.remove()" 
+      />
+      <p>${UnfortunatelyText}</p>
+    </span>
+    <p style="color:gold">${myCast}-(${sameGotra}) | ${herCast}-(${sameGotra})</p>
+  `;
+  resultDiv.classList.add("text-red-600");
 
-      // Play audio for "same gotra"
-      audio.src = "assets/audio/lost-sound.mp3"; // Customize as per your requirement
-      audio.play();
+  // Play audio for "same gotra"
+  audio.src = "assets/audio/lost-sound.mp3"; 
+  audio.play();
 
-    } else {
-      resultDiv.innerHTML = `
-        <img 
-          src="assets/icons/happy-emoji.svg" 
-          class="h-10 w-10 inline-block mr-2" 
-          onload="this.parentElement.querySelector('.shimmer-placeholder')?.remove()" 
-        />
-       <p>${congratulationsText}</p>
-       <p>(${myCast}-${myGotra}) | (${herCast}-${herGotra})</p>
-      `;
-      resultDiv.classList.add("text-green-600");
+} else {
+  resultDiv.innerHTML = `
+    <span class="flex items-center">
+      <img 
+        src="assets/icons/happy-emoji.svg" 
+        class="h-10 w-10 inline-block mr-2" 
+        onload="this.parentElement.querySelector('.shimmer-placeholder')?.remove()" 
+      />
+      <p class="text-green-600">${congratulationsText}</p>
+    </span>
+    <p style="color:gold">${myCast}-(${myGotra}) | ${herCast}-(${herGotra})</p>
+  `;
+  resultDiv.classList.add("text-green-600");
 
-      // Play audio for "compatible"
-      audio.src = "assets/audio/win-sound.mp3"; // Customize as per your requirement
-      audio.play();
-    }
+  // Play audio for "compatible"
+  audio.src = "assets/audio/win-sound.mp3"; 
+  audio.play();
+}
+
   }, 500); // Simulate a delay of 0.5 second for loading
 });
 
@@ -550,3 +559,4 @@ playAgainBtn.onclick = resetGame;
 
 // Start the quiz
 resetGame();
+
