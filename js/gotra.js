@@ -458,9 +458,10 @@ function getRandomGotra() {
   askedQuestions.push(randomKey);
   return gotraData[randomKey];
 }
-
 function generateQuestion() {
   currentQuestion = getRandomGotra();
+
+  // Get all incorrect options
   let incorrectOptions = Object.values(gotraData)
     .flatMap((g) => g.castes)
     .filter((caste) => !currentQuestion.castes.includes(caste)); // Exclude correct castes
@@ -468,18 +469,19 @@ function generateQuestion() {
   // Shuffle incorrect options
   incorrectOptions = incorrectOptions.sort(() => 0.5 - Math.random());
 
-  // Ensure at least one correct answer is in the options
+  // Pick a correct answer from the current gotra
   const correctAnswer = currentQuestion.castes[Math.floor(Math.random() * currentQuestion.castes.length)];
-  const allOptions = [correctAnswer, ...incorrectOptions.slice(0, 3)]; // 1 correct + 3 incorrect
 
+  // Ensure the correct answer is included in the options
+  const allOptions = [correctAnswer, ...incorrectOptions.slice(0, 3)]; // 1 correct + 3 incorrect
+  
   // Shuffle final options before displaying
   allOptions.sort(() => 0.5 - Math.random());
 
-  renderQuestion(currentQuestion.gotraName, allOptions);
+  renderQuestion(currentQuestion.gotraName, allOptions, correctAnswer);
 }
 
-
-function renderQuestion(gotraName, options) {
+function renderQuestion(gotraName, options, correctAnswer) {
   questionDiv.innerText = `Which caste belongs to Gotra "${gotraName}"?`;
   optionsDiv.innerHTML = "";
 
@@ -487,13 +489,12 @@ function renderQuestion(gotraName, options) {
     const btn = document.createElement("button");
     btn.className = "px-4 py-3 bg-black hover:bg-black-light border-b border-gold rounded-lg text-white";
     btn.innerText = option;
-    btn.onclick = () => handleAnswer(option, btn);
+    btn.onclick = () => handleAnswer(option, btn, correctAnswer); // Pass correct answer to handleAnswer
     optionsDiv.appendChild(btn);
   });
 }
 
-function handleAnswer(selectedOption, buttonElement) {
-  const correctAnswer = currentQuestion.castes[0];
+function handleAnswer(selectedOption, buttonElement, correctAnswer) {
   const audio = new Audio(); // Create an audio element
 
   // Remove previous selection styles
@@ -559,4 +560,3 @@ playAgainBtn.onclick = resetGame;
 
 // Start the quiz
 resetGame();
-

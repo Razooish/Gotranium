@@ -28,6 +28,7 @@
     <script src="js/sprinkles.js" defer></script>
     <script src="js/blogs.js" defer></script>
     <script src="js/gotra.js" defer ></script>
+    <script src="js/regionToggle.js" defer></script>
     <script
       type="text/javascript"
       src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"
@@ -65,110 +66,49 @@
   <body class="bg-gold text-gray-900">
     <!-- Header Section -->
     <header class="bg-black text-gray-200 shadow fixed w-full z-50">
-      <div
-        class="container mx-auto flex justify-between items-center px-4 py-3"
-      >
+      <div class="container mx-auto flex justify-between items-center px-4 py-3">
         <!-- Logo -->
         <div class="text-2xl md:text-2xl lg:text-3xl font-bold">
           <a href="#ours" class="text-gold">GotraPidit</a>
         </div>
-
+    
+        <!-- Language Toggle -->
+        <button id="region-toggle" class="flex items-center bg-gold text-black px-4 py-2 rounded-lg mr-4">
+          <img id="flag-icon" src="assets/icons/flag-nepal.svg" alt="Nepal Flag" class="w-6 h-6 mr-2">
+          <span id="language-text">नेपाल</span>
+        </button>
+    
         <!-- Middle Navigation Links (Hidden on mobile) -->
         <nav class="hidden md:flex space-x-8">
-          <a
-            href="#ours"
-            class="text-gray-900 bg-gold font-medium py-3 px-4 rounded-lg transition duration-300 hover:bg-gold-hover hover:text-black"
-            >Check</a
-          >
-          <a
-            href="#mine-gotra"
-            class="text-gray-900 bg-gold font-medium py-3 px-4 rounded-lg transition duration-300 hover:bg-gold-hover hover:text-black"
-            >My Gotra</a
-          >
-          <a
-            href="#quiz"
-            class="text-gray-900 bg-gold font-medium py-3 px-4 rounded-lg transition duration-300 hover:bg-gold-hover hover:text-black"
-            >Quiz</a
-          >
-          <a
-            href="#learn"
-            class="text-gray-900 bg-gold font-medium py-3 px-4 rounded-lg transition duration-300 hover:bg-gold-hover hover:text-black"
-            >Learn</a
-          >
-          <a
-            href="#about"
-            class="text-gray-900 bg-gold font-medium py-3 px-4 rounded-lg transition duration-300 hover:bg-gold-hover hover:text-black"
-            >About</a
-          >
+          <a href="#ours" class="text-gray-900 bg-gold font-medium py-3 px-4 rounded-lg transition duration-300 hover:bg-gold-hover hover:text-black">Check</a>
+          <a href="#mine-gotra" class="text-gray-900 bg-gold font-medium py-3 px-4 rounded-lg transition duration-300 hover:bg-gold-hover hover:text-black">My Gotra</a>
+          <a href="#quiz" class="text-gray-900 bg-gold font-medium py-3 px-4 rounded-lg transition duration-300 hover:bg-gold-hover hover:text-black">Quiz</a>
+          <a href="#learn" class="text-gray-900 bg-gold font-medium py-3 px-4 rounded-lg transition duration-300 hover:bg-gold-hover hover:text-black">Learn</a>
+          <a href="#about" class="text-gray-900 bg-gold font-medium py-3 px-4 rounded-lg transition duration-300 hover:bg-gold-hover hover:text-black">About</a>
         </nav>
-
+    
         <!-- Mobile Menu Button -->
         <button id="menu-toggle" class="md:hidden focus:outline-none">
-          <svg
-            class="w-10 h-10 text-gray-200"
-            xmlns="http://www.w3.org/2000/svg"
-            fill="none"
-            viewBox="0 0 24 24"
-            stroke="currentColor"
-          >
-            <path
-              stroke-linecap="round"
-              stroke-linejoin="round"
-              stroke-width="2"
-              d="M4 6h16M4 12h16m-7 6h7"
-            />
+          <svg class="w-10 h-10 text-gray-200" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7" />
           </svg>
         </button>
       </div>
-
+    
       <!-- Sliding Aside Menu -->
-      <aside
-        id="mobile-menu"
-        class="fixed top-0 right-0 text-gray-200 bg-[#141414] shadow-lg w-1/2 h-full transform translate-x-full transition-transform duration-300 ease-in-out md:hidden"
-      >
+      <aside id="mobile-menu" class="fixed top-0 right-0 text-gray-200 bg-[#141414] shadow-lg w-1/2 h-full transform translate-x-full transition-transform duration-300 ease-in-out md:hidden">
         <div class="p-4">
           <button id="menu-close" class="focus:outline-none mb-4">
-            <svg
-              class="w-6 h-6 text-gray-200"
-              xmlns="http://www.w3.org/2000/svg"
-              fill="none"
-              viewBox="0 0 24 24"
-              stroke="currentColor"
-            >
-              <path
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                stroke-width="2"
-                d="M6 18L18 6M6 6l12 12"
-              />
+            <svg class="w-6 h-6 text-gray-200" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
             </svg>
           </button>
           <nav class="flex flex-col space-y-6 text-lg">
-            <a
-              href="#ours"
-              class="text-gray-900 bg-gold font-medium py-3 px-4 rounded-lg transition duration-300 hover:bg-gold-hover hover:text-black"
-              >Check</a
-            >
-            <a
-              href="#mine-gotra"
-              class="text-gray-900 bg-gold font-medium py-3 px-4 rounded-lg transition duration-300 hover:bg-gold-hover hover:text-black"
-              >My Gotra</a
-            >
-            <a
-              href="#quiz"
-              class="text-gray-900 bg-gold font-medium py-3 px-4 rounded-lg transition duration-300 hover:bg-gold-hover hover:text-black"
-              >Quiz</a
-            >
-            <a
-              href="#learn"
-              class="text-gray-900 bg-gold font-medium py-3 px-4 rounded-lg transition duration-300 hover:bg-gold-hover hover:text-black"
-              >Learn</a
-            >
-            <a
-              href="#about"
-              class="text-gray-900 bg-gold font-medium py-3 px-4 rounded-lg transition duration-300 hover:bg-gold-hover hover:text-black"
-              >About</a
-            >
+            <a href="#ours" class="text-gray-900 bg-gold font-medium py-3 px-4 rounded-lg transition duration-300 hover:bg-gold-hover hover:text-black">Check</a>
+            <a href="#mine-gotra" class="text-gray-900 bg-gold font-medium py-3 px-4 rounded-lg transition duration-300 hover:bg-gold-hover hover:text-black">My Gotra</a>
+            <a href="#quiz" class="text-gray-900 bg-gold font-medium py-3 px-4 rounded-lg transition duration-300 hover:bg-gold-hover hover:text-black">Quiz</a>
+            <a href="#learn" class="text-gray-900 bg-gold font-medium py-3 px-4 rounded-lg transition duration-300 hover:bg-gold-hover hover:text-black">Learn</a>
+            <a href="#about" class="text-gray-900 bg-gold font-medium py-3 px-4 rounded-lg transition duration-300 hover:bg-gold-hover hover:text-black">About</a>
           </nav>
         </div>
       </aside>
