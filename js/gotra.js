@@ -889,10 +889,11 @@ if (!myGotra || !herGotra) {
 });
 
 
+//================//
+// Gotra Table
+//================//
 
-//===================//
-//Gotra Table//
-//===================//
+
 // Function to generate a table from gotraData
 function generateGotraTable(data) {
   const tableBody = document.querySelector("#gotra-table tbody");
@@ -914,17 +915,46 @@ function generateGotraTable(data) {
 
     // Create Castes cell
     const castesCell = document.createElement("td");
-    castesCell.textContent = entry.castes.join(" , "); // Join castes with commas
-    row.appendChild(castesCell);
 
-    // Append the row to the table body
+    // Create a span to hold the first 10 castes
+    const casteList = document.createElement("span");
+    casteList.textContent = entry.castes.slice(0, 10).join(" , ");
+    castesCell.appendChild(casteList);
+
+    // If there are more than 10 castes, add a "Read More" button
+    if (entry.castes.length > 10) {
+      let currentCount = 10;
+      const readMoreBtn = document.createElement("button");
+      readMoreBtn.textContent = "Read More";
+      readMoreBtn.style.marginLeft = "10px";
+      readMoreBtn.style.cursor = "pointer";
+      readMoreBtn.style.border = "none";
+      readMoreBtn.style.background = "#ffc766";
+      readMoreBtn.style.color = "black";
+      readMoreBtn.style.padding = "5px 10px";
+      readMoreBtn.style.borderRadius = "5px";
+
+      readMoreBtn.addEventListener("click", () => {
+        const nextBatch = entry.castes.slice(currentCount, currentCount + 10);
+        if (nextBatch.length > 0) {
+          casteList.textContent += " , " + nextBatch.join(" , ");
+          currentCount += 10;
+        }
+        if (currentCount >= entry.castes.length) {
+          readMoreBtn.style.display = "none"; // Hide button when all castes are shown
+        }
+      });
+
+      castesCell.appendChild(readMoreBtn);
+    }
+
+    row.appendChild(castesCell);
     tableBody.appendChild(row);
   });
 }
 
 // Call the function to generate the table
 generateGotraTable(gotraData);
-
 
 
 
