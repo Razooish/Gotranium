@@ -1,14 +1,15 @@
-document.getElementById("region-toggle").addEventListener("click", function () {
-    let flagIcon = document.getElementById("flag-icon");
-    let languageText = document.getElementById("language-text");
+document.getElementById('region-toggle').addEventListener('change', function() {
+  const languageText = document.getElementById('language-text');
+  const flagNepal = document.getElementById('flag-nepal');
+  const flagIndia = document.getElementById('flag-india');
 
-    if (flagIcon.src.includes("flag-nepal.svg")) {
-      flagIcon.src = "assets/icons/flag-india.svg"; 
-      languageText.textContent = "भारत"; 
-    } else {
-      flagIcon.src = "assets/icons/flag-nepal.svg"; 
-      languageText.textContent = "नेपाल"; 
-    }
-
-    // Here you can add logic to switch the Gotra mapping based on selection
-  });
+  if (this.checked) {
+    languageText.textContent = "भारत";
+    flagNepal.classList.add('opacity-0');
+    flagIndia.classList.remove('opacity-0');
+  } else {
+    languageText.textContent = "नेपाल";
+    flagNepal.classList.remove('opacity-0');
+    flagIndia.classList.add('opacity-0');
+  }
+});

@@ -72,18 +72,27 @@
           <a href="#ours" class="text-gold">GotraPidit</a>
         </div>
     
-        <!-- Language Toggle -->
-        <button id="region-toggle" class="flex items-center bg-gold text-black px-4 py-2 rounded-lg mr-4">
-          <img id="flag-icon" src="assets/icons/flag-nepal.svg" alt="Nepal Flag" class="w-6 h-6 mr-2">
-          <span id="language-text">नेपाल</span>
-        </button>
+        <div class="flex items-center">
+          <label class="relative inline-flex items-center cursor-pointer">
+            <input type="checkbox" id="region-toggle" class="sr-only peer">
+            <div class="w-14 h-7 bg-gray-300 peer-focus:ring-2 peer-focus:ring-white dark:peer-focus:ring-white rounded-full peer dark:bg-gray-700 relative transition-all flex items-center px-1">
+              <!-- Nepal Flag (Default - Left) -->
+              <img id="flag-nepal" src="assets/icons/flag-nepal.svg" alt="Nepal Flag" class="w-5 h-5 absolute left-1 transition-all peer-checked:left-7">
+              <!-- India Flag (Hidden initially - Right) -->
+              <img id="flag-india" src="assets/icons/flag-india.svg" alt="India Flag" class="w-5 h-5 absolute right-1 opacity-0 peer-checked:opacity-100 peer-checked:left-1 transition-all">
+            </div>
+          </label>
+          <span id="language-text" class="ml-2 font-semibold">नेपाल</span>
+        </div>
+        
+        
     
         <!-- Middle Navigation Links (Hidden on mobile) -->
         <nav class="hidden md:flex space-x-8">
           <a href="#ours" class="text-gray-900 bg-gold font-medium py-3 px-4 rounded-lg transition duration-300 hover:bg-gold-hover hover:text-black">Check</a>
           <a href="#mine-gotra" class="text-gray-900 bg-gold font-medium py-3 px-4 rounded-lg transition duration-300 hover:bg-gold-hover hover:text-black">My Gotra</a>
           <a href="#quiz" class="text-gray-900 bg-gold font-medium py-3 px-4 rounded-lg transition duration-300 hover:bg-gold-hover hover:text-black">Quiz</a>
-          <a href="#learn" class="text-gray-900 bg-gold font-medium py-3 px-4 rounded-lg transition duration-300 hover:bg-gold-hover hover:text-black">Learn</a>
+          <a href="#blogs" class="text-gray-900 bg-gold font-medium py-3 px-4 rounded-lg transition duration-300 hover:bg-gold-hover hover:text-black">Blogs</a>
           <a href="#about" class="text-gray-900 bg-gold font-medium py-3 px-4 rounded-lg transition duration-300 hover:bg-gold-hover hover:text-black">About</a>
         </nav>
     
@@ -107,7 +116,7 @@
             <a href="#ours" class="text-gray-900 bg-gold font-medium py-3 px-4 rounded-lg transition duration-300 hover:bg-gold-hover hover:text-black">Check</a>
             <a href="#mine-gotra" class="text-gray-900 bg-gold font-medium py-3 px-4 rounded-lg transition duration-300 hover:bg-gold-hover hover:text-black">My Gotra</a>
             <a href="#quiz" class="text-gray-900 bg-gold font-medium py-3 px-4 rounded-lg transition duration-300 hover:bg-gold-hover hover:text-black">Quiz</a>
-            <a href="#learn" class="text-gray-900 bg-gold font-medium py-3 px-4 rounded-lg transition duration-300 hover:bg-gold-hover hover:text-black">Learn</a>
+            <a href="#blogs" class="text-gray-900 bg-gold font-medium py-3 px-4 rounded-lg transition duration-300 hover:bg-gold-hover hover:text-black">Blogs</a>
             <a href="#about" class="text-gray-900 bg-gold font-medium py-3 px-4 rounded-lg transition duration-300 hover:bg-gold-hover hover:text-black">About</a>
           </nav>
         </div>
@@ -268,7 +277,7 @@
             alt="Pandit"
             class="w-20 h-20 sm:w-24 sm:h-24 inline-block mr-2"
           />
-          Let's Play Quiz
+          Match The Gotra
         </h2>
         <!-- Question -->
         <div
@@ -306,8 +315,8 @@
       ></div>
     </div>
 
-    <!-- Learn Section -->
-    <div id="learn" class="bg-gold border-t-2 border-black py-16 px-4 sm:px-6 lg:px-8">
+    <!-- Blogs Section -->
+    <div id="blogs" class="bg-gold border-t-2 border-black py-16 px-4 sm:px-6 lg:px-8">
       <div class="max-w-7xl mx-auto">
         <h2 class="text-3xl font-extrabold text-center text-gray-900 sm:text-5xl mb-8">
           <img src="assets/icons/pandit.png" alt="Pandit" class="w-20 h-20 sm:w-24 sm:h-24 inline-block mr-2" />

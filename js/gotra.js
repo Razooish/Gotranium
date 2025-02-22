@@ -482,8 +482,10 @@ function generateQuestion() {
 }
 
 function renderQuestion(gotraName, options, correctAnswer) {
-  questionDiv.innerText = `Which caste belongs to Gotra "${gotraName}"?`;
+  questionDiv.innerText = `${gotraName}?`;
   optionsDiv.innerHTML = "";
+  questionDiv.style.fontSize = "2rem";
+  questionDiv.style.textAlign = "center";
 
   options.forEach((option) => {
     const btn = document.createElement("button");
