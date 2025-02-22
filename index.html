@@ -210,15 +210,15 @@
     >
       <!-- Text Section -->
       <div class="max-w-3xl mx-auto text-center px-2 py-2">
-        <h2
-          class="text-3xl font-extrabold text-center text-gray-900 sm:text-5xl mb-8"
-        >
+        <h2 class="text-3xl sm:text-5xl font-extrabold text-center text-gray-900 mb-8 flex flex-col items-center">
           <img
             src="assets/icons/pandit.png"
             alt="Pandit"
-            class="w-20 h-20 sm:w-24 sm:h-24 inline-block mr-2"
-          />Check My Gotra
+            class="w-20 h-20 sm:w-24 sm:h-24 mb-2"
+          />
+          Check My Gotra
         </h2>
+        
       </div>
 
       <!-- Input Form Section -->
@@ -263,22 +263,25 @@
 
     <!--Quiz Section-->
     <div
-      id="quiz"
-      class="flex flex-col sm:flex-row justify-between items-center gap-6 bg-gold mx-auto p-6  shadow-xl border-t border-black"
-    >
+    id="quiz"
+    class="flex flex-col items-center bg-gold mx-auto p-6 shadow-xl border-t border-black"
+  >
+    <!-- Centered Title Section -->
+    <div class="w-full text-center mb-6">
+      <img
+        src="assets/icons/pandit.png"
+        alt="Pandit"
+        class="w-20 h-20 sm:w-24 sm:h-24 mx-auto"
+      />
+      <h2 class="text-3xl sm:text-4xl font-extrabold text-gray-900 mt-2">
+        Match The Gotra
+      </h2>
+    </div>
+  
+    <!-- Quiz & History Section (Side by Side) -->
+    <div class="w-full flex flex-col sm:flex-row justify-between items-start gap-6">
       <!-- Quiz Section -->
       <div class="quiz-play w-full sm:w-1/2">
-        <!-- Title -->
-        <h2
-          class="text-3xl sm:text-4xl font-extrabold text-center text-gray-900 mb-6"
-        >
-          <img
-            src="assets/icons/pandit.png"
-            alt="Pandit"
-            class="w-20 h-20 sm:w-24 sm:h-24 inline-block mr-2"
-          />
-          Match The Gotra
-        </h2>
         <!-- Question -->
         <div
           id="question"
@@ -307,21 +310,24 @@
           </button>
         </div>
       </div>
-
+  
       <!-- History Section -->
       <div
         id="history"
-        class="scrollable w-full sm:w-1/2  rounded-lg border-gold max-h-80 overflow-y-auto mt-6 sm:mt-2"
+        class="scrollable w-full sm:w-1/2 rounded-lg border-gold max-h-80 overflow-y-auto"
       ></div>
     </div>
+  </div>
+  
 
     <!-- Blogs Section -->
     <div id="blogs" class="bg-gold border-t-2 border-black py-16 px-4 sm:px-6 lg:px-8">
       <div class="max-w-7xl mx-auto">
-        <h2 class="text-3xl font-extrabold text-center text-gray-900 sm:text-5xl mb-8">
-          <img src="assets/icons/pandit.png" alt="Pandit" class="w-20 h-20 sm:w-24 sm:h-24 inline-block mr-2" />
+        <h2 class="text-3xl font-extrabold text-center text-gray-900 sm:text-5xl mb-8 flex flex-col items-center">
+          <img src="assets/icons/pandit.png" alt="Pandit" class="w-20 h-20 sm:w-24 sm:h-24 mb-2" />
           Learn About Gotra
         </h2>
+        
         <p class="text-lg text-gray-900 text-center max-w-3xl mx-auto mb-12">
           Gotra is an integral part of Hindu culture, representing the lineage or ancestry traced back to ancient sages. It plays a significant role in marriage compatibility and preserving family traditions. Explore more below.
         </p>
@@ -342,15 +348,15 @@
       >
         <!-- Motto Section -->
         <div class="p-6 bg-black mb-10">
-          <h2
-            class="text-3xl text-2xl sm:text-3xl font-bold text-gray-200 mb-4"
-          >
+          <h2 class="text-2xl sm:text-3xl font-bold text-gray-200 mb-4 flex flex-col items-center">
             <img
               src="assets/icons/pandit.png"
               alt="Pandit"
-              class="w-20 h-20 sm:w-24 sm:h-24 inline-block mr-2"
-            />Our Motto
+              class="w-20 h-20 sm:w-24 sm:h-24 mb-2"
+            />
+            Our Motto
           </h2>
+          
           <p class="text-base sm:text-lg text-gray-200 leading-relaxed">
             " Bringing tradition closer to you, weaving the threads of culture
             and heritage with love. Simplifying Gotra matching to honor the
