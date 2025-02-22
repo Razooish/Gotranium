@@ -1,3 +1,4 @@
+
 const mineCasteInputField = document.getElementById("mine-caste");
 const mineCasteSuggestionBox = document.getElementById("mine-caste-suggestions");
 const mineGotraResult = document.getElementById("result-mine");
