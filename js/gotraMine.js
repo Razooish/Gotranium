@@ -38,7 +38,7 @@ function displayMineGotra(caste, gotraName) {
   mineGotraResult.innerHTML = `
     <div class="p-4 border rounded bg-gray-100">
       <p class="text-lg">
-        <strong>${caste}</strong> belongs to the <strong>${gotraName}</strong> Gotra.
+        <strong>${caste}</strong> -----> <strong>${gotraName}</strong> 
       </p>
     </div>
   `;

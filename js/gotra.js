@@ -121,7 +121,6 @@ const gotraData = {
       "Ghimire",
       "Ghodasaini",
       "Chataut",
-      "Jiya",
       "Jeevajantu/Pashupankshi",
       "Joshi (Shrestha)",
       "Jha",
@@ -288,7 +287,7 @@ const gotraData = {
       "Wagle",
       "Bimli Wagle",
       "Palikhe",
-      "Pokhrel, Pokhel (Dudh)",
+      "Pokharel (Dudh)",
       "Devkut, Devkota",
       "Niraula",
       "Pant",
@@ -397,7 +396,7 @@ const gotraData = {
       "Banjade/Bajjara/Banjara",
       "Punjari",
       "Pyakurel",
-      "Naupane, Nyaupane",
+      "Neupane, Nyaupane",
       "Pakhardhan",
       "Paneru",
       "Parajuli",
@@ -484,7 +483,7 @@ const gotraData = {
        "Dawadi(Aatreya)",
        "Dulal",
        "Kalikote (Khadka)",
-       "Paudel",
+       "Poudel",
        "Pokharel (Pani)",
        "Rosyara",
        "Sharma",
@@ -496,7 +495,7 @@ const gotraData = {
       "Wali/Oli",
       "Bhatta, Bhatta (Duwal)",
       "Pant",
-      "Dhkal",
+      "Dhakal",
       "Dulal",
       "Daini",
       "Giri (D.)",
@@ -530,9 +529,8 @@ const gotraData = {
        "Bam (Raakse Thakuri)",
        "Bhatta (Pashupat)",
        "Chapagai",
-       "Khatiwoda",
+       "Khatiwada",
        "Mishra",
-       "Khatiwada"
     ]
   },
   Krishnajani: {
@@ -856,8 +854,8 @@ if (!myGotra || !herGotra) {
       />
       <p>${UnfortunatelyText}</p>
     </span>
-    <p style="color:gold">${myCast}----------->${sameGotra}</p>
-    <p style="color:gold">${herCast}----------->${sameGotra}</p>
+    <p style="color:gold">${myCast} -----> ${sameGotra}</p>
+    <p style="color:gold">${herCast} -----> ${sameGotra}</p>
   `;
   resultDiv.classList.add("text-red-600");
 
@@ -875,8 +873,8 @@ if (!myGotra || !herGotra) {
       />
       <p class="text-green-600">${congratulationsText}</p>
     </span>
-    <p style="color:gold">${myCast}----------->${myGotra}</p>
-    <p style="color:gold">${herCast}----------->${herGotra}</p>
+    <p style="color:gold">${myCast} -----> ${myGotra}</p>
+    <p style="color:gold">${herCast} -----> ${herGotra}</p>
   `;
   resultDiv.classList.add("text-green-600");
 
@@ -933,7 +931,6 @@ function generateGotraTable(data) {
       readMoreBtn.style.color = "black";
       readMoreBtn.style.padding = "5px 10px";
       readMoreBtn.style.borderRadius = "5px";
-
       readMoreBtn.addEventListener("click", () => {
         const nextBatch = entry.castes.slice(currentCount, currentCount + 10);
         if (nextBatch.length > 0) {
