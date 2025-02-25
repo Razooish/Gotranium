@@ -64,23 +64,23 @@ cardsData.forEach((card, index) => {
   const cardElement = document.createElement("div");
   cardElement.classList.add(
     "card",
-    "bg-gray-200",
+    "bg-black",
     "shadow-lg",
     "rounded-2xl",
     "p-6",
     "transition-all",
-    "duration-300"
+    "duration-300",
   );
   cardElement.setAttribute("data-index", index);
 
   // Card Title
   const titleElement = document.createElement("h3");
-  titleElement.classList.add("text-2xl", "font-bold", "text-gray-800", "mb-4");
+  titleElement.classList.add("text-2xl", "font-bold", "text-gray-200", "mb-4");
   titleElement.innerText = card.title;
 
   // Card Description
   const descriptionElement = document.createElement("p");
-  descriptionElement.classList.add("text-gray-600");
+  descriptionElement.classList.add("text-gray-300");
   descriptionElement.innerText = card.description;
 
   // Read More Button
@@ -90,10 +90,8 @@ cardsData.forEach((card, index) => {
     "mt-4",
     "px-6",
     "py-2",
-    "bg-gradient-to-r",
-    "from-blue-500",
-    "to-purple-600",
-    "text-white",
+    "bg-gold",
+     "text-black",
     "font-semibold",
     "rounded-full",
     "shadow-lg",
@@ -109,7 +107,7 @@ cardsData.forEach((card, index) => {
   const cardDetails = document.createElement("div");
   cardDetails.classList.add("card-details", "hidden");
   const detailsElement = document.createElement("p");
-  detailsElement.classList.add("text-gray-700", "mt-4");
+  detailsElement.classList.add("text-gray-300", "mt-4");
   detailsElement.innerText = card.details;
   cardDetails.appendChild(detailsElement);
 

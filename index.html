@@ -24,7 +24,8 @@
     <script src="js/cards.js" defer></script>
     <script src="js/main.js" defer></script>
     <script src="js/rating.js" defer></script>
-    <script src="js/email.js" defer></script>
+    <script src="js/emailFeedback.js" defer></script>
+    <script src="js/emailSponsor.js" defer></script>
     <script src="js/sprinkles.js" defer></script>
     <script src="js/blogs.js" defer></script>
     <script src="js/gotra.js" defer ></script>
@@ -94,6 +95,7 @@
           <a href="#quiz" class="text-gray-900 bg-gold font-medium py-3 px-4 rounded-lg transition duration-300 hover:bg-gold-hover hover:text-black">Quiz</a>
           <a href="#blogs" class="text-gray-900 bg-gold font-medium py-3 px-4 rounded-lg transition duration-300 hover:bg-gold-hover hover:text-black">Blogs</a>
           <a href="#about" class="text-gray-900 bg-gold font-medium py-3 px-4 rounded-lg transition duration-300 hover:bg-gold-hover hover:text-black">About</a>
+          <a href="#sponsor" class="text-gray-900 bg-gold font-medium py-3 px-4 rounded-lg transition duration-300 hover:bg-gold-hover hover:text-black">Sponsor<img src="assets/icons/sponsor-mike-black-stroke.svg" alt="sponsor mike" height="30" width="30" style="display: inline; margin-left: 5px;"></a>
         </nav>
     
         <!-- Mobile Menu Button -->
@@ -118,6 +120,8 @@
             <a href="#quiz" class="text-gray-900 bg-gold font-medium py-3 px-4 rounded-lg transition duration-300 hover:bg-gold-hover hover:text-black">Quiz</a>
             <a href="#blogs" class="text-gray-900 bg-gold font-medium py-3 px-4 rounded-lg transition duration-300 hover:bg-gold-hover hover:text-black">Blogs</a>
             <a href="#about" class="text-gray-900 bg-gold font-medium py-3 px-4 rounded-lg transition duration-300 hover:bg-gold-hover hover:text-black">About</a>
+            <a href="#sponsor" class="text-gray-900 bg-gold font-medium py-3 px-4 rounded-lg transition duration-300 hover:bg-gold-hover hover:text-black">Sponsor<img src="assets/icons/sponsor-mike-black-stroke.svg" alt="sponsor mike" height="30" width="30" style="display: inline; margin-left: 5px;"></a>
+          
           </nav>
         </div>
       </aside>
@@ -339,7 +343,6 @@
         </div>
       </div>
     </div>
-    
 
     <!--About Section-->
     <div id="about" class="bg-black py-12 px-2 sm:px-6 lg:px-8">
@@ -529,5 +532,65 @@
         </div>
       </div>
     </div>
+
+<!-- Sponsor Section -->
+<div id="sponsor" class="bg-black py-12 px-2 sm:px-6 lg:px-8">
+  <div class="max-w-7xl mx-auto grid sm:grid-cols-2 lg:grid-cols-2 xl:grid-cols-2">
+    <!-- Sponsorship Information -->
+    <div class="p-6 bg-black mb-10">
+      <h2 class="text-2xl sm:text-3xl font-bold text-gray-200 mb-4 flex flex-col items-center">
+        <img src="assets/icons/sponsor-mike-gold-stroke.svg" alt="Sponsor" class="w-20 h-20 sm:w-24 sm:h-24 mb-2" />
+        Become a Sponsor
+      </h2>
+      <p class="text-base sm:text-lg text-gray-200 leading-relaxed">
+        Partner with us and get your brand featured on our platform. 
+        We provide opportunities for businesses to connect with a wider audience.
+        Fill out the sponsorship form, and we’ll get back to you shortly!
+      </p>
+    </div>
+
+    <!-- Sponsorship Form -->
+    <div class="p-6 bg-black mb-10">
+      <h2 class="text-2xl sm:text-3xl font-bold text-gray-200 mb-4">Sponsorship Inquiry</h2>
+      <form id="sponsorForm" class="space-y-4">
+        <!-- Brand Category -->
+        <div>
+          <label for="brandCategory" class="block text-m font-medium text-gray-200 mb-2">Brand Category</label>
+          <input type="text" id="brandCategory" class="w-full text-white bg-black-placeholder rounded-lg px-4 py-4 focus:ring-2 focus:ring-[#ffc72b] focus:outline-none" placeholder="e.g. Tech, Fashion, Food" />
+        </div>
+
+        <!-- Brand Name -->
+        <div>
+          <label for="brandName" class="block text-m font-medium text-gray-200 mb-2">Brand Name</label>
+          <input type="text" id="brandName" class="w-full text-white bg-black-placeholder rounded-lg px-4 py-4 focus:ring-2 focus:ring-[#ffc72b] focus:outline-none" placeholder="Enter your brand name" />
+        </div>
+
+        <!-- Email Address -->
+        <div>
+          <label for="emailAddress" class="block text-m font-medium text-gray-200 mb-2">Email Address</label>
+          <input type="email" id="emailAddress" class="w-full text-white bg-black-placeholder rounded-lg px-4 py-4 focus:ring-2 focus:ring-[#ffc72b] focus:outline-none" placeholder="Enter your email address" />
+        </div>
+
+        <!-- Contact Number -->
+        <div>
+          <label for="contactNumber" class="block text-m font-medium text-gray-200 mb-2">Contact Number</label>
+          <input type="text" id="contactNumber" class="w-full text-white bg-black-placeholder rounded-lg px-4 py-4 focus:ring-2 focus:ring-[#ffc72b] focus:outline-none" placeholder="Enter your contact number" />
+        </div>
+
+        <!-- Message Field -->
+        <div>
+          <label for="message" class="block text-m font-medium text-gray-200 mb-2">Message</label>
+          <textarea id="message" class="w-full text-white bg-black-placeholder rounded-lg px-4 py-4 focus:ring-2 focus:ring-[#ffc72b] focus:outline-none" placeholder="Tell us about your sponsorship goals, requirements, or any questions you have..." rows="4"></textarea>
+        </div>
+
+        <!-- Submit Button -->
+        <button type="submit" class="bg-gold text-black font-semibold px-6 py-2 rounded-lg hover:bg-gold-hover transition">
+          Send Inquiry
+        </button>
+      </form>
+    </div>
+  </div>
+</div>
+    
   </body>
 </html>
