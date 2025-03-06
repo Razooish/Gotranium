@@ -1,3 +1,6 @@
+//==================================//
+//       Gotra Data                 //
+//=================================//
 const gotraData = {
   Agasti: {
     gotraName: "अगस्ती",
@@ -743,22 +746,25 @@ const gotraData = {
   }
 };
 
-//Sabai messages yaha rakhne
-const messages={
-  congratulationsText: "Congratulations! You belong to different Gotras.You can marry each other.",
+//===================================//
+//               Messages             //
+//===================================//
+const messages = {
+  congratulationsText: "Congratulations! You belong to different Gotras. You can marry each other.",
   UnfortunatelyText: "Unfortunately, you both belong to the same Gotra. "
-}
+};
 
-// Extract messages
-const { congratulationsText, UnfortunatelyText } = messages;
-
-// Input fields for castes
+//===================================//
+//          Input Configuration       //
+//===================================//
 const castInputFields = [
   { input: "my-cast", suggestionBox: "my-cast-suggestions" },
   { input: "her-cast", suggestionBox: "her-cast-suggestions" },
 ];
 
-// Suggestion logic for castes
+//===================================//
+//       Caste Suggestion Logic      //
+//===================================//
 castInputFields.forEach(({ input, suggestionBox }) => {
   const inputField = document.getElementById(input);
   const suggestionBoxEl = document.getElementById(suggestionBox);
@@ -797,129 +803,124 @@ castInputFields.forEach(({ input, suggestionBox }) => {
   });
 });
 
-// Compatibility check logic
+//===================================//
+//       Compatibility Checker       //
+//===================================//
 document.getElementById("check-gotra").addEventListener("click", () => {
   const myCast = document.getElementById("my-cast").value.trim();
   const herCast = document.getElementById("her-cast").value.trim();
   const resultDiv = document.getElementById("result");
 
-  let myGotra = null,
-    herGotra = null;
+  let myGotra = null;
+  let herGotra = null;
 
   for (const [gotra, details] of Object.entries(gotraData)) {
     if (details.castes.includes(myCast)) myGotra = gotra;
     if (details.castes.includes(herCast)) herGotra = gotra;
   }
 
-  // Create an audio element
-  const audio = new Audio();
+  const audio = new Audio(); // Audio element for feedback
 
-  // Add shimmer effect as a loading placeholder
+  // Shimmer effect for loading placeholder
   resultDiv.innerHTML = `
     <div class="shimmer-placeholder h-10 w-10 rounded-full inline-block mr-2"></div>
     <span class="text-gray-300">Checking ...</span>
   `;
 
   setTimeout(() => {
-    // Clear previous result
-    resultDiv.innerHTML = "";
+    resultDiv.innerHTML = ""; // Clear previous result
 
- // Check if any cast is not found 
-// Check if any cast is not found 
-if (!myGotra || !herGotra) {
-  resultDiv.innerHTML = `
-    <span class="flex items-center">
-      <img 
-        src="assets/icons/soul-emoji.svg" 
-        class="h-10 w-10 inline-block mr-2" 
-        onload="this.parentElement.querySelector('.shimmer-placeholder')?.remove()" 
-      />   
-      <p>One or both casts not found in our records. Please try again.</p>
-    </span>
-  `;
-  resultDiv.classList.add("text-gray-300");
+    if (!myGotra || !herGotra) {
+      // Cast not found
+      resultDiv.innerHTML = `
+        <span class="flex items-center">
+          <img 
+            src="assets/icons/soul-emoji.svg" 
+            class="h-10 w-10 inline-block mr-2" 
+            onload="this.parentElement.querySelector('.shimmer-placeholder')?.remove()" 
+          />   
+          <p>One or both casts not found in our records. Please try again.</p>
+        </span>
+      `;
+      resultDiv.classList.add("text-gray-300");
+      audio.src = "assets/audio/error.mp3";
+    } else if (myGotra === herGotra) {
+      // Same Gotra
+      resultDiv.innerHTML = `
+        <span class="flex items-center">
+          <img 
+            src="assets/icons/sad-emoji.svg" 
+            class="h-10 w-10 inline-block mr-2" 
+            onload="this.parentElement.querySelector('.shimmer-placeholder')?.remove()" 
+          />
+          <p>${messages.UnfortunatelyText}</p>
+        </span>
+        <p style="color:gold">${myCast} -----> ${myGotra}</p>
+        <p style="color:gold">${herCast} -----> ${herGotra}</p>
+      `;
+      resultDiv.classList.add("text-red-600");
+      audio.src = "assets/audio/lost-sound.mp3";
+    } else {
+      // Compatible
+      resultDiv.innerHTML = `
+        <span class="flex items-center">
+          <img 
+            src="assets/icons/happy-emoji.svg" 
+            class="h-10 w-10 inline-block mr-2" 
+            onload="this.parentElement.querySelector('.shimmer-placeholder')?.remove()" 
+          />
+          <p class="text-green-600">${messages.congratulationsText}</p>
+        </span>
+        <p style="color:gold">${myCast} -----> ${myGotra}</p>
+        <p style="color:gold">${herCast} -----> ${herGotra}</p>
+      `;
+      resultDiv.classList.add("text-green-600");
+      audio.src = "assets/audio/win-sound.mp3";
+    }
 
-  // Play audio for "not found"
-  audio.src = "assets/audio/error.mp3"; 
-  audio.play();
-
-} else if (myGotra === herGotra) {
-  let sameGotra = myGotra;
-  resultDiv.innerHTML = `
-    <span class="flex items-center">
-      <img 
-        src="assets/icons/sad-emoji.svg" 
-        class="h-10 w-10 inline-block mr-2" 
-        onload="this.parentElement.querySelector('.shimmer-placeholder')?.remove()" 
-      />
-      <p>${UnfortunatelyText}</p>
-    </span>
-    <p style="color:gold">${myCast} -----> ${sameGotra}</p>
-    <p style="color:gold">${herCast} -----> ${sameGotra}</p>
-  `;
-  resultDiv.classList.add("text-red-600");
-
-  // Play audio for "same gotra"
-  audio.src = "assets/audio/lost-sound.mp3"; 
-  audio.play();
-
-} else {
-  resultDiv.innerHTML = `
-    <span class="flex items-center">
-      <img 
-        src="assets/icons/happy-emoji.svg" 
-        class="h-10 w-10 inline-block mr-2" 
-        onload="this.parentElement.querySelector('.shimmer-placeholder')?.remove()" 
-      />
-      <p class="text-green-600">${congratulationsText}</p>
-    </span>
-    <p style="color:gold">${myCast} -----> ${myGotra}</p>
-    <p style="color:gold">${herCast} -----> ${herGotra}</p>
-  `;
-  resultDiv.classList.add("text-green-600");
-
-  // Play audio for "compatible"
-  audio.src = "assets/audio/win-sound.mp3"; 
-  audio.play();
-}
-
-  }, 500); // Simulate a delay of 0.5 second for loading
+    audio.play();
+  }, 500); // Simulate loading delay
 });
 
+//===================================//
+//        Input Event Handlers       //
+//===================================//
+function capitalizeFirstLetter(event) {
+  event.target.value = event.target.value.toLowerCase().replace(/\b\w/g, (char) => char.toUpperCase());
+}
 
-//================//
-// Gotra Table
-//================//
+function handleEnterKeyPress(event) {
+  if (event.key === "Enter") {
+    document.getElementById("check-gotra").click();
+  }
+}
 
+["my-cast", "her-cast"].forEach((id) => {
+  const inputField = document.getElementById(id);
+  inputField.addEventListener("input", capitalizeFirstLetter);
+  inputField.addEventListener("keypress", handleEnterKeyPress);
+});
 
-// Function to generate a table from gotraData
+//===================================//
+//           Gotra Table            //
+//===================================//
 function generateGotraTable(data) {
   const tableBody = document.querySelector("#gotra-table tbody");
+  tableBody.innerHTML = ""; // Clear table
 
-  // Clear the table body before appending new rows
-  tableBody.innerHTML = "";
-
-  // Iterate over each key-value pair in the object
   Object.keys(data).forEach((key) => {
     const entry = data[key];
-
-    // Create a new row
     const row = document.createElement("tr");
 
-    // Create Gotra Name cell
     const gotraCell = document.createElement("td");
     gotraCell.textContent = entry.gotraName;
     row.appendChild(gotraCell);
 
-    // Create Castes cell
     const castesCell = document.createElement("td");
-
-    // Create a span to hold the first 10 castes
     const casteList = document.createElement("span");
     casteList.textContent = entry.castes.slice(0, 10).join(" , ");
     castesCell.appendChild(casteList);
 
-    // If there are more than 10 castes, add a "Read More" button
     if (entry.castes.length > 10) {
       let currentCount = 10;
       const readMoreBtn = document.createElement("button");
@@ -938,10 +939,9 @@ function generateGotraTable(data) {
           currentCount += 10;
         }
         if (currentCount >= entry.castes.length) {
-          readMoreBtn.style.display = "none"; // Hide button when all castes are shown
+          readMoreBtn.style.display = "none";
         }
       });
-
       castesCell.appendChild(readMoreBtn);
     }
 
@@ -950,16 +950,11 @@ function generateGotraTable(data) {
   });
 }
 
-// Call the function to generate the table
 generateGotraTable(gotraData);
 
-
-
-
-//===================//
-// Quiz
-// ===================//
-
+//===================================//
+//                Quiz               //
+//===================================//
 const questionDiv = document.getElementById("question");
 const optionsDiv = document.getElementById("options");
 const scoreDiv = document.getElementById("score");
@@ -982,25 +977,17 @@ function getRandomGotra() {
   askedQuestions.push(randomKey);
   return gotraData[randomKey];
 }
+
 function generateQuestion() {
   currentQuestion = getRandomGotra();
 
-  // Get all incorrect options
   let incorrectOptions = Object.values(gotraData)
     .flatMap((g) => g.castes)
-    .filter((caste) => !currentQuestion.castes.includes(caste)); // Exclude correct castes
+    .filter((caste) => !currentQuestion.castes.includes(caste))
+    .sort(() => 0.5 - Math.random());
 
-  // Shuffle incorrect options
-  incorrectOptions = incorrectOptions.sort(() => 0.5 - Math.random());
-
-  // Pick a correct answer from the current gotra
   const correctAnswer = currentQuestion.castes[Math.floor(Math.random() * currentQuestion.castes.length)];
-
-  // Ensure the correct answer is included in the options
-  const allOptions = [correctAnswer, ...incorrectOptions.slice(0, 3)]; // 1 correct + 3 incorrect
-  
-  // Shuffle final options before displaying
-  allOptions.sort(() => 0.5 - Math.random());
+  const allOptions = [correctAnswer, ...incorrectOptions.slice(0, 3)].sort(() => 0.5 - Math.random());
 
   renderQuestion(currentQuestion.gotraName, allOptions, correctAnswer);
 }
@@ -1015,56 +1002,47 @@ function renderQuestion(gotraName, options, correctAnswer) {
     const btn = document.createElement("button");
     btn.className = "px-4 py-3 bg-black hover:bg-black-light border-b border-gold rounded-lg text-white";
     btn.innerText = option;
-    btn.onclick = () => handleAnswer(option, btn, correctAnswer); // Pass correct answer to handleAnswer
+    btn.onclick = () => handleAnswer(option, btn, correctAnswer);
     optionsDiv.appendChild(btn);
   });
 }
 
 function handleAnswer(selectedOption, buttonElement, correctAnswer) {
-  const audio = new Audio(); // Create an audio element
+  const audio = new Audio();
 
-  // Remove previous selection styles
   Array.from(optionsDiv.children).forEach((btn) => {
     btn.classList.remove("correct", "incorrect");
   });
 
-  // Apply correct/incorrect class only to the selected option
   if (selectedOption === correctAnswer) {
     score++;
     scoreDiv.innerText = `Correct! Score: ${score}`;
-    buttonElement.classList.add("correct"); // Green background for correct answer
-    audio.src = "assets/audio/correct.mp3"; // Correct answer sound
+    buttonElement.classList.add("correct");
+    audio.src = "assets/audio/correct.mp3";
   } else {
     scoreDiv.innerText = `Wrong! Score: ${score}`;
-    buttonElement.classList.add("incorrect"); // Red background for incorrect answer
-    audio.src = "assets/audio/incorrect.mp3"; // Incorrect answer sound
+    buttonElement.classList.add("incorrect");
+    audio.src = "assets/audio/incorrect.mp3";
   }
 
-  audio.play(); // Play the selected sound
+  audio.play();
 
-  // Add to history
   const historyItem = document.createElement("div");
   historyItem.className = "p-2 border-b border-gray-500 bg-gold-light";
   historyItem.innerHTML = `
     <div><strong>Q:</strong> Which caste belongs to Gotra "${currentQuestion.gotraName}"?</div>
     <div><strong>Correct:</strong> <span class="text-green-600">${correctAnswer}</span></div>
-    ${
-      selectedOption !== correctAnswer
-        ? `<div><strong>Your Answer:</strong> <span class="text-red-600">${selectedOption}</span></div>`
-        : ""
-    }
+    ${selectedOption !== correctAnswer ? `<div><strong>Your Answer:</strong> <span class="text-red-600">${selectedOption}</span></div>` : ""}
   `;
   historyDiv.appendChild(historyItem);
-  historyDiv.scrollTop = historyDiv.scrollHeight; // Scroll to the bottom
+  historyDiv.scrollTop = historyDiv.scrollHeight;
 
-  // Move to the next question
   if (askedQuestions.length < Object.keys(gotraData).length) {
-    setTimeout(generateQuestion, 1000); // Delay to let audio play
+    setTimeout(generateQuestion, 1000);
   } else {
     endGame();
   }
 }
-
 
 function resetGame() {
   score = 0;
@@ -1084,5 +1062,4 @@ function endGame() {
 resetBtn.onclick = resetGame;
 playAgainBtn.onclick = resetGame;
 
-// Start the quiz
-resetGame();
+resetGame(); // Start the quiz
