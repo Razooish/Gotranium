@@ -83,7 +83,6 @@ const gotraData = {
       "Bhwami",
       "Makaju",
       "Baniya",
-      "Budhathi",
       "Budhathoki (Sodari)",
       "Bokate",
       "Bogati/Bogati",
@@ -173,7 +172,6 @@ const gotraData = {
       "Kumbhairana",
       "Pade",
       "Sahi",
-      "Budhathoki (Sodari)",
       "Thapa (Godar)"
     ]
   },
@@ -705,7 +703,7 @@ const gotraData = {
       "Baniya",
       "Bidari",
       "Bisht",
-      "Budhathoki",
+      "Budhathoki (Khaptadi)",
       "Raghuvanshi",
       "Raymajhi",
       "Jaisi (Regmi)",
