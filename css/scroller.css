@@ -1,0 +1,21 @@
+/* Width and height of the scrollbar */
+::-webkit-scrollbar {
+    width: 10px;
+    height: 10px;
+}
+
+/* Track (background of the scrollbar) */
+::-webkit-scrollbar-track {
+    background: #1a1a1a; /* Dark background for contrast */
+}
+
+/* Handle (the draggable part) */
+::-webkit-scrollbar-thumb {
+    background: linear-gradient(45deg, #E69E55, #FFCC80); /* Gold gradient */
+    border-radius: 5px;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+    background: linear-gradient(45deg, #E69E55, #FFA54F); /* Slightly darker gold on hover */
+}
