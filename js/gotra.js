@@ -916,11 +916,11 @@ function generateGotraTable(data) {
 
     const castesCell = document.createElement("td");
     const casteList = document.createElement("span");
-    casteList.textContent = entry.castes.slice(0, 10).join(" , ");
+    casteList.textContent = entry.castes.slice(0, 5).join(" , ");
     castesCell.appendChild(casteList);
 
-    if (entry.castes.length > 10) {
-      let currentCount = 10;
+    if (entry.castes.length > 5) {
+      let currentCount = 5;
       const readMoreBtn = document.createElement("button");
       readMoreBtn.textContent = "Read More";
       readMoreBtn.style.marginLeft = "10px";
@@ -934,7 +934,7 @@ function generateGotraTable(data) {
         const nextBatch = entry.castes.slice(currentCount, currentCount + 10);
         if (nextBatch.length > 0) {
           casteList.textContent += " , " + nextBatch.join(" , ");
-          currentCount += 10;
+          currentCount += 5;
         }
         if (currentCount >= entry.castes.length) {
           readMoreBtn.style.display = "none";
