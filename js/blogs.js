@@ -51,110 +51,69 @@ const cardsData = [
     details: "Since Gotra represents ancestral lineage, it brings people together who share a common history. It fosters a sense of belonging within communities, helping people connect with their extended family and maintain strong social ties. By preserving Gotra traditions, many Hindu communities maintain a shared identity and cultural harmony."
   }
 ];
+let currentIndex = 0;
 
-// Function to render cards
-function renderCards() {
-const container = document.getElementById("cards-container");
+function renderSingleCard(index) {
+  const container = document.getElementById("cards-container");
+  container.innerHTML = ""; // Clear previous
 
-// Clear existing content
-container.innerHTML = "";
+  const card = cardsData[index];
 
-// Iterate over cardsData and create each card
-cardsData.forEach((card, index) => {
   const cardElement = document.createElement("div");
   cardElement.classList.add(
-    "card",
     "bg-black",
+    "text-white",
     "shadow-lg",
     "rounded-2xl",
     "p-6",
-    "transition-all",
-    "duration-300",
+    "max-w-2xl",
+    "w-full"
   );
-  cardElement.setAttribute("data-index", index);
 
-  // Card Title
-  const titleElement = document.createElement("h3");
-  titleElement.classList.add("text-2xl", "font-bold", "text-gray-200", "mb-4");
-  titleElement.innerText = card.title;
+  const title = document.createElement("h3");
+  title.classList.add("text-2xl", "font-bold", "text-gray-200", "mb-4");
+  title.textContent = card.title;
 
-  // Card Description
-  const descriptionElement = document.createElement("p");
-  descriptionElement.classList.add("text-gray-300");
-  descriptionElement.innerText = card.description;
+  const description = document.createElement("p");
+  description.classList.add("text-gray-300", "mb-3");
+  description.textContent = card.description;
 
-  // Read More Button
-  const readMoreButton = document.createElement("button");
-  readMoreButton.classList.add(
-    "read-more-btn",
-    "mt-4",
-    "px-6",
-    "py-2",
-    "bg-gold",
-     "text-black",
-    "font-semibold",
-    "rounded-full",
-    "shadow-lg",
-    "transform",
-    "transition",
-    "duration-300",
-    "hover:shadow-xl",
-    "focus:outline-none"
-  );
-  readMoreButton.innerText = "Read More";
+  const details = document.createElement("p");
+  details.classList.add("text-gray-400");
+  details.textContent = card.details;
 
-  // Card Details (Hidden by default)
-  const cardDetails = document.createElement("div");
-  cardDetails.classList.add("card-details", "hidden");
-  const detailsElement = document.createElement("p");
-  detailsElement.classList.add("text-gray-300", "mt-4");
-  detailsElement.innerText = card.details;
-  cardDetails.appendChild(detailsElement);
+  cardElement.appendChild(title);
+  cardElement.appendChild(description);
+  cardElement.appendChild(details);
 
-  // Add click event to toggle card details and hide other cards
-  readMoreButton.addEventListener("click", () => {
-    const allCards = document.querySelectorAll(".card");
-    const isExpanded = cardElement.classList.contains("expanded");
+  container.appendChild(cardElement);
+  updateNavButtons();
+}
 
-    if (isExpanded) {
-      // Reset all cards to original state
-      allCards.forEach((c) => {
-        c.style.display = "block"; // Show all cards
-        c.style.width = ""; // Reset width
-        c.classList.remove("expanded");
-      });
-      readMoreButton.innerText = "Read More";
-      cardDetails.classList.add("hidden");
-    } else {
-      // Hide all other cards
-      allCards.forEach((c) => {
-        if (c !== cardElement) {
-          c.style.display = "none";
-        }
-      });
+function updateNavButtons() {
+  document.getElementById("prev-btn").disabled = currentIndex === 0;
+  document.getElementById("next-btn").disabled = currentIndex === cardsData.length - 1;
 
-      // Expand the clicked card
-      if (window.innerWidth > 500) {
-        cardElement.style.width = "calc(100% * 2)"; // Double the width
-        cardElement.style.margin = "auto"; // Center it
-        
-      }
-      readMoreButton.innerText = "Back";
-      cardElement.classList.add("expanded");
-      cardDetails.classList.remove("hidden");
+  document.getElementById("prev-btn").classList.toggle("opacity-50", currentIndex === 0);
+  document.getElementById("next-btn").classList.toggle("opacity-50", currentIndex === cardsData.length - 1);
+}
+
+function setupNavigation() {
+  document.getElementById("prev-btn").addEventListener("click", () => {
+    if (currentIndex > 0) {
+      currentIndex--;
+      renderSingleCard(currentIndex);
     }
   });
 
-  // Append elements to the card
-  cardElement.appendChild(titleElement);
-  cardElement.appendChild(descriptionElement);
-  cardElement.appendChild(readMoreButton);
-  cardElement.appendChild(cardDetails);
-
-  // Append the card to the container
-  container.appendChild(cardElement);
-});
+  document.getElementById("next-btn").addEventListener("click", () => {
+    if (currentIndex < cardsData.length - 1) {
+      currentIndex++;
+      renderSingleCard(currentIndex);
+    }
+  });
 }
 
-// Call renderCards function to generate the content
-renderCards();
+// Initial setup
+renderSingleCard(currentIndex);
+setupNavigation();
