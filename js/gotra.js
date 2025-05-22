@@ -19,7 +19,6 @@ const gotraData = {
     gotraName: "आंगिरस",
     castes: [
       "Sedai",
-      "Shaunak",
       "Joshi (Silain)",
       "Tandan",
       "Joshi",
