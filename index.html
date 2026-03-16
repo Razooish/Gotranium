@@ -1,10 +1,15 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>GotraCheck | Check Gotra Match for Marriage & Family Lineage</title>
-    <meta name="description" content="GotraCheck helps you check gotra compatibility for marriage, find your gotra by caste, and learn family lineage traditions in one place.">
+    <title>
+      Gotra Check – Check My Gotra by Surname | Gotra Compatibility Tool
+    </title>
+    <meta
+      name="description"
+      content="Find your Gotra by surname instantly. GotraCheck helps you find your Gotra and check marriage compatibility easily."
+    />
     <meta
       name="robots"
       content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1"
@@ -45,7 +50,7 @@
     <link rel="preconnect" href="https://cdn.jsdelivr.net" />
     <link rel="preconnect" href="https://www.googletagmanager.com" />
     <link rel="preconnect" href="https://www.clarity.ms" />
-    
+
     <link
       rel="icon"
       href="assets/icons/pandit.png"
@@ -74,7 +79,10 @@
     <script src="js/blogs.js" defer></script>
     <script src="js/gotra.js" defer></script>
     <script src="js/regionToggle.js" defer></script>
-    <script src="https://cdn.jsdelivr.net/npm/html2canvas@1.4.1/dist/html2canvas.min.js" defer></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/html2canvas@1.4.1/dist/html2canvas.min.js"
+      defer
+    ></script>
     <script
       type="text/javascript"
       src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"
@@ -173,7 +181,9 @@
       >
         <!-- Logo -->
         <div class="text-2xl md:text-2xl lg:text-3xl font-bold">
-          <a href="#ours" class="text-gold" aria-label="GotraCheck home">GotraCheck</a>
+          <a href="#ours" class="text-gold" aria-label="GotraCheck home"
+            >GotraCheck</a
+          >
         </div>
 
         <!-- Toggle Region -->
@@ -282,7 +292,10 @@
               />
             </svg>
           </button>
-          <nav class="flex flex-col space-y-6 text-lg" aria-label="Mobile Primary">
+          <nav
+            class="flex flex-col space-y-6 text-lg"
+            aria-label="Mobile Primary"
+          >
             <a
               href="#ours"
               class="text-gray-900 bg-gold font-medium py-3 px-4 rounded-lg transition duration-300 hover:bg-gold-hover hover:text-black"
@@ -324,658 +337,718 @@
     </header>
 
     <main id="main-content">
-    <!-- Ours Sections -->
-    <div
-      id="ours"
-      aria-labelledby="ours-heading"
-      class="min-h-screen bg-black sm:px-6 lg:px-10 py-20 sm:py-20"
-    >
+      <!-- Ours Sections -->
       <div
-        class="hidden sponsor-box text-[#e69e55] font-bold text-3xl text-center bg-[#1f1f1f] px-20"
+        id="ours"
+        aria-labelledby="ours-heading"
+        class="min-h-screen bg-black sm:px-6 lg:px-10 py-20 sm:py-20"
       >
-        <p>Our Sponsors</p>
-        <img
-          src="assets/images/sponsor-default.png"
-          alt="sponsor-image-banner"
-          loading="lazy"
-          decoding="async"
-          class="mx-auto h-[80px] w-full object-contain mt-5"
-        />
-      </div>
-
-      <!-- Text Section -->
-      <div
-        class="max-w-3xl mx-auto text-center mt-5 px-2 flex items-center justify-center space-x-4"
-      >
-        <img
-          src="assets/icons/pandit.png"
-          alt="GotraCheck icon"
-          class="w-20 h-20 sm:w-24 sm:h-24"
-        />
-        <h1
-          id="ours-heading"
-          class="font-semibold font-sans sm:text-2xl lg:text-3xl text-gray-200 p-5"
-        >Take a fun test to see if your Gotra matches with your partner's.
-        </h1>
-      </div>
-      <!-- Input Form Section -->
-      <div class="max-w-2xl mx-auto text-gray-200 p-6 sm:p-8 relative">
-        <!-- Your Caste Input -->
-        <label class="block mb-6 relative">
-          <span class="block text-lg sm:text-lg font-semibold text-gray-200"
-            >Your Caste</span
-          >
-          <input
-            type="text"
-            id="my-cast"
-            class="mt-2 p-4 sm:p-5 rounded-full w-full bg-black-placeholder text-gray-200 focus:ring focus:ring-blue-200 focus:outline-none"
-            placeholder="Enter your caste"
-            autocomplete="off"
-          />
-          <ul
-            id="my-cast-suggestions"
-            class="absolute z-10 bg-[#3d3d3d] border border-gray-200 rounded-lg shadow-lg w-full hidden max-h-40 overflow-y-auto"
-          ></ul>
-        </label>
-
-        <!-- Her Caste Input -->
-        <label class="block mb-6 relative">
-          <span class="block text-lg sm:text-lg font-semibold text-gray-200"
-            >LovedOne's Caste</span
-          >
-          <input
-            type="text"
-            id="her-cast"
-            class="mt-2 p-4 sm:p-5 rounded-full w-full bg-black-placeholder text-gray-200 focus:ring focus:ring-blue-200 focus:outline-none"
-            placeholder="Enter LovedOne's caste"
-            autocomplete="off"
-          />
-          <ul
-            id="her-cast-suggestions"
-            class="absolute z-10 bg-[#3d3d3d] border border-gray-200 rounded-lg shadow-lg w-full hidden max-h-40 overflow-y-auto"
-          ></ul>
-        </label>
-
-        <!-- Submit Button -->
-        <button
-          id="check-gotra"
-          class="w-full sm:w-1/2 bg-gold text-black font-bold text-2xl sm:text-3g py-3 rounded-lg hover:bg-gold-dark transition duration-300 mx-auto block"
+        <div
+          class="hidden sponsor-box text-[#e69e55] font-bold text-3xl text-center bg-[#1f1f1f] px-20"
         >
-          Check
+          <p>Our Sponsors</p>
           <img
-            src="assets/icons/right-arrow.svg"
-            alt=""
-            aria-hidden="true"
-            class="inline-block w-10 h-10 ml-2"
+            src="assets/images/sponsor-default.png"
+            alt="sponsor-image-banner"
+            loading="lazy"
+            decoding="async"
+            class="mx-auto h-[80px] w-full object-contain mt-5"
           />
-        </button>
-
-        <!-- Result Section -->
-        <div
-          id="result"
-          class="text-center mt-6 text-lg sm:text-xl font-semibold text-gray-700"
-        ></div>
-
-        <div
-          id="result-modal"
-          class="fixed inset-0 z-[100] hidden items-center justify-center bg-black/80 backdrop-blur-sm p-2 sm:p-4"
-          role="dialog"
-          aria-modal="true"
-          aria-labelledby="result-modal-title"
-        >
-          <div class="w-[92vw] sm:w-full max-w-sm md:max-w-md lg:max-w-lg max-h-[84vh] overflow-y-auto rounded-2xl bg-black border border-gold p-3 sm:p-4 lg:p-5 text-gray-200 relative shadow-2xl">
-            <button
-              id="close-result-modal"
-              class="absolute top-2.5 right-2.5 sm:top-3 sm:right-3 rounded-full bg-gold text-black w-8 h-8 sm:w-9 sm:h-9 font-bold text-base sm:text-lg leading-none hover:bg-gold-hover transition"
-              aria-label="Close result popup"
-            >
-              ×
-            </button>
-
-            <h3 id="result-modal-title" class="text-xl sm:text-2xl lg:text-3xl font-bold text-gold text-center pr-8 sm:pr-10">Match Result</h3>
-
-            <div id="result-modal-card" class="relative bg-black-placeholder p-3 sm:p-4">
-              <div class="absolute top-2 right-2 text-[10px] sm:text-xs font-semibold text-gold/90 tracking-wide">gotracheck.com</div>
-              <div id="result-modal-content" class="text-center text-lg font-semibold"></div>
-            </div>
-
-            <div class="mt-3 sm:mt-4">
-              <p class="text-center text-xs sm:text-sm text-gray-300 mb-2 sm:mb-3">Share or save this result</p>
-              <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-2 sm:gap-3">
-                <button id="share-result" data-default-label="Share" data-icon-class="fas fa-share-alt" class="w-full bg-gold text-black text-sm font-semibold px-3 py-2 rounded-lg hover:bg-gold-hover active:bg-gold-dark active:scale-[0.98] transition-all duration-75 select-none cursor-pointer"><i class="fas fa-share-alt mr-2" aria-hidden="true"></i><span>Share</span></button>
-                <button id="copy-result" data-default-label="Copy" data-icon-class="fas fa-copy" class="w-full bg-gold text-black text-sm font-semibold px-3 py-2 rounded-lg hover:bg-gold-hover active:bg-gold-dark active:scale-[0.98] transition-all duration-75 select-none cursor-pointer"><i class="fas fa-copy mr-2" aria-hidden="true"></i><span>Copy</span></button>
-                <button id="save-screenshot" data-default-label="Download" data-icon-class="fas fa-download" class="w-full bg-gold text-black text-sm font-semibold px-3 py-2 rounded-lg hover:bg-gold-hover active:bg-gold-dark active:scale-[0.98] transition-all duration-75 select-none cursor-pointer sm:col-span-2 lg:col-span-1"><i class="fas fa-download mr-2" aria-hidden="true"></i><span>Download</span></button>
-              </div>
-            </div>
-          </div>
         </div>
-      </div>
 
-      <div
-        class="hidden sponsor-box text-[#e69e55] font-bold text-3xl text-center bg-[#1f1f1f] px-20"
-      >
-        <p>Our Sponsors</p>
-        <img
-          src="assets/images/sponsor-default.png"
-          alt="sponsor-image-banner"
-          loading="lazy"
-          decoding="async"
-          class="mx-auto h-[80px] w-full object-contain mt-5"
-        />
-      </div>
-    </div>
-
-    <!-- Mine Section -->
-    <div
-      id="mine-gotra"
-      aria-labelledby="mine-gotra-heading"
-      class="bg-gold sm:px-6 lg:px-10 py-5 sm:py-5 border-t-2 border-black"
-    >
-      <!-- Text Section -->
-      <div class="max-w-3xl mx-auto text-center px-2 py-2">
-        <h2
-          id="mine-gotra-heading"
-          class="text-3xl sm:text-5xl font-extrabold text-center text-gray-900 mb-8 flex flex-col items-center"
+        <!-- Text Section -->
+        <div
+          class="max-w-3xl mx-auto text-center mt-5 px-2 flex items-center justify-center space-x-4"
         >
           <img
             src="assets/icons/pandit.png"
             alt="GotraCheck icon"
+            class="w-20 h-20 sm:w-24 sm:h-24"
+          />
+          <h1
+            id="ours-heading"
+            class="font-semibold font-sans sm:text-2xl lg:text-3xl text-gray-200 p-5"
+          >
+            Take a fun test to see if your Gotra matches with your partner's.
+          </h1>
+        </div>
+        <!-- Input Form Section -->
+        <div class="max-w-2xl mx-auto text-gray-200 p-6 sm:p-8 relative">
+          <!-- Your Caste Input -->
+          <label class="block mb-6 relative">
+            <span class="block text-lg sm:text-lg font-semibold text-gray-200"
+              >Your Caste</span
+            >
+            <input
+              type="text"
+              id="my-cast"
+              class="mt-2 p-4 sm:p-5 rounded-full w-full bg-black-placeholder text-gray-200 focus:ring focus:ring-blue-200 focus:outline-none"
+              placeholder="Enter your caste"
+              autocomplete="off"
+            />
+            <ul
+              id="my-cast-suggestions"
+              class="absolute z-10 bg-[#3d3d3d] border border-gray-200 rounded-lg shadow-lg w-full hidden max-h-40 overflow-y-auto"
+            ></ul>
+          </label>
+
+          <!-- Her Caste Input -->
+          <label class="block mb-6 relative">
+            <span class="block text-lg sm:text-lg font-semibold text-gray-200"
+              >LovedOne's Caste</span
+            >
+            <input
+              type="text"
+              id="her-cast"
+              class="mt-2 p-4 sm:p-5 rounded-full w-full bg-black-placeholder text-gray-200 focus:ring focus:ring-blue-200 focus:outline-none"
+              placeholder="Enter LovedOne's caste"
+              autocomplete="off"
+            />
+            <ul
+              id="her-cast-suggestions"
+              class="absolute z-10 bg-[#3d3d3d] border border-gray-200 rounded-lg shadow-lg w-full hidden max-h-40 overflow-y-auto"
+            ></ul>
+          </label>
+
+          <!-- Submit Button -->
+          <button
+            id="check-gotra"
+            class="w-full sm:w-1/2 bg-gold text-black font-bold text-2xl sm:text-3g py-3 rounded-lg hover:bg-gold-dark transition duration-300 mx-auto block"
+          >
+            Check
+            <img
+              src="assets/icons/right-arrow.svg"
+              alt=""
+              aria-hidden="true"
+              class="inline-block w-10 h-10 ml-2"
+            />
+          </button>
+
+          <!-- Result Section -->
+          <div
+            id="result"
+            class="text-center mt-6 text-lg sm:text-xl font-semibold text-gray-700"
+          ></div>
+
+          <div
+            id="result-modal"
+            class="fixed inset-0 z-[100] hidden items-center justify-center bg-black/80 backdrop-blur-sm p-2 sm:p-4"
+            role="dialog"
+            aria-modal="true"
+            aria-labelledby="result-modal-title"
+          >
+            <div
+              class="w-[92vw] sm:w-full max-w-sm md:max-w-md lg:max-w-lg max-h-[84vh] overflow-y-auto rounded-2xl bg-black border border-gold p-3 sm:p-4 lg:p-5 text-gray-200 relative shadow-2xl"
+            >
+              <button
+                id="close-result-modal"
+                class="absolute top-2.5 right-2.5 sm:top-3 sm:right-3 rounded-full bg-gold text-black w-8 h-8 sm:w-9 sm:h-9 font-bold text-base sm:text-lg leading-none hover:bg-gold-hover transition"
+                aria-label="Close result popup"
+              >
+                ×
+              </button>
+
+              <h3
+                id="result-modal-title"
+                class="text-xl sm:text-2xl lg:text-3xl font-bold text-gold text-center pr-8 sm:pr-10"
+              >
+                Match Result
+              </h3>
+
+              <div
+                id="result-modal-card"
+                class="relative bg-black-placeholder p-3 sm:p-4"
+              >
+                <div
+                  class="absolute top-2 right-2 text-[10px] sm:text-xs font-semibold text-gold/90 tracking-wide"
+                >
+                  gotracheck.com
+                </div>
+                <div
+                  id="result-modal-content"
+                  class="text-center text-lg font-semibold"
+                ></div>
+              </div>
+
+              <div class="mt-3 sm:mt-4">
+                <p
+                  class="text-center text-xs sm:text-sm text-gray-300 mb-2 sm:mb-3"
+                >
+                  Share or save this result
+                </p>
+                <div
+                  class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-2 sm:gap-3"
+                >
+                  <button
+                    id="share-result"
+                    data-default-label="Share"
+                    data-icon-class="fas fa-share-alt"
+                    class="w-full bg-gold text-black text-sm font-semibold px-3 py-2 rounded-lg hover:bg-gold-hover active:bg-gold-dark active:scale-[0.98] transition-all duration-75 select-none cursor-pointer"
+                  >
+                    <i class="fas fa-share-alt mr-2" aria-hidden="true"></i
+                    ><span>Share</span>
+                  </button>
+                  <button
+                    id="copy-result"
+                    data-default-label="Copy"
+                    data-icon-class="fas fa-copy"
+                    class="w-full bg-gold text-black text-sm font-semibold px-3 py-2 rounded-lg hover:bg-gold-hover active:bg-gold-dark active:scale-[0.98] transition-all duration-75 select-none cursor-pointer"
+                  >
+                    <i class="fas fa-copy mr-2" aria-hidden="true"></i
+                    ><span>Copy</span>
+                  </button>
+                  <button
+                    id="save-screenshot"
+                    data-default-label="Download"
+                    data-icon-class="fas fa-download"
+                    class="w-full bg-gold text-black text-sm font-semibold px-3 py-2 rounded-lg hover:bg-gold-hover active:bg-gold-dark active:scale-[0.98] transition-all duration-75 select-none cursor-pointer sm:col-span-2 lg:col-span-1"
+                  >
+                    <i class="fas fa-download mr-2" aria-hidden="true"></i
+                    ><span>Download</span>
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div
+          class="hidden sponsor-box text-[#e69e55] font-bold text-3xl text-center bg-[#1f1f1f] px-20"
+        >
+          <p>Our Sponsors</p>
+          <img
+            src="assets/images/sponsor-default.png"
+            alt="sponsor-image-banner"
+            loading="lazy"
+            decoding="async"
+            class="mx-auto h-[80px] w-full object-contain mt-5"
+          />
+        </div>
+      </div>
+
+      <!-- Mine Section -->
+      <div
+        id="mine-gotra"
+        aria-labelledby="mine-gotra-heading"
+        class="bg-gold sm:px-6 lg:px-10 py-5 sm:py-5 border-t-2 border-black"
+      >
+        <!-- Text Section -->
+        <div class="max-w-3xl mx-auto text-center px-2 py-2">
+          <h2
+            id="mine-gotra-heading"
+            class="text-3xl sm:text-5xl font-extrabold text-center text-gray-900 mb-8 flex flex-col items-center"
+          >
+            <img
+              src="assets/icons/pandit.png"
+              alt="GotraCheck icon"
+              loading="lazy"
+              decoding="async"
+              class="w-20 h-20 sm:w-24 sm:h-24 mb-2"
+            />
+            Check My Gotra
+          </h2>
+        </div>
+
+        <!-- Input Form Section -->
+        <div class="max-w-2xl mx-auto text-gray-200 p-4 sm:p-5">
+          <!-- Caste Input -->
+          <label class="block mb-6 relative">
+            <span class="block text-lg sm:text-2xl font-semibold text-black"
+              >Your Caste</span
+            >
+            <input
+              type="text"
+              id="mine-caste"
+              class="mt-2 p-4 sm:p-5 rounded-full w-full bg-black-placeholder text-gray-200 focus:ring focus:ring-blue-200 focus:outline-none"
+              placeholder="Enter your caste"
+              autocomplete="off"
+            />
+            <ul
+              id="mine-caste-suggestions"
+              class="absolute z-10 bg-[#3d3d3d] border border-gray-200 rounded-lg shadow-lg w-full hidden max-h-40 overflow-y-auto"
+            ></ul>
+          </label>
+
+          <div
+            id="result-mine"
+            class="text-center mt-6 text-lg sm:text-xl font-semibold text-gray-700"
+          ></div>
+        </div>
+        <div class="gotra-table-container">
+          <table id="gotra-table" border="1">
+            <caption class="sr-only">
+              Gotra and caste mapping table used by the find my gotra section
+            </caption>
+            <thead>
+              <tr>
+                <th>Gotra</th>
+                <th>Caste</th>
+              </tr>
+            </thead>
+            <tbody>
+              <!-- Rows will be dynamically generated here -->
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <!--Quiz Section-->
+      <div
+        id="quiz"
+        aria-labelledby="quiz-heading"
+        class="flex flex-col items-center bg-gold mx-auto p-6 shadow-xl border-t border-black"
+      >
+        <!-- Centered Title Section -->
+        <div class="w-full text-center mb-6">
+          <img
+            src="assets/icons/pandit.png"
+            alt="Gotra quiz icon"
+            loading="lazy"
+            decoding="async"
+            class="w-20 h-20 sm:w-24 sm:h-24 mx-auto"
+          />
+          <h2
+            id="quiz-heading"
+            class="text-3xl sm:text-4xl font-extrabold text-gray-900 mt-2"
+          >
+            Match The Gotra
+          </h2>
+        </div>
+
+        <!-- Quiz & History Section (Side by Side) -->
+        <div
+          class="w-full flex flex-col sm:flex-row justify-between items-start gap-6"
+        >
+          <!-- Quiz Section -->
+          <div class="quiz-play w-full sm:w-1/2">
+            <!-- Question -->
+            <div
+              id="question"
+              class="text-lg sm:text-xl font-semibold text-gray-800 mb-4 px-4 sm:px-6"
+            ></div>
+            <!-- Options -->
+            <div id="options" class="flex flex-col px-4 sm:px-6 py-4"></div>
+            <!-- Score Section -->
+            <div
+              id="score"
+              class="mt-4 font-semibold text-lg sm:text-xl text-gray-800"
+            ></div>
+            <!-- Buttons -->
+            <div class="mt-6 flex flex-col sm:flex-row justify-center gap-4">
+              <button
+                id="reset"
+                class="w-auto px-6 py-3 bg-black text-white font-semibold rounded-full shadow-lg transform transition duration-300 hover:bg-gray focus:outline-none"
+              >
+                Reset Game
+              </button>
+              <button
+                id="play-again"
+                class="w-auto px-6 py-3 bg-black text-white font-semibold rounded-full shadow-lg transform transition duration-300 hover:bg-gray focus:outline-none hidden"
+              >
+                Play Again
+              </button>
+            </div>
+          </div>
+
+          <!-- History Section -->
+          <div
+            id="history"
+            class="scrollable w-full sm:w-1/2 rounded-lg border-gold max-h-80 overflow-y-auto"
+          ></div>
+        </div>
+      </div>
+
+      <!-- Blogs Section -->
+      <div
+        id="blogs"
+        aria-labelledby="blogs-heading"
+        class="bg-gold border-t-2 border-black py-16 px-4 sm:px-6 lg:px-8"
+      >
+        <h2
+          id="blogs-heading"
+          class="text-3xl font-extrabold text-center text-gray-900 sm:text-5xl mb-8 flex flex-col items-center"
+        >
+          <img
+            src="assets/icons/pandit.png"
+            alt="Gotra learning icon"
             loading="lazy"
             decoding="async"
             class="w-20 h-20 sm:w-24 sm:h-24 mb-2"
           />
-          Check My Gotra
+          Learn About Gotra
         </h2>
+
+        <div id="cards-container" class="flex justify-center">
+          <!-- Single blog card will be injected here -->
+        </div>
+
+        <!-- Navigation Buttons -->
+        <div id="nav-buttons" class="flex justify-center gap-6 mt-6">
+          <button
+            id="prev-btn"
+            class="px-6 py-2 bg-black text-white font-semibold rounded-lg shadow-lg transition hover:bg-gray-800"
+          >
+            Previous
+          </button>
+          <button
+            id="next-btn"
+            class="px-6 py-2 bg-black text-white font-semibold rounded-lg shadow-lg transition hover:bg-gray-800"
+          >
+            Next
+          </button>
+        </div>
       </div>
 
-      <!-- Input Form Section -->
-      <div class="max-w-2xl mx-auto text-gray-200 p-4 sm:p-5">
-        <!-- Caste Input -->
-        <label class="block mb-6 relative">
-          <span class="block text-lg sm:text-2xl font-semibold text-black"
-            >Your Caste</span
-          >
-          <input
-            type="text"
-            id="mine-caste"
-            class="mt-2 p-4 sm:p-5 rounded-full w-full bg-black-placeholder text-gray-200 focus:ring focus:ring-blue-200 focus:outline-none"
-            placeholder="Enter your caste"
-            autocomplete="off"
-          />
-          <ul
-            id="mine-caste-suggestions"
-            class="absolute z-10 bg-[#3d3d3d] border border-gray-200 rounded-lg shadow-lg w-full hidden max-h-40 overflow-y-auto"
-          ></ul>
-        </label>
-
+      <!--About Section-->
+      <div
+        id="about"
+        aria-label="About GotraCheck"
+        class="bg-black py-12 px-2 sm:px-6 lg:px-8"
+      >
         <div
-          id="result-mine"
-          class="text-center mt-6 text-lg sm:text-xl font-semibold text-gray-700"
-        ></div>
-      </div>
-      <div class="gotra-table-container">
-        <table id="gotra-table" border="1">
-          <caption class="sr-only">
-            Gotra and caste mapping table used by the find my gotra section
-          </caption>
-          <thead>
-            <tr>
-              <th>Gotra</th>
-              <th>Caste</th>
-            </tr>
-          </thead>
-          <tbody>
-            <!-- Rows will be dynamically generated here -->
-          </tbody>
-        </table>
-      </div>
-    </div>
-
-    <!--Quiz Section-->
-    <div
-      id="quiz"
-      aria-labelledby="quiz-heading"
-      class="flex flex-col items-center bg-gold mx-auto p-6 shadow-xl border-t border-black"
-    >
-      <!-- Centered Title Section -->
-      <div class="w-full text-center mb-6">
-        <img
-          src="assets/icons/pandit.png"
-          alt="Gotra quiz icon"
-          loading="lazy"
-          decoding="async"
-          class="w-20 h-20 sm:w-24 sm:h-24 mx-auto"
-        />
-        <h2 id="quiz-heading" class="text-3xl sm:text-4xl font-extrabold text-gray-900 mt-2">
-          Match The Gotra
-        </h2>
-      </div>
-
-      <!-- Quiz & History Section (Side by Side) -->
-      <div
-        class="w-full flex flex-col sm:flex-row justify-between items-start gap-6"
-      >
-        <!-- Quiz Section -->
-        <div class="quiz-play w-full sm:w-1/2">
-          <!-- Question -->
-          <div
-            id="question"
-            class="text-lg sm:text-xl font-semibold text-gray-800 mb-4 px-4 sm:px-6"
-          ></div>
-          <!-- Options -->
-          <div id="options" class="flex flex-col px-4 sm:px-6 py-4"></div>
-          <!-- Score Section -->
-          <div
-            id="score"
-            class="mt-4 font-semibold text-lg sm:text-xl text-gray-800"
-          ></div>
-          <!-- Buttons -->
-          <div class="mt-6 flex flex-col sm:flex-row justify-center gap-4">
-            <button
-              id="reset"
-              class="w-auto px-6 py-3 bg-black text-white font-semibold rounded-full shadow-lg transform transition duration-300 hover:bg-gray focus:outline-none"
+          class="max-w-7xl mx-auto grid sm:grid-cols-2 lg:grid-cols-2 xl:grid-cols-2"
+        >
+          <!-- Motto Section -->
+          <div class="p-6 bg-black mb-10">
+            <h2
+              class="text-2xl sm:text-3xl font-bold text-gray-200 mb-4 flex flex-col items-center"
             >
-              Reset Game
-            </button>
-            <button
-              id="play-again"
-              class="w-auto px-6 py-3 bg-black text-white font-semibold rounded-full shadow-lg transform transition duration-300 hover:bg-gray focus:outline-none hidden"
-            >
-              Play Again
-            </button>
+              <img
+                src="assets/icons/pandit.png"
+                alt="GotraCheck values icon"
+                loading="lazy"
+                decoding="async"
+                class="w-20 h-20 sm:w-24 sm:h-24 mb-2"
+              />
+              Our Motto
+            </h2>
+
+            <p class="text-base sm:text-lg text-gray-200 leading-relaxed">
+              Our website makes Gotra matching easy and accessible for everyone.
+              Whether you're following traditions for marriage, rituals, or
+              simply learning about your heritage, we help you find the right
+              Gotra connection with just a few clicks. We honor the deep
+              cultural significance of Gotra while making it simple to
+              understand and use in today’s world. Let’s keep our traditions
+              alive, respect our ancestry, and strengthen the bonds of family
+              and community together.
+            </p>
+            <div class="email-display-feedback mt-10">
+              <p class="text-[#919191] font-bold">
+                Email:
+                <a
+                  href="mailto:gotrapidit@gmail.com"
+                  class="text-[#e69e55] hover:text-[#ffc72b]"
+                >
+                  gotrapidit@gmail.com
+                </a>
+              </p>
+            </div>
+          </div>
+
+          <!-- Feedback Form -->
+          <div class="p-6 bg-black mb-10">
+            <h2 class="text-2xl sm:text-3xl font-bold text-gray-200 mb-4">
+              Feedback<span class="text-sm text-[#919191] ml-10"
+                >Your feedback truly matters ❤️</span
+              >
+            </h2>
+            <form id="feedbackForm" class="space-y-4">
+              <!-- Name -->
+              <div>
+                <label
+                  for="name"
+                  class="block text-m font-medium text-gray-200 mb-2"
+                  >Your Name</label
+                >
+                <input
+                  type="text"
+                  id="name"
+                  class="w-full text-white bg-black-placeholder rounded-lg px-4 py-4 focus:ring-2 focus:ring-[#ffc72b] focus:outline-none"
+                  placeholder="Enter your name"
+                />
+              </div>
+
+              <!-- Email -->
+              <div>
+                <label
+                  for="email"
+                  class="block text-m font-medium text-gray-200 mb-2"
+                  >Your Email</label
+                >
+                <input
+                  type="email"
+                  id="email"
+                  class="w-full text-white bg-black-placeholder rounded-lg px-4 py-4 focus:ring-2 focus:ring-[#ffc72b] focus:outline-none"
+                  placeholder="Enter your email"
+                />
+              </div>
+
+              <!-- Subject -->
+              <div>
+                <label
+                  for="subject"
+                  class="block text-m font-medium text-gray-200 mb-2"
+                  >Subject</label
+                >
+                <input
+                  type="text"
+                  id="subject"
+                  class="w-full text-white bg-black-placeholder rounded-lg px-4 py-4 focus:ring-2 focus:ring-[#ffc72b] focus:outline-none"
+                  placeholder="Enter the subject"
+                />
+              </div>
+
+              <!-- Feedback -->
+              <div>
+                <label
+                  for="feedback"
+                  class="block text-m font-medium text-gray-200 mb-2"
+                  >Your Feedback</label
+                >
+                <textarea
+                  id="feedback"
+                  rows="3"
+                  class="w-full text-white bg-black-placeholder rounded-lg px-4 py-2 focus:ring-2 focus:ring-[#ffc72b] focus:outline-none"
+                  placeholder="Write your feedback"
+                ></textarea>
+              </div>
+
+              <!-- Submit Button -->
+              <button
+                type="submit"
+                class="bg-gold text-black font-semibold px-6 py-2 rounded-lg hover:bg-gold-hover transition"
+              >
+                Submit
+              </button>
+            </form>
+          </div>
+
+          <!-- Social Media Links -->
+          <div class="p-6 bg-black mb-10">
+            <h2 class="text-2xl sm:text-3xl font-bold text-gray-200 mb-4">
+              Follow Us
+            </h2>
+            <div class="flex space-x-4 text-gray-200 text-3xl">
+              <a
+                href="#"
+                class="hover:text-blue-600 transition"
+                aria-label="Facebook"
+                rel="nofollow"
+              >
+                <i class="fab fa-facebook" aria-hidden="true"></i>
+              </a>
+              <a
+                href="#"
+                class="hover:text-blue-400 transition"
+                aria-label="Twitter"
+                rel="nofollow"
+              >
+                <i class="fab fa-twitter" aria-hidden="true"></i>
+              </a>
+              <a
+                href="#"
+                class="hover:text-pink-600 transition"
+                aria-label="Instagram"
+                rel="nofollow"
+              >
+                <i class="fab fa-instagram" aria-hidden="true"></i>
+              </a>
+              <a
+                href="#"
+                class="hover:text-red-600 transition"
+                aria-label="YouTube"
+                rel="nofollow"
+              >
+                <i class="fab fa-youtube" aria-hidden="true"></i>
+              </a>
+            </div>
+          </div>
+
+          <!-- Rating Section -->
+          <div class="p-6 bg-black mb-10">
+            <h2 class="text-2xl sm:text-3xl font-bold text-gray-200 mb-4">
+              Rate Us
+            </h2>
+            <div class="flex items-center space-x-2 text-yellow-400 text-3xl">
+              <!-- Stars -->
+              <button
+                onclick="rate(1)"
+                class="focus:outline-none"
+                aria-label="Rate 1"
+              >
+                <i class="fas fa-star" id="star1"></i>
+              </button>
+              <button
+                onclick="rate(2)"
+                class="focus:outline-none"
+                aria-label="Rate 2"
+              >
+                <i class="fas fa-star" id="star2"></i>
+              </button>
+              <button
+                onclick="rate(3)"
+                class="focus:outline-none"
+                aria-label="Rate 3"
+              >
+                <i class="fas fa-star" id="star3"></i>
+              </button>
+              <button
+                onclick="rate(4)"
+                class="focus:outline-none"
+                aria-label="Rate 4"
+              >
+                <i class="fas fa-star" id="star4"></i>
+              </button>
+              <button
+                onclick="rate(5)"
+                class="focus:outline-none"
+                aria-label="Rate 5"
+              >
+                <i class="far fa-star" id="star5"></i>
+              </button>
+            </div>
+            <p id="rating-feedback" class="mt-3 text-gray-600"></p>
           </div>
         </div>
+      </div>
 
-        <!-- History Section -->
+      <hr class="separate" style="border: 1px solid rgb(255, 218, 96)" />
+
+      <!-- Sponsor Section -->
+      <div
+        id="sponsor"
+        aria-label="Sponsorship"
+        class="bg-black py-12 px-2 sm:px-6 lg:px-8"
+      >
         <div
-          id="history"
-          class="scrollable w-full sm:w-1/2 rounded-lg border-gold max-h-80 overflow-y-auto"
-        ></div>
-      </div>
-    </div>
-
-    <!-- Blogs Section -->
-    <div
-      id="blogs"
-      aria-labelledby="blogs-heading"
-      class="bg-gold border-t-2 border-black py-16 px-4 sm:px-6 lg:px-8"
-    >
-      <h2
-        id="blogs-heading"
-        class="text-3xl font-extrabold text-center text-gray-900 sm:text-5xl mb-8 flex flex-col items-center"
-      >
-        <img
-          src="assets/icons/pandit.png"
-          alt="Gotra learning icon"
-          loading="lazy"
-          decoding="async"
-          class="w-20 h-20 sm:w-24 sm:h-24 mb-2"
-        />
-        Learn About Gotra
-      </h2>
-
-      <div id="cards-container" class="flex justify-center">
-        <!-- Single blog card will be injected here -->
-      </div>
-
-      <!-- Navigation Buttons -->
-      <div id="nav-buttons" class="flex justify-center gap-6 mt-6">
-        <button
-          id="prev-btn"
-          class="px-6 py-2 bg-black text-white font-semibold rounded-lg shadow-lg transition hover:bg-gray-800"
+          class="max-w-7xl mx-auto grid sm:grid-cols-2 lg:grid-cols-2 xl:grid-cols-2"
         >
-          Previous
-        </button>
-        <button
-          id="next-btn"
-          class="px-6 py-2 bg-black text-white font-semibold rounded-lg shadow-lg transition hover:bg-gray-800"
-        >
-          Next
-        </button>
-      </div>
-    </div>
-
-    <!--About Section-->
-    <div id="about" aria-label="About GotraCheck" class="bg-black py-12 px-2 sm:px-6 lg:px-8">
-      <div
-        class="max-w-7xl mx-auto grid sm:grid-cols-2 lg:grid-cols-2 xl:grid-cols-2"
-      >
-        <!-- Motto Section -->
-        <div class="p-6 bg-black mb-10">
-          <h2
-            class="text-2xl sm:text-3xl font-bold text-gray-200 mb-4 flex flex-col items-center"
-          >
-            <img
-              src="assets/icons/pandit.png"
-              alt="GotraCheck values icon"
-              loading="lazy"
-              decoding="async"
-              class="w-20 h-20 sm:w-24 sm:h-24 mb-2"
-            />
-            Our Motto
-          </h2>
-
-          <p class="text-base sm:text-lg text-gray-200 leading-relaxed">
-            Our website makes Gotra matching easy and accessible for everyone.
-            Whether you're following traditions for marriage, rituals, or simply
-            learning about your heritage, we help you find the right Gotra
-            connection with just a few clicks. We honor the deep cultural
-            significance of Gotra while making it simple to understand and use
-            in today’s world. Let’s keep our traditions alive, respect our
-            ancestry, and strengthen the bonds of family and community together.
-          </p>
-          <div class="email-display-feedback mt-10">
-            <p class="text-[#919191] font-bold">
-              Email:
-              <a
-                href="mailto:gotrapidit@gmail.com"
-                class="text-[#e69e55] hover:text-[#ffc72b]"
-              >
-                gotrapidit@gmail.com
-              </a>
+          <!-- Sponsorship Information -->
+          <div class="p-6 bg-black mb-10">
+            <h2
+              class="text-2xl sm:text-3xl font-bold text-gray-200 mb-4 flex flex-col items-center"
+            >
+              <img
+                src="assets/icons/sponsor-mike-gold-stroke.svg"
+                alt="Sponsorship microphone icon"
+                loading="lazy"
+                decoding="async"
+                class="w-20 h-20 sm:w-24 sm:h-24 mb-2"
+              />
+              Become a Sponsor
+            </h2>
+            <p class="text-base sm:text-lg text-gray-200 leading-relaxed">
+              Partner with us and get your brand featured on our platform. We
+              provide opportunities for businesses to connect with a wider
+              audience. Fill out the sponsorship form, and we’ll get back to you
+              shortly!
             </p>
+            <div class="email-display-sponsor mt-10">
+              <p class="text-[#919191] font-bold">
+                Email:
+                <a
+                  href="mailto:gotrapiditbusiness@gmail.com"
+                  class="text-[#e69e55] hover:text-[#ffc72b]"
+                >
+                  gotrapiditbusiness@gmail.com
+                </a>
+              </p>
+            </div>
           </div>
-        </div>
 
-        <!-- Feedback Form -->
-        <div class="p-6 bg-black mb-10">
-          <h2 class="text-2xl sm:text-3xl font-bold text-gray-200 mb-4">
-            Feedback<span class="text-sm text-[#919191] ml-10"
-              >Your feedback truly matters ❤️</span
-            >
-          </h2>
-          <form id="feedbackForm" class="space-y-4">
-            <!-- Name -->
-            <div>
-              <label
-                for="name"
-                class="block text-m font-medium text-gray-200 mb-2"
-                >Your Name</label
+          <!-- Sponsorship Form -->
+          <div class="p-6 bg-black mb-10">
+            <h2 class="text-2xl sm:text-3xl font-bold text-gray-200 mb-4">
+              Sponsorship Inquiry
+            </h2>
+            <form id="sponsorForm" class="space-y-4">
+              <!-- Brand Category -->
+              <div>
+                <label
+                  for="brandCategory"
+                  class="block text-m font-medium text-gray-200 mb-2"
+                  >Brand Category</label
+                >
+                <input
+                  type="text"
+                  id="brandCategory"
+                  class="w-full text-white bg-black-placeholder rounded-lg px-4 py-4 focus:ring-2 focus:ring-[#ffc72b] focus:outline-none"
+                  placeholder="e.g. Tech, Fashion, Food"
+                />
+              </div>
+
+              <!-- Brand Name -->
+              <div>
+                <label
+                  for="brandName"
+                  class="block text-m font-medium text-gray-200 mb-2"
+                  >Brand Name</label
+                >
+                <input
+                  type="text"
+                  id="brandName"
+                  class="w-full text-white bg-black-placeholder rounded-lg px-4 py-4 focus:ring-2 focus:ring-[#ffc72b] focus:outline-none"
+                  placeholder="Enter your brand name"
+                />
+              </div>
+
+              <!-- Email Address -->
+              <div>
+                <label
+                  for="emailAddress"
+                  class="block text-m font-medium text-gray-200 mb-2"
+                  >Email Address</label
+                >
+                <input
+                  type="email"
+                  id="emailAddress"
+                  class="w-full text-white bg-black-placeholder rounded-lg px-4 py-4 focus:ring-2 focus:ring-[#ffc72b] focus:outline-none"
+                  placeholder="Enter your email address"
+                />
+              </div>
+
+              <!-- Contact Number -->
+              <div>
+                <label
+                  for="contactNumber"
+                  class="block text-m font-medium text-gray-200 mb-2"
+                  >Contact Number</label
+                >
+                <input
+                  type="text"
+                  id="contactNumber"
+                  class="w-full text-white bg-black-placeholder rounded-lg px-4 py-4 focus:ring-2 focus:ring-[#ffc72b] focus:outline-none"
+                  placeholder="Enter your contact number"
+                />
+              </div>
+
+              <!-- Message Field -->
+              <div>
+                <label
+                  for="message"
+                  class="block text-m font-medium text-gray-200 mb-2"
+                  >Message</label
+                >
+                <textarea
+                  id="message"
+                  class="w-full text-white bg-black-placeholder rounded-lg px-4 py-4 focus:ring-2 focus:ring-[#ffc72b] focus:outline-none"
+                  placeholder="Tell us about your sponsorship goals, requirements, or any questions you have..."
+                  rows="4"
+                ></textarea>
+              </div>
+
+              <!-- Submit Button -->
+              <button
+                type="submit"
+                class="bg-gold text-black font-semibold px-6 py-2 rounded-lg hover:bg-gold-hover transition"
               >
-              <input
-                type="text"
-                id="name"
-                class="w-full text-white bg-black-placeholder rounded-lg px-4 py-4 focus:ring-2 focus:ring-[#ffc72b] focus:outline-none"
-                placeholder="Enter your name"
-              />
-            </div>
-
-            <!-- Email -->
-            <div>
-              <label
-                for="email"
-                class="block text-m font-medium text-gray-200 mb-2"
-                >Your Email</label
-              >
-              <input
-                type="email"
-                id="email"
-                class="w-full text-white bg-black-placeholder rounded-lg px-4 py-4 focus:ring-2 focus:ring-[#ffc72b] focus:outline-none"
-                placeholder="Enter your email"
-              />
-            </div>
-
-            <!-- Subject -->
-            <div>
-              <label
-                for="subject"
-                class="block text-m font-medium text-gray-200 mb-2"
-                >Subject</label
-              >
-              <input
-                type="text"
-                id="subject"
-                class="w-full text-white bg-black-placeholder rounded-lg px-4 py-4 focus:ring-2 focus:ring-[#ffc72b] focus:outline-none"
-                placeholder="Enter the subject"
-              />
-            </div>
-
-            <!-- Feedback -->
-            <div>
-              <label
-                for="feedback"
-                class="block text-m font-medium text-gray-200 mb-2"
-                >Your Feedback</label
-              >
-              <textarea
-                id="feedback"
-                rows="3"
-                class="w-full text-white bg-black-placeholder rounded-lg px-4 py-2 focus:ring-2 focus:ring-[#ffc72b] focus:outline-none"
-                placeholder="Write your feedback"
-              ></textarea>
-            </div>
-
-            <!-- Submit Button -->
-            <button
-              type="submit"
-              class="bg-gold text-black font-semibold px-6 py-2 rounded-lg hover:bg-gold-hover transition"
-            >
-              Submit
-            </button>
-          </form>
-        </div>
-
-        <!-- Social Media Links -->
-        <div class="p-6 bg-black mb-10">
-          <h2 class="text-2xl sm:text-3xl font-bold text-gray-200 mb-4">
-            Follow Us
-          </h2>
-          <div class="flex space-x-4 text-gray-200 text-3xl">
-            <a
-              href="#"
-              class="hover:text-blue-600 transition"
-              aria-label="Facebook"
-              rel="nofollow"
-            >
-              <i class="fab fa-facebook" aria-hidden="true"></i>
-            </a>
-            <a
-              href="#"
-              class="hover:text-blue-400 transition"
-              aria-label="Twitter"
-              rel="nofollow"
-            >
-              <i class="fab fa-twitter" aria-hidden="true"></i>
-            </a>
-            <a
-              href="#"
-              class="hover:text-pink-600 transition"
-              aria-label="Instagram"
-              rel="nofollow"
-            >
-              <i class="fab fa-instagram" aria-hidden="true"></i>
-            </a>
-            <a
-              href="#"
-              class="hover:text-red-600 transition"
-              aria-label="YouTube"
-              rel="nofollow"
-            >
-              <i class="fab fa-youtube" aria-hidden="true"></i>
-            </a>
+                Send Inquiry
+              </button>
+            </form>
           </div>
-        </div>
-
-        <!-- Rating Section -->
-        <div class="p-6 bg-black mb-10">
-          <h2 class="text-2xl sm:text-3xl font-bold text-gray-200 mb-4">
-            Rate Us
-          </h2>
-          <div class="flex items-center space-x-2 text-yellow-400 text-3xl">
-            <!-- Stars -->
-            <button
-              onclick="rate(1)"
-              class="focus:outline-none"
-              aria-label="Rate 1"
-            >
-              <i class="fas fa-star" id="star1"></i>
-            </button>
-            <button
-              onclick="rate(2)"
-              class="focus:outline-none"
-              aria-label="Rate 2"
-            >
-              <i class="fas fa-star" id="star2"></i>
-            </button>
-            <button
-              onclick="rate(3)"
-              class="focus:outline-none"
-              aria-label="Rate 3"
-            >
-              <i class="fas fa-star" id="star3"></i>
-            </button>
-            <button
-              onclick="rate(4)"
-              class="focus:outline-none"
-              aria-label="Rate 4"
-            >
-              <i class="fas fa-star" id="star4"></i>
-            </button>
-            <button
-              onclick="rate(5)"
-              class="focus:outline-none"
-              aria-label="Rate 5"
-            >
-              <i class="far fa-star" id="star5"></i>
-            </button>
-          </div>
-          <p id="rating-feedback" class="mt-3 text-gray-600"></p>
         </div>
       </div>
-    </div>
-
-    <hr class="separate" style="border: 1px solid rgb(255, 218, 96)" />
-
-    <!-- Sponsor Section -->
-    <div id="sponsor" aria-label="Sponsorship" class="bg-black py-12 px-2 sm:px-6 lg:px-8">
-      <div
-        class="max-w-7xl mx-auto grid sm:grid-cols-2 lg:grid-cols-2 xl:grid-cols-2"
-      >
-        <!-- Sponsorship Information -->
-        <div class="p-6 bg-black mb-10">
-          <h2
-            class="text-2xl sm:text-3xl font-bold text-gray-200 mb-4 flex flex-col items-center"
-          >
-            <img
-              src="assets/icons/sponsor-mike-gold-stroke.svg"
-              alt="Sponsorship microphone icon"
-              loading="lazy"
-              decoding="async"
-              class="w-20 h-20 sm:w-24 sm:h-24 mb-2"
-            />
-            Become a Sponsor
-          </h2>
-          <p class="text-base sm:text-lg text-gray-200 leading-relaxed">
-            Partner with us and get your brand featured on our platform. We
-            provide opportunities for businesses to connect with a wider
-            audience. Fill out the sponsorship form, and we’ll get back to you
-            shortly!
-          </p>
-          <div class="email-display-sponsor mt-10">
-            <p class="text-[#919191] font-bold">
-              Email:
-              <a
-                href="mailto:gotrapiditbusiness@gmail.com"
-                class="text-[#e69e55] hover:text-[#ffc72b]"
-              >
-                gotrapiditbusiness@gmail.com
-              </a>
-            </p>
-          </div>
-        </div>
-
-        <!-- Sponsorship Form -->
-        <div class="p-6 bg-black mb-10">
-          <h2 class="text-2xl sm:text-3xl font-bold text-gray-200 mb-4">
-            Sponsorship Inquiry
-          </h2>
-          <form id="sponsorForm" class="space-y-4">
-            <!-- Brand Category -->
-            <div>
-              <label
-                for="brandCategory"
-                class="block text-m font-medium text-gray-200 mb-2"
-                >Brand Category</label
-              >
-              <input
-                type="text"
-                id="brandCategory"
-                class="w-full text-white bg-black-placeholder rounded-lg px-4 py-4 focus:ring-2 focus:ring-[#ffc72b] focus:outline-none"
-                placeholder="e.g. Tech, Fashion, Food"
-              />
-            </div>
-
-            <!-- Brand Name -->
-            <div>
-              <label
-                for="brandName"
-                class="block text-m font-medium text-gray-200 mb-2"
-                >Brand Name</label
-              >
-              <input
-                type="text"
-                id="brandName"
-                class="w-full text-white bg-black-placeholder rounded-lg px-4 py-4 focus:ring-2 focus:ring-[#ffc72b] focus:outline-none"
-                placeholder="Enter your brand name"
-              />
-            </div>
-
-            <!-- Email Address -->
-            <div>
-              <label
-                for="emailAddress"
-                class="block text-m font-medium text-gray-200 mb-2"
-                >Email Address</label
-              >
-              <input
-                type="email"
-                id="emailAddress"
-                class="w-full text-white bg-black-placeholder rounded-lg px-4 py-4 focus:ring-2 focus:ring-[#ffc72b] focus:outline-none"
-                placeholder="Enter your email address"
-              />
-            </div>
-
-            <!-- Contact Number -->
-            <div>
-              <label
-                for="contactNumber"
-                class="block text-m font-medium text-gray-200 mb-2"
-                >Contact Number</label
-              >
-              <input
-                type="text"
-                id="contactNumber"
-                class="w-full text-white bg-black-placeholder rounded-lg px-4 py-4 focus:ring-2 focus:ring-[#ffc72b] focus:outline-none"
-                placeholder="Enter your contact number"
-              />
-            </div>
-
-            <!-- Message Field -->
-            <div>
-              <label
-                for="message"
-                class="block text-m font-medium text-gray-200 mb-2"
-                >Message</label
-              >
-              <textarea
-                id="message"
-                class="w-full text-white bg-black-placeholder rounded-lg px-4 py-4 focus:ring-2 focus:ring-[#ffc72b] focus:outline-none"
-                placeholder="Tell us about your sponsorship goals, requirements, or any questions you have..."
-                rows="4"
-              ></textarea>
-            </div>
-
-            <!-- Submit Button -->
-            <button
-              type="submit"
-              class="bg-gold text-black font-semibold px-6 py-2 rounded-lg hover:bg-gold-hover transition"
-            >
-              Send Inquiry
-            </button>
-          </form>
-        </div>
-      </div>
-    </div>
     </main>
   </body>
 </html>
