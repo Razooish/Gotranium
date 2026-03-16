@@ -414,6 +414,8 @@ function downloadBlob(blob, fileName) {
 
 async function shareResultScreenshot(buttonElement) {
   try {
+    setButtonTextWithIcon(buttonElement, "Loading...");
+
     const blob = await captureResultScreenshotBlob();
     const screenshotFile = new File([blob], "gotra-result.png", { type: "image/png" });
 
@@ -424,9 +426,8 @@ async function shareResultScreenshot(buttonElement) {
     ) {
       await navigator.share({
         files: [screenshotFile],
-        title: "Gotra Result",
-        text: latestResultText,
       });
+      setTemporaryButtonState(buttonElement, "Shared", 1200);
       return;
     }
 
@@ -458,6 +459,7 @@ copyResultBtn.addEventListener("click", async () => {
 
 saveScreenshotBtn.addEventListener("click", async () => {
   try {
+    setButtonTextWithIcon(saveScreenshotBtn, "Loading...");
     const blob = await captureResultScreenshotBlob();
     downloadBlob(blob, "gotra-result.png");
     setTemporaryButtonState(saveScreenshotBtn, "Downloaded", 1200);
