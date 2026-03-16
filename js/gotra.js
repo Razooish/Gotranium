@@ -235,6 +235,237 @@ castInputFields.forEach(({ input, suggestionBox }) => {
 //===================================//
 //       Compatibility Checker       //
 //===================================//
+const resultModal = document.getElementById("result-modal");
+const resultModalContent = document.getElementById("result-modal-content");
+const resultModalCard = document.getElementById("result-modal-card");
+const closeResultModalBtn = document.getElementById("close-result-modal");
+const shareResultBtn = document.getElementById("share-result");
+const copyResultBtn = document.getElementById("copy-result");
+const saveScreenshotBtn = document.getElementById("save-screenshot");
+
+let latestResultText = "";
+
+function renderFoundResult(iconPath, message, messageClass, lineColorClass, myCast, myGotra, herCast, herGotra) {
+  return `
+    <div class="space-y-4 sm:space-y-5">
+      <div class="flex flex-col items-center text-center">
+        <div class="h-14 w-14 sm:h-16 sm:w-16 rounded-full bg-black border border-gold flex items-center justify-center mb-3">
+          <img src="${iconPath}" class="h-9 w-9 sm:h-10 sm:w-10" alt="Result icon" />
+        </div>
+        <p class="${messageClass} text-sm sm:text-base lg:text-lg leading-relaxed px-1">${message}</p>
+      </div>
+      <div class="rounded-xl bg-black p-3 sm:p-4 text-center space-y-2">
+        <p class="${lineColorClass} text-sm sm:text-base font-semibold break-words">
+          <span>${myCast}</span>
+          <i class="fas fa-arrow-right mx-2" aria-hidden="true"></i>
+          <span>${myGotra}</span>
+        </p>
+        <p class="${lineColorClass} text-sm sm:text-base font-semibold break-words">
+          <span>${herCast}</span>
+          <i class="fas fa-arrow-right mx-2" aria-hidden="true"></i>
+          <span>${herGotra}</span>
+        </p>
+      </div>
+    </div>
+  `;
+}
+
+function renderNotFoundResult() {
+  return `
+    <div class="flex flex-col items-center text-center">
+      <div class="h-14 w-14 sm:h-16 sm:w-16 rounded-full bg-black border border-gold flex items-center justify-center mb-3">
+        <img src="assets/icons/soul-emoji.svg" class="h-9 w-9 sm:h-10 sm:w-10" alt="Not found icon" />
+      </div>
+      <p class="text-gray-200 text-sm sm:text-base lg:text-lg leading-relaxed px-1">One or both casts not found in our records. Please try again.</p>
+      <p class="text-gray-300 text-sm mt-2">Try selecting names from suggestions for better accuracy.</p>
+    </div>
+  `;
+}
+
+function openResultModal(contentHtml, contentText) {
+  resultModalContent.innerHTML = contentHtml;
+  latestResultText = contentText;
+  resultModal.classList.remove("hidden");
+  resultModal.classList.add("flex");
+  document.body.style.overflow = "hidden";
+}
+
+function closeResultModal() {
+  resultModal.classList.add("hidden");
+  resultModal.classList.remove("flex");
+  document.body.style.overflow = "";
+}
+
+closeResultModalBtn.addEventListener("click", closeResultModal);
+
+resultModal.addEventListener("click", (event) => {
+  if (event.target === resultModal) {
+    closeResultModal();
+  }
+});
+
+document.addEventListener("keydown", (event) => {
+  if (event.key === "Escape" && !resultModal.classList.contains("hidden")) {
+    closeResultModal();
+  }
+});
+
+function setTemporaryButtonState(button, tempText, timeout = 1200) {
+  const originalText = button.dataset.defaultLabel || button.textContent.trim();
+  setButtonTextWithIcon(button, tempText);
+  setTimeout(() => {
+    setButtonTextWithIcon(button, originalText);
+  }, timeout);
+}
+
+function setButtonTextWithIcon(button, text) {
+  const iconClass = button.dataset.iconClass;
+  if (iconClass) {
+    button.innerHTML = `<i class="${iconClass} mr-2" aria-hidden="true"></i><span>${text}</span>`;
+    return;
+  }
+  button.textContent = text;
+}
+
+function canvasToBlob(canvas) {
+  return new Promise((resolve, reject) => {
+    canvas.toBlob((blob) => {
+      if (blob) {
+        resolve(blob);
+      } else {
+        reject(new Error("Unable to generate image blob."));
+      }
+    }, "image/png");
+  });
+}
+
+function trimTransparentEdges(canvas) {
+  const context = canvas.getContext("2d");
+  if (!context) {
+    return canvas;
+  }
+
+  const { width, height } = canvas;
+  const imageData = context.getImageData(0, 0, width, height).data;
+
+  let top = height;
+  let left = width;
+  let right = 0;
+  let bottom = 0;
+
+  for (let y = 0; y < height; y++) {
+    for (let x = 0; x < width; x++) {
+      const alpha = imageData[(y * width + x) * 4 + 3];
+      if (alpha > 0) {
+        if (x < left) left = x;
+        if (x > right) right = x;
+        if (y < top) top = y;
+        if (y > bottom) bottom = y;
+      }
+    }
+  }
+
+  if (right <= left || bottom <= top) {
+    return canvas;
+  }
+
+  const trimmedWidth = right - left + 1;
+  const trimmedHeight = bottom - top + 1;
+  const trimmedCanvas = document.createElement("canvas");
+  trimmedCanvas.width = trimmedWidth;
+  trimmedCanvas.height = trimmedHeight;
+
+  const trimmedContext = trimmedCanvas.getContext("2d");
+  if (!trimmedContext) {
+    return canvas;
+  }
+
+  trimmedContext.drawImage(canvas, left, top, trimmedWidth, trimmedHeight, 0, 0, trimmedWidth, trimmedHeight);
+  return trimmedCanvas;
+}
+
+async function captureResultScreenshotBlob() {
+  if (typeof html2canvas !== "function") {
+    throw new Error("Screenshot library not available.");
+  }
+
+  const cardBg = getComputedStyle(resultModalCard).backgroundColor || "#262626";
+
+  const canvas = await html2canvas(resultModalCard, {
+    scale: 2,
+    useCORS: true,
+    backgroundColor: cardBg,
+    logging: false,
+  });
+
+  const cleanedCanvas = trimTransparentEdges(canvas);
+
+  return canvasToBlob(cleanedCanvas);
+}
+
+function downloadBlob(blob, fileName) {
+  const blobUrl = URL.createObjectURL(blob);
+  const downloadLink = document.createElement("a");
+  downloadLink.href = blobUrl;
+  downloadLink.download = fileName;
+  downloadLink.click();
+  URL.revokeObjectURL(blobUrl);
+}
+
+async function shareResultScreenshot(buttonElement) {
+  try {
+    const blob = await captureResultScreenshotBlob();
+    const screenshotFile = new File([blob], "gotra-result.png", { type: "image/png" });
+
+    if (
+      navigator.share &&
+      navigator.canShare &&
+      navigator.canShare({ files: [screenshotFile] })
+    ) {
+      await navigator.share({
+        files: [screenshotFile],
+        title: "Gotra Result",
+        text: latestResultText,
+      });
+      return;
+    }
+
+    downloadBlob(blob, "gotra-result.png");
+    setTemporaryButtonState(buttonElement, "Downloaded", 1500);
+  } catch (error) {
+    setTemporaryButtonState(buttonElement, "Failed", 1500);
+  }
+}
+
+shareResultBtn.addEventListener("click", async () => {
+  await shareResultScreenshot(shareResultBtn);
+});
+
+copyResultBtn.addEventListener("click", async () => {
+  try {
+    await navigator.clipboard.writeText(latestResultText);
+    setTemporaryButtonState(copyResultBtn, "Copied", 1200);
+  } catch (error) {
+    const tempInput = document.createElement("textarea");
+    tempInput.value = latestResultText;
+    document.body.appendChild(tempInput);
+    tempInput.select();
+    document.execCommand("copy");
+    document.body.removeChild(tempInput);
+    setTemporaryButtonState(copyResultBtn, "Copied", 1200);
+  }
+});
+
+saveScreenshotBtn.addEventListener("click", async () => {
+  try {
+    const blob = await captureResultScreenshotBlob();
+    downloadBlob(blob, "gotra-result.png");
+    setTemporaryButtonState(saveScreenshotBtn, "Downloaded", 1200);
+  } catch (error) {
+    setTemporaryButtonState(saveScreenshotBtn, "Failed", 1200);
+  }
+});
+
 document.getElementById("check-gotra").addEventListener("click", () => {
   const myCast = document.getElementById("my-cast").value.trim();
   const herCast = document.getElementById("her-cast").value.trim();
@@ -250,6 +481,8 @@ document.getElementById("check-gotra").addEventListener("click", () => {
 
   const audio = new Audio(); // Audio element for feedback
 
+  resultDiv.classList.add("hidden");
+
   // Shimmer effect for loading placeholder
   resultDiv.innerHTML = `
     <div class="shimmer-placeholder h-10 w-10 rounded-full inline-block mr-2"></div>
@@ -257,55 +490,47 @@ document.getElementById("check-gotra").addEventListener("click", () => {
   `;
 
   setTimeout(() => {
-    resultDiv.innerHTML = ""; // Clear previous result
+    resultDiv.innerHTML = "";
+    let resultHtml = "";
+    let resultText = "";
 
     if (!myGotra || !herGotra) {
       // Cast not found
-      resultDiv.innerHTML = `
-        <span class="flex items-center">
-          <img 
-            src="assets/icons/soul-emoji.svg" 
-            class="h-10 w-10 inline-block mr-2" 
-            onload="this.parentElement.querySelector('.shimmer-placeholder')?.remove()" 
-          />   
-          <p>One or both casts not found in our records. Please try again.</p>
-        </span>
-      `;
-      resultDiv.classList.add("text-gray-300");
+      resultHtml = renderNotFoundResult();
+      resultText = "One or both casts not found in our records. Please try again.";
       audio.src = "assets/audio/error.mp3";
     } else if (myGotra === herGotra) {
       // Same Gotra
-      resultDiv.innerHTML = `
-        <span class="flex items-center">
-          <img 
-            src="assets/icons/sad-emoji.svg" 
-            class="h-10 w-10 inline-block mr-2" 
-            onload="this.parentElement.querySelector('.shimmer-placeholder')?.remove()" 
-          />
-          <p>${messages.UnfortunatelyText}</p>
-        </span>
-        <p style="color:gold">${myCast} -----> ${myGotra}</p>
-        <p style="color:gold">${herCast} -----> ${herGotra}</p>
-      `;
-      resultDiv.classList.add("text-red-600");
+      resultHtml = renderFoundResult(
+        "assets/icons/sad-emoji.svg",
+        messages.UnfortunatelyText,
+        "text-red-400 font-semibold",
+        "text-red-400",
+        myCast,
+        myGotra,
+        herCast,
+        herGotra
+      );
+      resultText = `${messages.UnfortunatelyText}\n${myCast} → ${myGotra}\n${herCast} → ${herGotra}`;
       audio.src = "assets/audio/lost-sound.mp3";
     } else {
       // Compatible
-      resultDiv.innerHTML = `
-        <span class="flex items-center">
-          <img 
-            src="assets/icons/happy-emoji.svg" 
-            class="h-10 w-10 inline-block mr-2" 
-            onload="this.parentElement.querySelector('.shimmer-placeholder')?.remove()" 
-          />
-          <p class="text-green-600">${messages.congratulationsText}</p>
-        </span>
-        <p style="color:gold">${myCast} -----> ${myGotra}</p>
-        <p style="color:gold">${herCast} -----> ${herGotra}</p>
-      `;
-      resultDiv.classList.add("text-green-600");
+      resultHtml = renderFoundResult(
+        "assets/icons/happy-emoji.svg",
+        messages.congratulationsText,
+        "text-green-400 font-semibold",
+        "text-green-400",
+        myCast,
+        myGotra,
+        herCast,
+        herGotra
+      );
+      resultText = `${messages.congratulationsText}\n${myCast} → ${myGotra}\n${herCast} → ${herGotra}`;
       audio.src = "assets/audio/win-sound.mp3";
     }
+
+    resultDiv.innerHTML = resultHtml;
+    openResultModal(resultHtml, resultText);
 
     audio.play();
   }, 500); // Simulate loading delay

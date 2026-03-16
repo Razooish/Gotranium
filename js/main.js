@@ -15,8 +15,18 @@ menuClose.addEventListener("click", () => {
 // Smooth Scroll for Navigation Links
 document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
   anchor.addEventListener("click", function (e) {
+    const href = this.getAttribute("href");
+    if (!href || href === "#") {
+      e.preventDefault();
+      return;
+    }
+
+    const targetElement = document.querySelector(href);
+    if (!targetElement) {
+      return;
+    }
+
     e.preventDefault();
-    const targetElement = document.querySelector(this.getAttribute("href"));
     const headerOffset = 70; // Adjust this based on your navbar height
 
     const elementPosition = targetElement.getBoundingClientRect().top + window.scrollY;

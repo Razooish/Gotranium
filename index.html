@@ -3,36 +3,51 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Gotra Check</title>
-    <!-- Google tag (gtag.js) -->
-    <script
-      async
-      src="https://www.googletagmanager.com/gtag/js?id=G-EQKBSZDBB1"
-    ></script>
-    <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag() {
-        dataLayer.push(arguments);
-      }
-      gtag("js", new Date());
+    <title>GotraCheck | Check Gotra Match for Marriage & Family Lineage</title>
+    <meta
+      name="description"
+      content="GotraCheck helps you check gotra compatibility, find your gotra by caste, and learn gotra traditions for marriage, rituals, and family lineage."
+    />
+    <meta
+      name="robots"
+      content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1"
+    />
+    <meta name="author" content="GotraCheck" />
+    <meta name="theme-color" content="#141414" />
+    <link rel="canonical" href="https://gotracheck.com/" />
+    <link rel="alternate" hreflang="en" href="https://gotracheck.com/" />
 
-      gtag("config", "G-EQKBSZDBB1");
-    </script>
-    <!-- Microsoft Clarity -->
-    <script type="text/javascript">
-      (function (c, l, a, r, i, t, y) {
-        c[a] =
-          c[a] ||
-          function () {
-            (c[a].q = c[a].q || []).push(arguments);
-          };
-        t = l.createElement(r);
-        t.async = 1;
-        t.src = "https://www.clarity.ms/tag/" + i;
-        y = l.getElementsByTagName(r)[0];
-        y.parentNode.insertBefore(t, y);
-      })(window, document, "clarity", "script", "rnc9ise1gp");
-    </script>
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="GotraCheck" />
+    <meta property="og:title" content="GotraCheck | Check Gotra Match" />
+    <meta
+      property="og:description"
+      content="Check gotra compatibility, explore gotra knowledge, and find your gotra by caste in one place."
+    />
+    <meta property="og:url" content="https://gotracheck.com/" />
+    <meta
+      property="og:image"
+      content="https://gotracheck.com/assets/icons/pandit.png"
+    />
+    <meta property="og:image:alt" content="GotraCheck logo" />
+    <meta property="og:locale" content="en_US" />
+
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="GotraCheck | Check Gotra Match" />
+    <meta
+      name="twitter:description"
+      content="Check gotra compatibility, explore gotra knowledge, and find your gotra by caste."
+    />
+    <meta
+      name="twitter:image"
+      content="https://gotracheck.com/assets/icons/pandit.png"
+    />
+    <meta name="twitter:image:alt" content="GotraCheck logo" />
+
+    <link rel="preconnect" href="https://cdnjs.cloudflare.com" />
+    <link rel="preconnect" href="https://cdn.jsdelivr.net" />
+    <link rel="preconnect" href="https://www.googletagmanager.com" />
+    <link rel="preconnect" href="https://www.clarity.ms" />
     
     <link
       rel="icon"
@@ -51,6 +66,7 @@
     <link rel="stylesheet" href="css/scroller.css" />
     <link rel="stylesheet" href="css/body.css" />
     <script src="https://cdn.tailwindcss.com"></script>
+    <script src="js/analyticsLoader.js" defer></script>
     <script src="js/gotraMine.js" defer></script>
     <script src="js/cards.js" defer></script>
     <script src="js/main.js" defer></script>
@@ -61,17 +77,13 @@
     <script src="js/blogs.js" defer></script>
     <script src="js/gotra.js" defer></script>
     <script src="js/regionToggle.js" defer></script>
+    <script src="https://cdn.jsdelivr.net/npm/html2canvas@1.4.1/dist/html2canvas.min.js" defer></script>
     <script
       type="text/javascript"
       src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"
+      defer
     ></script>
-    <script type="text/javascript">
-      (function () {
-        emailjs.init({
-          publicKey: "8k4-7oxN_rWduwj81",
-        });
-      })();
-    </script>
+    <script src="js/emailInit.js" defer></script>
     <script>
       tailwind.config = {
         theme: {
@@ -94,6 +106,67 @@
         },
       };
     </script>
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@graph": [
+          {
+            "@type": "WebSite",
+            "name": "GotraCheck",
+            "url": "https://gotracheck.com/",
+            "description": "Check gotra compatibility, find gotra by caste, and learn gotra traditions for marriage and family lineage.",
+            "inLanguage": "en"
+          },
+          {
+            "@type": "Organization",
+            "name": "GotraCheck",
+            "url": "https://gotracheck.com/",
+            "logo": "https://gotracheck.com/assets/icons/pandit.png",
+            "contactPoint": [
+              {
+                "@type": "ContactPoint",
+                "contactType": "customer support",
+                "email": "gotrapidit@gmail.com"
+              },
+              {
+                "@type": "ContactPoint",
+                "contactType": "business",
+                "email": "gotrapiditbusiness@gmail.com"
+              }
+            ]
+          },
+          {
+            "@type": "FAQPage",
+            "mainEntity": [
+              {
+                "@type": "Question",
+                "name": "What is gotra?",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "Gotra is a traditional lineage system in Hindu culture that traces family ancestry to ancient sages."
+                }
+              },
+              {
+                "@type": "Question",
+                "name": "Why is gotra checked before marriage?",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "Many families check gotra to follow cultural traditions that encourage marriage outside the same lineage."
+                }
+              },
+              {
+                "@type": "Question",
+                "name": "Can I find my gotra by caste?",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "Yes. GotraCheck provides a quick way to find commonly associated gotra details by caste and region."
+                }
+              }
+            ]
+          }
+        ]
+      }
+    </script>
   </head>
   <body class="bg-gold text-gray-900">
     <!-- Header Section -->
@@ -103,7 +176,7 @@
       >
         <!-- Logo -->
         <div class="text-2xl md:text-2xl lg:text-3xl font-bold">
-          <a href="#ours" class="text-gold">GotraCheck</a>
+          <a href="#ours" class="text-gold" aria-label="GotraCheck home">GotraCheck</a>
         </div>
 
         <!-- Toggle Region -->
@@ -133,31 +206,31 @@
         </div>
 
         <!-- Middle Navigation Links (Hidden on mobile) -->
-        <nav class="hidden md:flex space-x-8">
+        <nav class="hidden md:flex space-x-8" aria-label="Primary">
           <a
             href="#ours"
             class="text-gray-900 bg-gold font-medium py-3 px-4 rounded-lg transition duration-300 hover:bg-gold-hover hover:text-black"
-            >Check</a
+            >Check Match</a
           >
           <a
             href="#mine-gotra"
             class="text-gray-900 bg-gold font-medium py-3 px-4 rounded-lg transition duration-300 hover:bg-gold-hover hover:text-black"
-            >My Gotra</a
+            >Find My Gotra</a
           >
           <a
             href="#quiz"
             class="text-gray-900 bg-gold font-medium py-3 px-4 rounded-lg transition duration-300 hover:bg-gold-hover hover:text-black"
-            >Quiz</a
+            >Gotra Quiz</a
           >
           <a
             href="#blogs"
             class="text-gray-900 bg-gold font-medium py-3 px-4 rounded-lg transition duration-300 hover:bg-gold-hover hover:text-black"
-            >Blogs</a
+            >Gotra Guides</a
           >
           <a
             href="#about"
             class="text-gray-900 bg-gold font-medium py-3 px-4 rounded-lg transition duration-300 hover:bg-gold-hover hover:text-black"
-            >About</a
+            >About Us</a
           >
           <a
             href="#sponsor"
@@ -212,31 +285,31 @@
               />
             </svg>
           </button>
-          <nav class="flex flex-col space-y-6 text-lg">
+          <nav class="flex flex-col space-y-6 text-lg" aria-label="Mobile Primary">
             <a
               href="#ours"
               class="text-gray-900 bg-gold font-medium py-3 px-4 rounded-lg transition duration-300 hover:bg-gold-hover hover:text-black"
-              >Check</a
+              >Check Match</a
             >
             <a
               href="#mine-gotra"
               class="text-gray-900 bg-gold font-medium py-3 px-4 rounded-lg transition duration-300 hover:bg-gold-hover hover:text-black"
-              >My Gotra</a
+              >Find My Gotra</a
             >
             <a
               href="#quiz"
               class="text-gray-900 bg-gold font-medium py-3 px-4 rounded-lg transition duration-300 hover:bg-gold-hover hover:text-black"
-              >Quiz</a
+              >Gotra Quiz</a
             >
             <a
               href="#blogs"
               class="text-gray-900 bg-gold font-medium py-3 px-4 rounded-lg transition duration-300 hover:bg-gold-hover hover:text-black"
-              >Blogs</a
+              >Gotra Guides</a
             >
             <a
               href="#about"
               class="text-gray-900 bg-gold font-medium py-3 px-4 rounded-lg transition duration-300 hover:bg-gold-hover hover:text-black"
-              >About</a
+              >About Us</a
             >
             <a
               href="#sponsor"
@@ -253,9 +326,11 @@
       </aside>
     </header>
 
+    <main id="main-content">
     <!-- Ours Sections -->
     <div
       id="ours"
+      aria-labelledby="ours-heading"
       class="min-h-screen bg-black sm:px-6 lg:px-10 py-20 sm:py-20"
     >
       <div
@@ -265,6 +340,8 @@
         <img
           src="assets/images/sponsor-default.png"
           alt="sponsor-image-banner"
+          loading="lazy"
+          decoding="async"
           class="mx-auto h-[80px] w-full object-contain mt-5"
         />
       </div>
@@ -275,17 +352,15 @@
       >
         <img
           src="assets/icons/pandit.png"
-          alt="Pandit"
+          alt="GotraCheck icon"
           class="w-20 h-20 sm:w-24 sm:h-24"
         />
-        <p
+        <h1
+          id="ours-heading"
           class="font-semibold font-sans sm:text-2xl lg:text-3xl text-gray-200 p-5"
-        >
-          Enter the details to find out if your gotra matches with your
-          partner's
-        </p>
+        >Take a fun test to see if your Gotra matches with your partner's.
+        </h1>
       </div>
-
       <!-- Input Form Section -->
       <div class="max-w-2xl mx-auto text-gray-200 p-6 sm:p-8 relative">
         <!-- Your Caste Input -->
@@ -332,7 +407,8 @@
           Check
           <img
             src="assets/icons/right-arrow.svg"
-            alt="arrow"
+            alt=""
+            aria-hidden="true"
             class="inline-block w-10 h-10 ml-2"
           />
         </button>
@@ -342,6 +418,39 @@
           id="result"
           class="text-center mt-6 text-lg sm:text-xl font-semibold text-gray-700"
         ></div>
+
+        <div
+          id="result-modal"
+          class="fixed inset-0 z-[100] hidden items-center justify-center bg-black/80 backdrop-blur-sm p-2 sm:p-4"
+          role="dialog"
+          aria-modal="true"
+          aria-labelledby="result-modal-title"
+        >
+          <div class="w-[92vw] sm:w-full max-w-sm md:max-w-md lg:max-w-lg max-h-[84vh] overflow-y-auto rounded-2xl bg-black border border-gold p-3 sm:p-4 lg:p-5 text-gray-200 relative shadow-2xl">
+            <button
+              id="close-result-modal"
+              class="absolute top-2.5 right-2.5 sm:top-3 sm:right-3 rounded-full bg-gold text-black w-8 h-8 sm:w-9 sm:h-9 font-bold text-base sm:text-lg leading-none hover:bg-gold-hover transition"
+              aria-label="Close result popup"
+            >
+              ×
+            </button>
+
+            <h3 id="result-modal-title" class="text-xl sm:text-2xl lg:text-3xl font-bold text-gold text-center pr-8 sm:pr-10">Match Result</h3>
+
+            <div id="result-modal-card" class="bg-black-placeholder p-3 sm:p-4">
+              <div id="result-modal-content" class="text-center text-lg font-semibold"></div>
+            </div>
+
+            <div class="mt-3 sm:mt-4">
+              <p class="text-center text-xs sm:text-sm text-gray-300 mb-2 sm:mb-3">Share or save this result</p>
+              <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-2 sm:gap-3">
+                <button id="share-result" data-default-label="Share" data-icon-class="fas fa-share-alt" class="w-full bg-gold text-black text-sm font-semibold px-3 py-2 rounded-lg hover:bg-gold-hover transition"><i class="fas fa-share-alt mr-2" aria-hidden="true"></i><span>Share</span></button>
+                <button id="copy-result" data-default-label="Copy" data-icon-class="fas fa-copy" class="w-full bg-gold text-black text-sm font-semibold px-3 py-2 rounded-lg hover:bg-gold-hover transition"><i class="fas fa-copy mr-2" aria-hidden="true"></i><span>Copy</span></button>
+                <button id="save-screenshot" data-default-label="Download" data-icon-class="fas fa-download" class="w-full bg-gold text-black text-sm font-semibold px-3 py-2 rounded-lg hover:bg-gold-hover transition sm:col-span-2 lg:col-span-1"><i class="fas fa-download mr-2" aria-hidden="true"></i><span>Download</span></button>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
 
       <div
@@ -351,6 +460,8 @@
         <img
           src="assets/images/sponsor-default.png"
           alt="sponsor-image-banner"
+          loading="lazy"
+          decoding="async"
           class="mx-auto h-[80px] w-full object-contain mt-5"
         />
       </div>
@@ -359,16 +470,20 @@
     <!-- Mine Section -->
     <div
       id="mine-gotra"
+      aria-labelledby="mine-gotra-heading"
       class="bg-gold sm:px-6 lg:px-10 py-5 sm:py-5 border-t-2 border-black"
     >
       <!-- Text Section -->
       <div class="max-w-3xl mx-auto text-center px-2 py-2">
         <h2
+          id="mine-gotra-heading"
           class="text-3xl sm:text-5xl font-extrabold text-center text-gray-900 mb-8 flex flex-col items-center"
         >
           <img
             src="assets/icons/pandit.png"
-            alt="Pandit"
+            alt="GotraCheck icon"
+            loading="lazy"
+            decoding="async"
             class="w-20 h-20 sm:w-24 sm:h-24 mb-2"
           />
           Check My Gotra
@@ -402,6 +517,9 @@
       </div>
       <div class="gotra-table-container">
         <table id="gotra-table" border="1">
+          <caption class="sr-only">
+            Gotra and caste mapping table used by the find my gotra section
+          </caption>
           <thead>
             <tr>
               <th>Gotra</th>
@@ -418,16 +536,19 @@
     <!--Quiz Section-->
     <div
       id="quiz"
+      aria-labelledby="quiz-heading"
       class="flex flex-col items-center bg-gold mx-auto p-6 shadow-xl border-t border-black"
     >
       <!-- Centered Title Section -->
       <div class="w-full text-center mb-6">
         <img
           src="assets/icons/pandit.png"
-          alt="Pandit"
+          alt="Gotra quiz icon"
+          loading="lazy"
+          decoding="async"
           class="w-20 h-20 sm:w-24 sm:h-24 mx-auto"
         />
-        <h2 class="text-3xl sm:text-4xl font-extrabold text-gray-900 mt-2">
+        <h2 id="quiz-heading" class="text-3xl sm:text-4xl font-extrabold text-gray-900 mt-2">
           Match The Gotra
         </h2>
       </div>
@@ -478,14 +599,18 @@
     <!-- Blogs Section -->
     <div
       id="blogs"
+      aria-labelledby="blogs-heading"
       class="bg-gold border-t-2 border-black py-16 px-4 sm:px-6 lg:px-8"
     >
       <h2
+        id="blogs-heading"
         class="text-3xl font-extrabold text-center text-gray-900 sm:text-5xl mb-8 flex flex-col items-center"
       >
         <img
           src="assets/icons/pandit.png"
-          alt="Pandit"
+          alt="Gotra learning icon"
+          loading="lazy"
+          decoding="async"
           class="w-20 h-20 sm:w-24 sm:h-24 mb-2"
         />
         Learn About Gotra
@@ -513,7 +638,7 @@
     </div>
 
     <!--About Section-->
-    <div id="about" class="bg-black py-12 px-2 sm:px-6 lg:px-8">
+    <div id="about" aria-label="About GotraCheck" class="bg-black py-12 px-2 sm:px-6 lg:px-8">
       <div
         class="max-w-7xl mx-auto grid sm:grid-cols-2 lg:grid-cols-2 xl:grid-cols-2"
       >
@@ -524,7 +649,9 @@
           >
             <img
               src="assets/icons/pandit.png"
-              alt="Pandit"
+              alt="GotraCheck values icon"
+              loading="lazy"
+              decoding="async"
               class="w-20 h-20 sm:w-24 sm:h-24 mb-2"
             />
             Our Motto
@@ -640,29 +767,33 @@
               href="#"
               class="hover:text-blue-600 transition"
               aria-label="Facebook"
+              rel="nofollow"
             >
-              <i class="fab fa-facebook"></i>
+              <i class="fab fa-facebook" aria-hidden="true"></i>
             </a>
             <a
               href="#"
               class="hover:text-blue-400 transition"
               aria-label="Twitter"
+              rel="nofollow"
             >
-              <i class="fab fa-twitter"></i>
+              <i class="fab fa-twitter" aria-hidden="true"></i>
             </a>
             <a
               href="#"
               class="hover:text-pink-600 transition"
               aria-label="Instagram"
+              rel="nofollow"
             >
-              <i class="fab fa-instagram"></i>
+              <i class="fab fa-instagram" aria-hidden="true"></i>
             </a>
             <a
               href="#"
               class="hover:text-red-600 transition"
               aria-label="YouTube"
+              rel="nofollow"
             >
-              <i class="fab fa-youtube"></i>
+              <i class="fab fa-youtube" aria-hidden="true"></i>
             </a>
           </div>
         </div>
@@ -718,7 +849,7 @@
     <hr class="separate" style="border: 1px solid rgb(255, 218, 96)" />
 
     <!-- Sponsor Section -->
-    <div id="sponsor" class="bg-black py-12 px-2 sm:px-6 lg:px-8">
+    <div id="sponsor" aria-label="Sponsorship" class="bg-black py-12 px-2 sm:px-6 lg:px-8">
       <div
         class="max-w-7xl mx-auto grid sm:grid-cols-2 lg:grid-cols-2 xl:grid-cols-2"
       >
@@ -729,7 +860,9 @@
           >
             <img
               src="assets/icons/sponsor-mike-gold-stroke.svg"
-              alt="Sponsor"
+              alt="Sponsorship microphone icon"
+              loading="lazy"
+              decoding="async"
               class="w-20 h-20 sm:w-24 sm:h-24 mb-2"
             />
             Become a Sponsor
@@ -845,5 +978,6 @@
         </div>
       </div>
     </div>
+    </main>
   </body>
 </html>
