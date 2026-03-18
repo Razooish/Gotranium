@@ -26,7 +26,7 @@ function loadAnalyticsScripts() {
       t.src = "https://www.clarity.ms/tag/" + i;
       y = l.getElementsByTagName(r)[0];
       y.parentNode.insertBefore(t, y);
-    })(window, document, "clarity", "script", "rnc9ise1gp");
+    })(window, document, "clarity", "script", "vxr9uocu1l");
   };
 
   const idleLoad = () => {
