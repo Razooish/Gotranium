@@ -179,7 +179,7 @@ const gotraData = {
 //               Messages             //
 //===================================//
 const messages = {
-  congratulationsText: "Congratulations! You belong to different Gotras. You can marry each other.",
+  congratulationsText: "Congratulations! You belong to different Gotras.",
   UnfortunatelyText: "Unfortunately, you both belong to the same Gotra. "
 };
 
@@ -190,6 +190,77 @@ const castInputFields = [
   { input: "my-cast", suggestionBox: "my-cast-suggestions" },
   { input: "her-cast", suggestionBox: "her-cast-suggestions" },
 ];
+
+const allCasteEntries = Object.entries(gotraData).flatMap(([gotraKey, gotraDetails]) =>
+  gotraDetails.castes.map((casteName) => ({
+    caste: casteName,
+    gotra: gotraKey,
+    normalizedCaste: casteName.toLowerCase().trim(),
+  }))
+);
+
+function normalizeSearchText(value) {
+  return value.toLowerCase().trim().replace(/\s+/g, " ");
+}
+
+function getCasteMatchScore(normalizedCaste, query) {
+  if (!query) {
+    return Number.POSITIVE_INFINITY;
+  }
+
+  if (normalizedCaste === query) {
+    return 0;
+  }
+
+  if (normalizedCaste.startsWith(query)) {
+    return 1;
+  }
+
+  const words = normalizedCaste.split(" ");
+  if (words.some((word) => word.startsWith(query))) {
+    return 2;
+  }
+
+  if (normalizedCaste.includes(query)) {
+    return 3;
+  }
+
+  return Number.POSITIVE_INFINITY;
+}
+
+function getRankedCasteMatches(query, limit = 25) {
+  const normalizedQuery = normalizeSearchText(query);
+  if (!normalizedQuery) {
+    return [];
+  }
+
+  const dedupedMatches = new Map();
+
+  allCasteEntries.forEach((entry) => {
+    const score = getCasteMatchScore(entry.normalizedCaste, normalizedQuery);
+    if (!Number.isFinite(score)) {
+      return;
+    }
+
+    const existing = dedupedMatches.get(entry.normalizedCaste);
+    if (!existing || score < existing.score) {
+      dedupedMatches.set(entry.normalizedCaste, { ...entry, score });
+    }
+  });
+
+  return Array.from(dedupedMatches.values())
+    .sort((a, b) => a.score - b.score || a.caste.length - b.caste.length || a.caste.localeCompare(b.caste))
+    .slice(0, limit);
+}
+
+function resolveGotraFromInput(inputValue) {
+  const rankedMatches = getRankedCasteMatches(inputValue, 1);
+  if (rankedMatches.length === 0) {
+    return null;
+  }
+
+  return rankedMatches[0];
+}
 
 //===================================//
 //       Caste Suggestion Logic      //
@@ -204,9 +275,7 @@ castInputFields.forEach(({ input, suggestionBox }) => {
     suggestionBoxEl.classList.add("hidden");
 
     if (query) {
-      const matches = Object.values(gotraData)
-        .flatMap((gotra) => gotra.castes)
-        .filter((caste) => caste.toLowerCase().startsWith(query));
+      const matches = getRankedCasteMatches(query).map((entry) => entry.caste);
 
       if (matches.length > 0) {
         suggestionBoxEl.classList.remove("hidden");
@@ -228,6 +297,37 @@ castInputFields.forEach(({ input, suggestionBox }) => {
   document.addEventListener("click", (e) => {
     if (!inputField.contains(e.target) && !suggestionBoxEl.contains(e.target)) {
       suggestionBoxEl.classList.add("hidden");
+    }
+  });
+
+  inputField.addEventListener("keydown", (event) => {
+    if (event.key !== "Enter") {
+      return;
+    }
+
+    event.preventDefault();
+    const previousInputValue = inputField.value;
+    const resolvedEntry = resolveGotraFromInput(inputField.value);
+    if (!resolvedEntry) {
+      return;
+    }
+
+    const wasAlreadyResolved =
+      normalizeSearchText(previousInputValue) === normalizeSearchText(resolvedEntry.caste);
+
+    inputField.value = resolvedEntry.caste;
+    suggestionBoxEl.classList.add("hidden");
+
+    const otherInputId = input === "my-cast" ? "her-cast" : "my-cast";
+    const otherInputField = document.getElementById(otherInputId);
+    const otherResolvedEntry = resolveGotraFromInput(otherInputField.value);
+
+    const isOtherInputResolved =
+      !!otherResolvedEntry &&
+      normalizeSearchText(otherInputField.value) === normalizeSearchText(otherResolvedEntry.caste);
+
+    if (wasAlreadyResolved && isOtherInputResolved) {
+      document.getElementById("check-gotra").click();
     }
   });
 });
@@ -473,13 +573,13 @@ document.getElementById("check-gotra").addEventListener("click", () => {
   const herCast = document.getElementById("her-cast").value.trim();
   const resultDiv = document.getElementById("result");
 
-  let myGotra = null;
-  let herGotra = null;
+  const myResolvedEntry = resolveGotraFromInput(myCast);
+  const herResolvedEntry = resolveGotraFromInput(herCast);
 
-  for (const [gotra, details] of Object.entries(gotraData)) {
-    if (details.castes.includes(myCast)) myGotra = gotra;
-    if (details.castes.includes(herCast)) herGotra = gotra;
-  }
+  const myGotra = myResolvedEntry ? myResolvedEntry.gotra : null;
+  const herGotra = herResolvedEntry ? herResolvedEntry.gotra : null;
+  const myDisplayCast = myResolvedEntry ? myResolvedEntry.caste : myCast;
+  const herDisplayCast = herResolvedEntry ? herResolvedEntry.caste : herCast;
 
   const audio = new Audio(); // Audio element for feedback
 
@@ -508,12 +608,12 @@ document.getElementById("check-gotra").addEventListener("click", () => {
         messages.UnfortunatelyText,
         "text-red-400 font-semibold",
         "text-red-400",
-        myCast,
+        myDisplayCast,
         myGotra,
-        herCast,
+        herDisplayCast,
         herGotra
       );
-      resultText = `${messages.UnfortunatelyText}\n${myCast} → ${myGotra}\n${herCast} → ${herGotra}`;
+      resultText = `${messages.UnfortunatelyText}\n${myDisplayCast} → ${myGotra}\n${herDisplayCast} → ${herGotra}`;
       audio.src = "assets/audio/lost-sound.mp3";
     } else {
       // Compatible
@@ -522,12 +622,12 @@ document.getElementById("check-gotra").addEventListener("click", () => {
         messages.congratulationsText,
         "text-green-400 font-semibold",
         "text-green-400",
-        myCast,
+        myDisplayCast,
         myGotra,
-        herCast,
+        herDisplayCast,
         herGotra
       );
-      resultText = `${messages.congratulationsText}\n${myCast} → ${myGotra}\n${herCast} → ${herGotra}`;
+      resultText = `${messages.congratulationsText}\n${myDisplayCast} → ${myGotra}\n${herDisplayCast} → ${herGotra}`;
       audio.src = "assets/audio/win-sound.mp3";
     }
 
@@ -545,16 +645,9 @@ function capitalizeFirstLetter(event) {
   event.target.value = event.target.value.toLowerCase().replace(/\b\w/g, (char) => char.toUpperCase());
 }
 
-function handleEnterKeyPress(event) {
-  if (event.key === "Enter") {
-    document.getElementById("check-gotra").click();
-  }
-}
-
 ["my-cast", "her-cast"].forEach((id) => {
   const inputField = document.getElementById(id);
   inputField.addEventListener("input", capitalizeFirstLetter);
-  inputField.addEventListener("keypress", handleEnterKeyPress);
 });
 
 //===================================//
