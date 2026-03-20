@@ -4,7 +4,7 @@ const gotraData = {
     castes: [
       "Pyakuryal", "Paneru", "Acharya", "Gaire", "Sapkota",
       "Satyal", "Morasaini", "Parajuli", "Baskota", "Trital",
-      "Nyaupane", "Lakai Khadka (Kamalakothe)", "Thapa (Gamle, Bagale)", "Rawal",
+      "Neupane", "Lakai Khadka (Kamalakothe)", "Thapa (Gamle, Bagale)", "Rawal",
     ],
     prawar: ["Kaudinya", "Vashistha", "Maitravaruni"],
   },
