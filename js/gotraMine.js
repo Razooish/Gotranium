@@ -2,6 +2,7 @@
 const mineCasteInputField = document.getElementById("mine-caste");
 const mineCasteSuggestionBox = document.getElementById("mine-caste-suggestions");
 const mineGotraResult = document.getElementById("result-mine");
+const mineGotraSuccessAudio = new Audio("assets/audio/correct.mp3");
 
 function getMineSearchEntries() {
   if (typeof gotraData === "undefined" || !gotraData) {
@@ -132,6 +133,9 @@ function displayMineGotra(caste, gotraName) {
       </p>
     </div>
   `;
+
+  mineGotraSuccessAudio.currentTime = 0;
+  mineGotraSuccessAudio.play().catch(() => {});
 }
 
 // Close suggestions when clicking outside
