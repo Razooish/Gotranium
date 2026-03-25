@@ -12,6 +12,20 @@ menuClose.addEventListener("click", () => {
   mobileMenu.classList.add("translate-x-full");
 });
 
+document.addEventListener("click", (event) => {
+  const isMenuOpen = !mobileMenu.classList.contains("translate-x-full");
+  if (!isMenuOpen) {
+    return;
+  }
+
+  const clickedInsideMenu = mobileMenu.contains(event.target);
+  const clickedMenuToggle = menuToggle.contains(event.target);
+
+  if (!clickedInsideMenu && !clickedMenuToggle) {
+    mobileMenu.classList.add("translate-x-full");
+  }
+});
+
 // Smooth Scroll for Navigation Links
 document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
   anchor.addEventListener("click", function (e) {
